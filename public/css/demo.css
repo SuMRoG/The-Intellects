@@ -1,0 +1,141 @@
+body {
+  background-color: white;
+  color: darkblue;
+}
+
+.container {
+  width: 100%;
+  /* display: flex; */
+  /* flex-flow: column; */
+}
+
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  opacity: 0.9;
+  animation: animate 8s linear infinite;
+}
+
+.blob-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  opacity: 0.7;
+  animation: animate-reverse 9s linear infinite;
+}
+
+.blob-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  opacity: 0.4;
+  animation: animate 10s linear infinite;
+}
+
+.photocont {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+}
+
+.photo {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  border-radius: 50%;
+  border: 2px solid #b60062;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(359deg);
+  }
+}
+
+@keyframes animate-reverse {
+  0% {
+    transform: rotateZ(359deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.page {
+  position: relative;
+  top: 500px;
+}
+
+.puzzle {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+}
+
+.piece {
+  width: 33.1%;
+  height: 33.1%;
+  background: #f4f4f4;
+  background: url(../img/sm.jpeg);
+  box-shadow: 2px 2px 9px #a7a7a7;
+  background-size: 500px;
+}
+
+.finalimage img {
+  width: 500px;
+  height: 500px;
+}
+
+.p1 {
+  background-position: 0 0;
+}
+
+.p2 {
+  background-position: 50% 0;
+}
+
+.p3 {
+  background-position: 100% 0;
+}
+
+.p4 {
+  background-position: 0 50%;
+}
+
+.p5 {
+  background-position: 50% 50%;
+}
+
+.p6 {
+  background-position: 100% 50%;
+}
+
+.p7 {
+  background-position: 0 100%;
+}
+
+.p8 {
+  background-position: 50% 100%;
+}
+
+.p9 {
+  background-position: 100% 100%;
+  opacity: 0;
+}
+
+.bird {
+  position: relative;
+  top: 500px;
+}

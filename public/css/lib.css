@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  font-family: Raleway, sans-serif;
+  background: var(--background);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.header23 {
+  height: 30vh;
+  background-attachment: fixed;
+  width: 100%;
+  background-image:
+    linear-gradient(to right bottom,
+      rgba(76, 216, 255, 0.8),
+      rgba(30, 108, 217, 0.8)),
+    url('/img/caps.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 10vh, 0 100%);
+}
+
+.brand-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.brand {
+  font-size: 20px;
+  color: white;
+}
+
+.text-box {
+  position: absolute;
+  top: 70%;
+  left: 200px;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.qwer {
+  grid-area: 2 / 1 / 2 / 3;
+  font-family: Raleway, sans-serif;
+  align-self: left;
+  justify-self: left;
+  color: white;
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
+  margin-top: -5rem;
+}
+
+.column-85 {
+  float: left;
+  width: 80%;
+  padding: 20px;
+}
+
+.column-15 {
+  float: left;
+  width: 20%;
+  transform: translateY(-20px);
+  padding: 80px 10px;
+  background: #1A1E23;
+  overflow: hidden;
+  display: block;
+  height: 100%;
+  clip-path: polygon(0 5%, 100% 1%, 100% 100%, 0% 100%);
+}
+
+@media screen and (max-width: 650px) {
+  .qwer {
+    font-size: 3rem;
+    margin-left: -8rem;
+    margin-top: -7rem;
+  }
+}

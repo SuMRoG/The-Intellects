@@ -1,0 +1,86 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  list-style-type: none;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+ul label {
+  color: #d7eaee;
+}
+
+ul select {
+  padding: 6px;
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+}
+
+ul select::-webkit-scrollbar {
+  width: 5px;
+  background-color: #252930;
+}
+
+ul select::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 3px;
+  background-color: #257ee2;
+}
+
+ul select option {
+  position: relative;
+  display: block;
+  padding: 6px;
+  color: #ecf0f1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+ul select option:active {
+  background: #3498db;
+}
+
+ul select option::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+ul select option:hover {
+  color: #95a5a6;
+}
+
+ul select option:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.filter {
+  border: 2px solid #257ee2;
+  padding: 5px 12px;
+  background: inherit;
+  color: #48ade8;
+  font-size: 1.1em;
+  align-self: center;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.filter:active {
+  transform: scale(0.9) translateZ(0);
+  font-size: 1em;
+  transition: 0.5s;
+}
