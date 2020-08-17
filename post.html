@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Blog</title>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial scale-1">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/start.css">
+	<link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/terms.css">
+	<script src="js/fafa.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/start.js"></script>
+</head>
+
+<body theme="light">
+	<div id="header">
+		<div class="container">
+			<div class="nav1">
+				<div class="logo">
+					<img src="img/logo.png" id="logoicon" alt="">
+					<a href="index.html"> &nbsp; Hail IIEST</a>
+				</div>
+				<div class="navbutton">
+					<i class="fas fa-bars" onclick="togglenav()"></i>
+				</div>
+			</div>
+			<div class="nav2 hidden">
+				<a href="index.html" class="active"><i class="fas fa-home"> &nbsp; </i> Home</a>
+				<a href="/"><i class="fab fa-blogger-b"> &nbsp; </i> Blogs</a>
+				<a href="/"><i class="fas fa-info-circle"> &nbsp; </i> About</a>
+				<a href="/"><i class="far fa-building"> &nbsp; </i> Services</a>
+				<a href="/"><i class="fas fa-phone-alt"> &nbsp; </i> Contact</a>
+				<a href="/"><i class="fas fa-comment-dots"> &nbsp; </i> Feedback</a>
+				<a href="terms.html"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
+				<!-- <a onclick="toggletheme"> <i class="far fa-sun"> &nbsp; </i> Change theme </a> -->
+				<div style="display: flex; align-items: center;padding: 10%">
+					<i class="far fa-sun" id="theme" aria-hidden="true"></i>
+					<div class="on-off-toggle">
+						<input class="on-off-toggle__input" onchange="toggletheme()" type="checkbox" id="bopis" />
+						<label for="bopis" class="on-off-toggle__slider"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="slideshow-container">
+            <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="img\WhatsApp Image 2020-07-31 at 22.13.30 (1).jpeg" title="by Prajjwal Nakade" style="width:100%;">
+            <div class="text">The Lords</div>
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="img\WhatsApp Image 2020-07-31 at 22.12.26.jpeg" title="by Prajjwal Nakade" style="width:100%;">
+            <div class="text">Main Building</div>
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="img\WhatsApp Image 2020-07-31 at 22.12.27.jpeg" title="by Prajjwal Nakade" style="width:100%;">
+            <div class="text">Bidisha lake</div>
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="img\WhatsApp Image 2020-07-31 at 22.13.29.jpeg" title="by Prajjwal Nakade" style="width:100%;">
+            <div class="text">lake</div>
+            </div>
+  </div>
+
+  <br>
+      <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <script>
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+      }
+      </script>
+
+
+  <div style="text-align:center">
+    <h1 style="font-size:64px; color: #ffb000;">Why this website?</h2>
+    <h3 style="color: var(--logo-color);">We suggest to u to scroll to bottom</h3>
+  </div>
+
+  <div class="fro">
+    <div class="row">
+      <div class="column-66">
+        <h1 class="xlarge-font" style="color: var(--logo-color);"><b>The Connect</b></h1>
+        <h1 class="large-font" style="color:MediumSeaGreen;"><b> Connect with whom?</b></h1>
+        <p style="color: var(--logo-color);"><span style="font-size:36px;">With our fellows from same constituency</span>
+          "college" may refer to a constituent part of a university or to a degree-awarding
+          tertiary educational institution, but generally "college" and "university" are used
+          interchangeably,[1] whereas in the United Kingdom, Oceania, South Asia, Southern Africa,
+          most of Europe and Africa, and Canada, "college" may refer to a high school or secondary school
+          , a college of further education, a training institution that awards trade qualifications,
+        </p><br>
+        <button class="button2">Connect Me</button>
+      </div>
+      <div class="column-33">
+          <img src="img\WhatsApp Image 2020-07-31 at 22.13.30.jpeg" alt="by Prajjwal Nakade" title="by Prajjwal Nakade"
+           width="335" height="471">
+      </div>
+    </div>
+  </div>
+
+  <div class="fro" style="background: linear-gradient(30deg, var(--primary-color) 0%, var(--secondary-grad) 100%);">
+    <div class="row">
+      <div class="column-33">
+        <img src="img\IMG_20190812_183803.jpg" alt="by Prajjwal Nakade" title="by Prajjwal Nakade" width="335" height="471">
+      </div>
+      <div class="column-66">
+        <h1 class="xlarge-font" style="color: var(--logo-color);"><b>Socialise</b></h1>
+        <h1 class="large-font" style="color:red;"><b>Socialise with who?</b></h1>
+        <p style="color: var(--logo-color);"><span style="font-size:24px;">A revolution in resolution.</span>
+          "college" may refer to a constituent part of a university or to a degree
+          -awarding tertiary educational institution, but generally "college" and "university"
+           are used interchangeably,[1] whereas in the United Kingdom, Oceania, South Asia,
+           Southern Africa, most of Europe and Africa, and Canada, "college" may refer to a
+           high school or secondary school, a college of further education, a training institution
+            that awards trade qualifications,
+        </p><br>
+        <button class="button2" style="background-color:red">Socialise Me</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fro">
+    <div class="row">
+      <div class="column-66">
+        <h1 class="xlarge-font" style="color: var(--logo-color);"><b>The Library</b></h1>
+        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why this?</b></h1>
+        <p style="color: var(--logo-color);"><span style="font-size:36px;">This will help u</span>
+          "college" may refer to a constituent part of a university or to a degree-awarding
+           tertiary educational institution, but generally "college" and "university" are used
+           interchangeably,[1] whereas in the United Kingdom, Oceania, South Asia, Southern Africa,
+            most of Europe and Africa, and Canada, "college" may refer to a high school or secondary school,
+            a college of further education, a training institution that awards trade qualifications,
+        </p><br>
+        <button class="button2">Open Library</button>
+      </div>
+      <div class="column-33">
+          <img src="img\tower2.jpg" width="470" height="800" >
+      </div>
+    </div>
+  </div>
+
+<div id="footer">
+  <div class="container footcontent">
+    <div class="rights">
+      <i class="fa fa-copyright"></i>
+      <span>IIEST 2020</span>
+    </div>
+    <a id="terms" href="terms.html">Terms | Privacy</a>
+    <div id="links">
+      <a href="https://github.com/blueedgetechno/demo1245" class="fab fa-github" target="_blank"></a>
+      <a href="mailto:blueedgetechno@gmail.com" class="fas fa-envelope" target="_blank"></a>
+      <a href="https://youtube.com" class="fab fa-youtube" id="what" target="_blank"></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
