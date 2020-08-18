@@ -84,7 +84,7 @@ body {
   /* flex-wrap: wrap; */
 }
 
-.piece {
+.piece{
   width: 33.1%;
   height: 33.1%;
   background: #f4f4f4;
@@ -93,49 +93,49 @@ body {
   background-size: 500px;
 }
 
-.finalimage img {
+.finalimage img{
   width: 500px;
   height: 500px;
 }
 
-.p1 {
+.p1{
   background-position: 0 0;
 }
 
-.p2 {
+.p2{
   background-position: 50% 0;
 }
 
-.p3 {
+.p3{
   background-position: 100% 0;
 }
 
-.p4 {
+.p4{
   background-position: 0 50%;
 }
 
-.p5 {
+.p5{
   background-position: 50% 50%;
 }
 
-.p6 {
+.p6{
   background-position: 100% 50%;
 }
 
-.p7 {
+.p7{
   background-position: 0 100%;
 }
 
-.p8 {
+.p8{
   background-position: 50% 100%;
 }
 
-.p9 {
+.p9{
   background-position: 100% 100%;
   opacity: 0;
 }
 
-.bird {
+.bird{
   position: relative;
   top: 500px;
 }

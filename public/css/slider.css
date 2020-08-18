@@ -2,7 +2,7 @@
   stage: 0;
 }
 
-#theme {
+#theme{
   background-color: inherit;
   color: white;
   font-size: 24px;
@@ -61,8 +61,7 @@
 }
 
 .on-off-toggle__input:checked+.on-off-toggle__slider {
-  background-color: var(--primary-color);
-  ;
+  background-color: var(--primary-color);;
 }
 
 .on-off-toggle__input:checked+.on-off-toggle__slider:before {

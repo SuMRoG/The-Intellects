@@ -19,13 +19,13 @@ body {
   background-attachment: fixed;
   width: 100%;
   background-image:
-    linear-gradient(to right bottom,
-      rgba(76, 216, 255, 0.8),
-      rgba(30, 108, 217, 0.8)),
-    url('/img/caps.jpg');
-  background-size: cover;
-  background-position: top;
-  position: relative;
+  linear-gradient(to right bottom,
+     rgba(76, 216, 255, 0.8),
+     rgba(30, 108, 217, 0.8)),
+     url('/img/caps.jpg');
+     background-size: cover;
+     background-position: top;
+     position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 10vh, 0 100%);
 }
 
@@ -78,9 +78,9 @@ body {
   clip-path: polygon(0 5%, 100% 1%, 100% 100%, 0% 100%);
 }
 
-@media screen and (max-width: 650px) {
-  .qwer {
-    font-size: 3rem;
+@media screen and (max-width: 650px){
+.qwer{
+    font-size:3rem;
     margin-left: -8rem;
     margin-top: -7rem;
   }

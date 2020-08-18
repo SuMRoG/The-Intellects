@@ -109,7 +109,7 @@ a {
 
 h1 {
   font-weight: 500;
-  font-family: Raleway, sans-serif;
+font-family: Raleway, sans-serif;
 }
 
 .options {
@@ -276,14 +276,12 @@ h1 {
   .boy {
     width: 100%;
   }
-
-  .text {
+  .text{
     /* padding: 30px; */
     font-size: 12px;
     margin-left: 0;
   }
-
-  .title {
+  .title{
     font-size: 30px;
     font-weight: bold;
   }

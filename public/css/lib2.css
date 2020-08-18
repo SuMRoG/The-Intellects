@@ -79,7 +79,7 @@ ul select option:hover::after {
   transition: 0.5s;
 }
 
-.filter:active {
+.filter:active{
   transform: scale(0.9) translateZ(0);
   font-size: 1em;
   transition: 0.5s;

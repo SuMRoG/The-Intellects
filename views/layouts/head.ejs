@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>{{title}}</title>
+	<title><%= title%></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial scale-1">
 	<link rel="stylesheet" href="css/main.css">
@@ -36,7 +36,6 @@
 				<a href="/"><i class="fas fa-phone-alt"> &nbsp; </i> Contact</a>
 				<a href="/"><i class="fas fa-comment-dots"> &nbsp; </i> Feedback</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
-				<!-- <a onclick="toggletheme"> <i class="far fa-sun"> &nbsp; </i> Change theme </a> -->
 				<div style="display: flex; align-items: center;padding: 10%">
 					<i class="far fa-sun" id="theme" aria-hidden="true"></i>
 					<div class="on-off-toggle">
@@ -47,24 +46,3 @@
 			</div>
 		</div>
 	</div>
-
-  {{{body}}}
-
-	<div id="footer">
-		<div class="container footcontent">
-			<div class="rights">
-				<i class="fa fa-copyright"></i>
-				<span>IIEST 2020</span>
-			</div>
-			<a id="terms" href="/terms">Terms | Privacy</a>
-			<div id="links">
-				<a href="https://github.com/blueedgetechno/demo1245" class="fab fa-github" target="_blank"></a>
-				<a href="mailto:blueedgetechno@gmail.com" class="fas fa-envelope" target="_blank"></a>
-				<a href="https://youtube.com" class="fab fa-youtube" id="what" target="_blank"></a>
-			</div>
-		</div>
-	</div>
-
-</body>
-
-</html>

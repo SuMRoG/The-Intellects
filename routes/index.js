@@ -1,37 +1,85 @@
 const express = require('express');
+const Blog = require('../models/blog');
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('start', { title: 'Get started', layout: 'layouts/base' });
+  res.render('start', {
+    title: 'Get started',
+  });
 });
 
+router.get('/front', (req, res) => {
+  Blog.find()
+    .then((posts) => {
+      console.log(posts);
+      res.render('front', {
+        title: 'Home',
+        posts: posts
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
+
+router.get('/add', function(req, res, next) {
+  res.render('add', {
+    title: 'Add post',
+  });
+});
+
+router.post("/add", (req, res) => {
+  const blog = new Blog(req.body)
+  blog.save()
+    .then(result => res.redirect("/front"))
+    .catch(err => console.log(err))
+})
+
+router.get("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findByIdAndDelete(id)
+    .then(res => {
+      console.log(res);
+      res.redirect('/front')
+    })
+    .catch(err => res.redirect("/front"))
+})
+
 router.get('/terms', function(req, res, next) {
-  res.render('terms', { title: 'Terms', layout: 'layouts/base' });
+  res.render('terms', {
+    title: 'Terms',
+  });
 });
 
 router.get('/team', function(req, res, next) {
-  res.render('team', { title: 'Our Team', layout: 'layouts/base' });
-});
-
-router.get('/front', function(req, res, next) {
-  res.render('front', { title: 'Home',layout: 'layouts/base'});
+  res.render('team', {
+    title: 'Our Team',
+  });
 });
 
 router.get('/library', function(req, res, next) {
-  res.render('library', { title: 'Library', layout: 'layouts/base'});
+  res.render('library', {
+    title: 'Library',
+  });
 });
 
 router.get('/proto', function(req, res, next) {
-  res.render('prototype', { title: 'Prototypes'});
+  res.render('prototype', {
+    title: 'Prototypes'
+  });
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login'});
+  res.render('login', {
+    title: 'Login'
+  });
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register'});
+  res.render('register', {
+    title: 'Register'
+  });
 });
 
 

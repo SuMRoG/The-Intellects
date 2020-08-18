@@ -81,7 +81,7 @@ body {
   transition: 0.3s;
 }
 
-.accept {
+.accept{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,7 @@ body {
   margin: 15px auto;
 }
 
-.accept a {
+.accept a{
   text-decoration: none;
 }
 
@@ -181,12 +181,12 @@ button[type="submit"]:hover {
   }
 }
 
-.otherlinks {
+.otherlinks{
   display: flex;
   justify-content: space-around;
 }
 
-.otherlinks a {
+.otherlinks a{
   text-decoration: none;
   color: #4f60ff;
   font-weight: bold;
