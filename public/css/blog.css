@@ -17,7 +17,7 @@
   margin: 10px;
   margin-top: 67px;
   padding: 10px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 .notf-title {
@@ -56,7 +56,7 @@
   margin: 10px;
   margin-top: 50px;
   padding: 10px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 .post-container-title {
@@ -148,7 +148,7 @@ font-family: Raleway, sans-serif;
 
 .row {
   max-width: 1300px;
-  margin: 50px auto 0;
+  /* margin: 50px auto 0; */
 }
 
 .column {
@@ -163,6 +163,7 @@ font-family: Raleway, sans-serif;
   margin: 8px;
   position: relative;
   overflow: hidden;
+  height: 500px;
 }
 
 .card:hover .data {
@@ -190,6 +191,7 @@ font-family: Raleway, sans-serif;
 
 .card .title {
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .card .title a {

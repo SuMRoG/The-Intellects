@@ -70,7 +70,7 @@ body {
   width: 100%;
   height: 50px;
   background: var(--nav-color);
-  box-shadow: 5px 0px 9px #111111;
+  box-shadow: 5px 0px 9px #606060;
   z-index: 1;
   transition: 0.5s;
 }

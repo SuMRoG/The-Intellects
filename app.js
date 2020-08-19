@@ -13,7 +13,7 @@ mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .then((result) => app.listen(3004))
+  .then((result) => app.listen(3000))
   .catch(err => console.log(err))
 
 // view engine setup

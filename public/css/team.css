@@ -24,7 +24,7 @@ body {
      background-size: cover;
      background-position: top;
      position: relative;
-     clip-path: polygon(0 0, 100% 0,100% 50vh, 0 100%);
+     clip-path: polygon(0 0, 100% 0,100% 60vh, 0 100%);
 }
 
 .brand-box{
