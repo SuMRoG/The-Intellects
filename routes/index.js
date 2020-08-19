@@ -46,6 +46,12 @@ router.get("/delete/:id", (req, res) => {
     .catch(err => res.redirect("/front"))
 })
 
+router.get('/body1', function(req, res, next) {
+  res.render('body1', {
+    title: 'Body',
+  });
+});
+
 router.get('/terms', function(req, res, next) {
   res.render('terms', {
     title: 'Terms',
