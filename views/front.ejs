@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="css\blog.css">
 <link rel="stylesheet" href="css\fullblog.css">
 <link rel="stylesheet" href="css\team.css">
+<script type="text/javascript" src="js\blog.js"></script>
 
 <div class="fullblogcontainer" hidden onclick="togglepostoff()">
   <a onclick="togglepostoff()"> <i class="fas fa-times"></i> </a>
@@ -19,6 +20,7 @@
               <span class="blog-byline-user">
                 by <a class="url hoverable blog-hoverable" rel="contact" href="/glebich">Gleb Kuznetsov</a>
               </span>
+              <span class="blog-date">Tuesday, Feb 24, 2020 </span>
             </span>
           </h2>
         </div>
@@ -150,41 +152,30 @@
               <div class="header4">
                 <div class="date">
                   <span>
-                    <%= post.createdAt.toLocaleDateString() %>
+                    <%= post.createdAt.toLocaleDateString("en-US",{weekday: "long",year:"numeric",month:"short",day: "numeric" })%>
                   </span>
                 </div>
               </div>
               <div class="data">
                 <div class="content1">
                   <span class="author"> <%=post.author%> </span>
-          <h1 class="title"><a onclick="togglepost()"> <%=post.title%> </a></h1>
+                  <h1 class="title"  onclick="togglepost(this)"><a> <%=post.title%> </a></h1>
+                </div>
+                <div class="content2">
+                  <p class="text"> <%=post.snippet%> </p>
+                  <p hidden> <%=post.body%> </p>
+                  <a href="/delete/<%=post._id%>" class="but2">Read More</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="content2">
-          <p class="text"> <%=post.snippet%> </p>
-          <p hidden> <%=post.body%> </p>
-        <a href="/delete/<%=post._id%>" class="but2">Read More</a>
+        <%if(i&1){%>
         </div>
+        <%}%>
+      <%})%>
+
       </div>
     </div>
   </div>
-  <%if(i&1){%>
-</div>
-<%}%>
-<%})%>
-
-</div>
-</div>
-</div>
-<script type="text/javascript">
-  function togglepost() {
-    var fullblog = document.getElementsByClassName('fullblogcontainer')[0]
-    fullblog.hidden = false;
-  }
-
-  function togglepostoff() {
-    var fullblog = document.getElementsByClassName('fullblogcontainer')[0]
-    fullblog.hidden = true;
-  }
-</script>
 </div>
 <%- include('layouts/foot.ejs') %>

@@ -17,7 +17,7 @@
   margin: 10px;
   margin-top: 67px;
   padding: 10px;
-  box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .notf-title {
@@ -56,7 +56,7 @@
   margin: 10px;
   margin-top: 50px;
   padding: 10px;
-  box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .post-container-title {
@@ -180,7 +180,6 @@ font-family: Raleway, sans-serif;
 }
 
 .card .data .content1 {
-  padding: 1em;
   position: relative;
   z-index: 1;
 }
@@ -197,6 +196,7 @@ font-family: Raleway, sans-serif;
 
 .card .title {
   margin-top: 10px;
+  font-size: 1.55em;
   cursor: pointer;
 }
 
