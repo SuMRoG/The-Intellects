@@ -36,21 +36,6 @@ header2 p {
   font-family: 'Montserrat', sans-serif;
 }
 
-header3 button {
-  border: none;
-  outline: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  color: #333;
-  background: #fff;
-  margin-bottom: 50px;
-  box-shadow: 0 3px 20px 0 #0000003b;
-}
-
-header3 button:hover {
-  cursor: pointer;
-}
-
 .wert{
   /* float: center;
   padding: 40px; */
