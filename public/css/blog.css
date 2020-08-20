@@ -174,13 +174,19 @@ font-family: Raleway, sans-serif;
   position: relative;
   bottom: 0;
   width: 100%;
-  transform: translateY(calc(70px + 3em));
+  transform: translateY(calc(120px + 3em));
   transition: transform 0.3s;
   color: #fff;
 }
 
-.card .data .content {
+.card .data .content1 {
   padding: 1em;
+  position: relative;
+  z-index: 1;
+}
+
+.card .data .content2 {
+  padding:  2em 5em 0em 1em;
   position: relative;
   z-index: 1;
 }
@@ -215,7 +221,7 @@ font-family: Raleway, sans-serif;
 
 .card .but2 {
   display: flex;
-  width: 100px;
+  width: auto;
   margin: 2em auto 1em;
   padding: 15px;
   text-align: center;
@@ -226,18 +232,9 @@ font-family: Raleway, sans-serif;
   font-weight: 700;
 }
 
-.card .but2::after {
-  content: "→";
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(0, -50%);
-  transition: all 0.3s;
-}
-
-.card .but2:hover::after {
-  transform: translate(5px, -50%);
+.card .but2:hover {
+  /* transform: translate(5px, -50%); */
+  color: #aaa;
   opacity: 1;
 }
 

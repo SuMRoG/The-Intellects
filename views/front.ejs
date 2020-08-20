@@ -13,7 +13,7 @@
       <div class="blog-header user  flex-auto-ns">
         <a href="/glebich"><img class="photo" src="https://static.dribbble.com/users/32512/avatars/normal/b394be60a32a4c82f89c73b0349af025.png?1556087466"></a>
         <div class="blog-details">
-          <h1 class="blog-title">The secret ingredient of Data structures and algorithms </h1>
+          <h1 class="blog-title">sgfd swefdibf gdwfiweif iewfiv</h1>
           <h2 class="blog-byline">
             <span class="attribution">
               <span class="blog-byline-user">
@@ -76,6 +76,8 @@
       <div class="text-box">
         <h1 class="qwer" style="font-weight: 700">Simply the best</h1>
         <p style="color: white;">Reasons for choosing us</p>
+        <br>
+      <a href="/body1" class="btn btn-white btn-animated">Wanna add blog??</a>
       </div>
     </header>
 
@@ -147,15 +149,20 @@
             <div class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('/img/tabitha-turner-qtr0Lw4fMGc-unsplash.jpg')  center / cover no-repeat;">
               <div class="header4">
                 <div class="date">
-                  <span>12 Aug 2020</span>
+                  <span>
+                    <%= post.createdAt.toLocaleDateString() %>
+                  </span>
                 </div>
               </div>
               <div class="data">
-                <div class="content">
+                <div class="content1">
                   <span class="author"> <%=post.author%> </span>
           <h1 class="title"><a onclick="togglepost()"> <%=post.title%> </a></h1>
-          <p class="text"> <%=post.body%> </p>
-          <a href="/delete/<%=post._id%>" class="but2">Read more</a>
+          </div>
+          <div class="content2">
+          <p class="text"> <%=post.snippet%> </p>
+          <p hidden> <%=post.body%> </p>
+        <a href="/delete/<%=post._id%>" class="but2">Read More</a>
         </div>
       </div>
     </div>

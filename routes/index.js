@@ -1,5 +1,6 @@
 const express = require('express');
 const Blog = require('../models/blog');
+// const articleRouter= require('./article');
 const router = express.Router();
 
 /* GET home page. */
@@ -14,7 +15,7 @@ router.get('/front', (req, res) => {
     .then((posts) => {
       console.log(posts);
       res.render('front', {
-        title: 'Home',
+        title: 'Blogs',
         posts: posts
       })
     })
@@ -48,7 +49,7 @@ router.get("/delete/:id", (req, res) => {
 
 router.get('/body1', function(req, res, next) {
   res.render('body1', {
-    title: 'Body',
+    title: 'Add Blog',
   });
 });
 

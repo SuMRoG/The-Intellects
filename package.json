@@ -15,5 +15,19 @@
     "morgan": "~1.9.1",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuMRoG/Our-first-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuMRoG/Our-first-project/issues"
+  },
+  "homepage": "https://github.com/SuMRoG/Our-first-project#readme",
+  "description": ""
 }

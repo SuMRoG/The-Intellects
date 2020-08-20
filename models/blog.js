@@ -6,6 +6,7 @@ const blogSchema = new Schema({
     type: String,
     required: true
   },
+  // createdAt: new Date(),
   snippet: {
     type: String,
     required: true
@@ -17,6 +18,10 @@ const blogSchema = new Schema({
   author: {
     type: String,
     default: "Admin"
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 }, {timestamps: true });
 

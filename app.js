@@ -30,21 +30,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.get('/add-blog', (req,res)=> {
-  const blog = new Blog({
-    title: 'dhfdfre',
-    snippet: 'fdf fvdf efavv',
-    body: 'hdfc ehwgqhf hegfqhb egfhefgef eggw',
-    author: 'Rohan Gupta'
-  });
+app.get('/add-blog', async (req,res)=> {
+  res.render('/add-blog')
+})
 
-  blog.save()
-  .then((result) => {
-    res.send(result)
-  })
-  .catch((err) =>{
-    console.log(err);
-  })
+app.get('/:id',async (req,res) =>{
+  const blog = await Blog.findById(req.params.id)
+  if(blog==null) res.redirect('front')
+  res.render('/show',{blog: blog})
+})
+
+app.post('/front',async (req,res)=> {
+    let blog = new Blog({
+      title: req.body.title,
+      snippet: req.body.snippet,
+      body: req.body.body,
+      author: req.body.author,
+    });
+try{
+  blog = await blog.save()
+  res.redirect('/front/${blog.id}')
+}
+catch(e){
+  res.render('/views/body1',{blog: blog})
+}
 })
 
 // catch 404 and forward to error handler
