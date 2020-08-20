@@ -128,3 +128,9 @@ a {
   padding: 30px;
   color: var(--logo-color);
 }
+
+@media screen and (max-width: 650px) {
+  .fullblog {
+    margin-left: -200px;
+  }
+}
