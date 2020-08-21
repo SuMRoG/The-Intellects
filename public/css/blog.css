@@ -176,18 +176,19 @@ h1 {
   position: relative;
   bottom: 0;
   width: 100%;
-  transform: translateY(calc(120px + 3em));
+  transform: translateY(calc(80px + 8em));
   transition: transform 0.3s;
   color: #fff;
 }
 
 .card .data .content1 {
+  padding: 2em 1em;
   position: relative;
   z-index: 1;
 }
 
 .card .data .content2 {
-  padding: 2em 5em 0em 1em;
+  padding: 3.5em 5em 0em 1em;
   position: relative;
   z-index: 1;
 }

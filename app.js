@@ -34,12 +34,6 @@ app.get('/add-blog', async (req,res)=> {
   res.render('/add-blog')
 })
 
-app.get('/:id',async (req,res) =>{
-  const blog = await Blog.findById(req.params.id)
-  if(blog==null) res.redirect('front')
-  res.render('/show',{blog: blog})
-})
-
 app.post('/front',async (req,res)=> {
     let blog = new Blog({
       title: req.body.title,
