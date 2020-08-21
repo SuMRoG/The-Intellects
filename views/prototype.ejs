@@ -58,9 +58,11 @@
           [1, 6, 9]
         ];
         var done = false;
+
         function isvalid(x, y) {
           return x >= 0 && x < 3 && y >= 0 && y < 3;
         }
+
         function check() {
           var res = true;
           for (var i = 0; i < 3; i++) {
@@ -83,6 +85,7 @@
             finalimage.hidden = false;
           }
         }
+
         function move(pie) {
           var cl = pie.classList[1];
           var p = cl[1];
@@ -136,7 +139,7 @@
       </svg>
     </div>
 
-    <div class="bird" hidden title="loading screen">
+    <div hidden class="bird" hidden title="loading screen">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="200.000000pt" height="200.000000pt" viewBox="0 0 900.000000 834.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,700.000000) scale(0.100000,-0.100000)" fill="#0040ad" stroke="none">
           <path
@@ -153,7 +156,21 @@
       }, 200);
     </script>
 
+    <div class="book">
+      <div class="back"></div>
+      <div class="side"></div>
+      <div class="cover">
+        <div class="booktitle">
+          <span>Mathematics</span>
+        </div>
+        <div class="bookauthor">
+          <span>B.S grewal</span>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </body>
 
 </html>
