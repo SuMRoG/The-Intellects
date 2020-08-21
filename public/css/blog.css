@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #e9e9e9;
+  background: var(--background-dim);
   border-radius: 6px;
   margin: 2px;
 }
@@ -49,7 +49,7 @@
 
 .notification span {
   font-size: 0.7em;
-  color: #4a4a4a;
+  color: var(--text-dim);
 }
 
 .popular-post-container {
@@ -69,15 +69,17 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .popular-post {
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background: #e9e9e9;
+  background: var(--background-dim);
   border-radius: 6px;
   margin: 2px;
 }
@@ -91,7 +93,7 @@
 
 .popular-post span {
   font-size: 0.7em;
-  color: #4a4a4a;
+  color: var(--text-dim);
 }
 
 .boy {
@@ -109,7 +111,7 @@ a {
 
 h1 {
   font-weight: 500;
-font-family: Raleway, sans-serif;
+  font-family: Raleway, sans-serif;
 }
 
 .options {
@@ -185,7 +187,7 @@ font-family: Raleway, sans-serif;
 }
 
 .card .data .content2 {
-  padding:  2em 5em 0em 1em;
+  padding: 2em 5em 0em 1em;
   position: relative;
   z-index: 1;
 }
@@ -264,6 +266,11 @@ font-family: Raleway, sans-serif;
     display: block;
   }
 
+  .popular-post img {
+    margin: 0;
+    margin-right: 10px;
+  }
+
   .view {
     flex-direction: column;
   }
@@ -275,12 +282,14 @@ font-family: Raleway, sans-serif;
   .boy {
     width: 100%;
   }
-  .text{
+
+  .text {
     /* padding: 30px; */
     font-size: 12px;
     margin-left: 0;
   }
-  .title{
+
+  .title {
     font-size: 30px;
     font-weight: bold;
   }

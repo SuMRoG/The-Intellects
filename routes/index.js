@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 router.get('/front', (req, res) => {
   Blog.find()
     .then((posts) => {
-      console.log(posts);
       res.render('front', {
         title: 'Blogs',
         posts: posts

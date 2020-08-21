@@ -5,20 +5,21 @@
 <link rel="stylesheet" href="css\blog.css">
 <link rel="stylesheet" href="css\fullblog.css">
 <link rel="stylesheet" href="css\team.css">
-<script type="text/javascript" src="js\blog.js"></script>
+<script type="text/javascript" src="js\front.js"></script>
 
-<div class="fullblogcontainer" hidden onclick="togglepostoff()">
+<div class="fullblogcontainer" id="fullblogcontainer" hidden>
   <a onclick="togglepostoff()"> <i class="fas fa-times"></i> </a>
-  <div class="fullblog">
+  <div class="fullblogoverlay"></div>
+  <div class="fullblog" id="fullblog">
     <header class="blog-header">
       <div class="blog-header user  flex-auto-ns">
-        <a href="/glebich"><img class="photo" src="https://static.dribbble.com/users/32512/avatars/normal/b394be60a32a4c82f89c73b0349af025.png?1556087466"></a>
+        <a><img class="photo" src="https://static.dribbble.com/users/32512/avatars/normal/b394be60a32a4c82f89c73b0349af025.png?1556087466"></a>
         <div class="blog-details">
-          <h1 class="blog-title">sgfd swefdibf gdwfiweif iewfiv</h1>
+          <h1 class="blog-title">This is a default title</h1>
           <h2 class="blog-byline">
             <span class="attribution">
               <span class="blog-byline-user">
-                by <a class="url hoverable blog-hoverable" rel="contact" href="/glebich">Gleb Kuznetsov</a>
+                by <a class="url hoverable blog-hoverable" rel="contact">Gleb Kuznetsov</a>
               </span>
               <span class="blog-date">Tuesday, Feb 24, 2020 </span>
             </span>
@@ -152,7 +153,7 @@
               <div class="header4">
                 <div class="date">
                   <span>
-                    <%= post.createdAt.toLocaleDateString("en-US",{weekday: "long",year:"numeric",month:"short",day: "numeric" })%>
+                    <%= post.createdAt.toLocaleDateString("en-US",{weekday: "short",year:"numeric",month:"short",day: "numeric" })%>
                   </span>
                 </div>
               </div>

@@ -1,14 +1,23 @@
-const mongoose= require('mongoose');
-const Schema= mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const bookSchema= new Schema({
+const bookSchema = new Schema({
   Department: [{
-    id:interval,
-    name: string
+    id: String,
+    name: String
   }],
-  Year:{
-    type: int,
+  Year: {
+    type: Number,
     required: true,
     default: 1
-  }
-},{timestamps: true })
+  },
+  Subject: [{
+    id: String,
+    name: String
+  }],
+}, {
+  timestamps: true
+})
+
+const Book = mongoose.model('Book', bookSchema);
+module.exports = Book;
