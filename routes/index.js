@@ -1,7 +1,11 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
+const Account = require('../models/account');
+// const User = require('../models/check');
 // const articleRouter= require('./article');
 const router = express.Router();
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,6 +50,31 @@ router.get("/delete/:id", (req, res) => {
     .catch(err => res.redirect("/front"))
 })
 
+router.get('/login', function(req, res, next) {
+  res.render('login', {
+    title: 'Login'
+  });
+});
+
+router.get('/register', function(req, res, next) {
+  res.render('register', {
+    title: 'Register'
+  });
+});
+
+router.post("/register", (req, res) => {
+  const account = new Account(req.body)
+  account.save()
+    .then(result => res.redirect("/login"))
+    .catch(err => console.log(err))
+})
+// router.post("/register", (req, res) => {
+//   const user = new User(req.body)
+//   user.save()
+//     .then(result => res.redirect("/login"))
+//     .catch(err => console.log(err))
+// })
+
 router.get('/body1', function(req, res, next) {
   res.render('body1', {
     title: 'Add Blog',
@@ -76,17 +105,10 @@ router.get('/proto', function(req, res, next) {
   });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', {
-    title: 'Login'
-  });
-});
 
-router.get('/register', function(req, res, next) {
-  res.render('register', {
-    title: 'Register'
-  });
-});
+router.get('/hello',(req,res)=>{
+    res.render('hello',{name: "Sujal"})
+})
 
 
 module.exports = router;

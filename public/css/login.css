@@ -64,7 +64,43 @@ body {
   vertical-align: middle;
 }
 
-.details input {
+.details input{
+  background-color: #f3f3f3;
+  border: none;
+  color: #282828;
+  padding: 15px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  width: 72%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.details1 {
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details1 i {
+  background: white;
+  color: #002dd2;
+  padding: 1px;
+  font-size: 1.6em;
+  width: 3%;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.details1 select{
   background-color: #f3f3f3;
   border: none;
   color: #282828;
