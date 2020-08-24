@@ -63,7 +63,6 @@ router.post('/register',async (req,res)=> {
   try{
         const hashedPassword = await bcrypt.hash(req.body.password,10)
         let account= new Account({
-          // id: date.now().toString(),
           name: req.body.name,
           username: req.body.username,
           gender: req.body.gender,

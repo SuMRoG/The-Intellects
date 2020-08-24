@@ -75,7 +75,7 @@ body {
   height: 50px;
   background: var(--nav-color);
   box-shadow: 5px 0px 9px #606060;
-  z-index: 1;
+  z-index: 5;
   transition: 0.5s;
 }
 
@@ -188,7 +188,7 @@ body {
 .nav2 {
   margin-top: 50px;
   height: 100%;
-  z-index: 1;
+  z-index: 4;
   width: 200px;
   position: fixed;
   background-color: #232323;
