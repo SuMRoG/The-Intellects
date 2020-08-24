@@ -2,10 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
 const Account = require('../models/account');
-// const User = require('../models/check');
-// const articleRouter= require('./article');
 const router = express.Router();
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -68,12 +65,6 @@ router.post("/register", (req, res) => {
     .then(result => res.redirect("/login"))
     .catch(err => console.log(err))
 })
-// router.post("/register", (req, res) => {
-//   const user = new User(req.body)
-//   user.save()
-//     .then(result => res.redirect("/login"))
-//     .catch(err => console.log(err))
-// })
 
 router.get('/body1', function(req, res, next) {
   res.render('body1', {

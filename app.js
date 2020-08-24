@@ -7,16 +7,6 @@ const bcrypt = require('bcrypt');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const app = express();
-const passport = require('passport');
-const flash= require('express-flash');
-const session =require('express-session');
-
-
-const initializePassport = require('js/passport-config');
-initializePassport(
-  passport,
-  email => accounts.find( account => account.email === email)
-)
 
 //connect to database
 const dbURI= 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
@@ -36,10 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
-app.use(flash())
-app.use(session({
-  secret: process.env.SESSION_SECRET
-}))
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
