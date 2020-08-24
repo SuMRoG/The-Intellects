@@ -59,12 +59,24 @@ router.get('/register', function(req, res, next) {
   });
 });
 
-router.post("/register", (req, res) => {
-  const account = new Account(req.body)
-  account.save()
-    .then(result => res.redirect("/login"))
-    .catch(err => console.log(err))
+router.post('/register',async (req,res)=> {
+  try{
+        const hashedPassword = await bcrypt.hash(req.body.password,10)
+        let account= new Account({
+          // id: date.now().toString(),
+          name: req.body.name,
+          username: req.body.username,
+          gender: req.body.gender,
+          email: req.body.email,
+          password: hashedPassword
+        });
+          account = await account.save()
+          res.redirect('/login')
+  }catch{
+    res.redirect('/register')
+  }
 })
+
 
 router.get('/body1', function(req, res, next) {
   res.render('body1', {
