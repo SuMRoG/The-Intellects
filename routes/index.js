@@ -1,30 +1,9 @@
-if(process.env.NODE_ENV !== 'production'){
-  require('dotenv').config()
-}
-
 const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
 const Account = require('../models/account');
 const router = express.Router();
-const passport= require('passport')
-const flash=require('express-flash')
-const session =require('express-session')
-const initializePassport = require('../passport-config')
-initializePassport(
-  passport,
-  email=> account.find( account => account.email === email),
-  id=> account.find( account => account.id === id)
-)
 
-router.use(flash())
-router.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
-router.use(passport.initialize())
-router.use(passport.session())
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -75,12 +54,6 @@ router.get('/login', function(req, res, next) {
   });
 });
 
-router.post('/login', passport.authenticate('local',{
-  successRedirect: '/front',
-  failureRedirect: '/login',
-  failureFlash: true
-}))
-
 router.get('/register', function(req, res, next) {
   res.render('register', {
     title: 'Register'
@@ -91,6 +64,7 @@ router.post('/register',async (req,res)=> {
   try{
         const hashedPassword = await bcrypt.hash(req.body.password,10)
         let account= new Account({
+          // id: date.now().toString(),
           name: req.body.name,
           username: req.body.username,
           gender: req.body.gender,
