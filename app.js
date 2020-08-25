@@ -23,15 +23,6 @@ const account = require('./models/account');
 //   id=> account.find( account => account.id === id)
 // )
 
-app.use(flash())
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
-app.use(passport.initialize())
-app.use(passport.session())
-
 //connect to database
 const dbURI = 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {
@@ -40,6 +31,15 @@ mongoose.connect(dbURI, {
   })
   .then((result) => app.listen(3000))
   .catch(err => console.log(err))
+
+  app.use(flash())
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  }))
+  app.use(passport.initialize())
+  app.use(passport.session())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,37 +61,38 @@ app.get('/add-blog', async (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-  account.find({
-    email: req.body.email
-  }).then(async (acc) => {
-    if (acc.length) {
-      // console.log(acc);
-      if (await bcrypt.compare(req.body.password, acc[0].password)) {
-        res.redirect("/front")
-      } else {
-        console.log("Wrong");
-        res.redirect("/login")
-      }
-    } else {
-      console.log("No user");
-      res.redirect("/login")
-    }
-  }).catch(err => {
-    res.redirect("/login")
-  })
+  initializePassport(
+    passport,
+    email=> account.find({
+      email: req.body.email
+    }).then(acc=> acc.json()).catch(err=> false),
+    id=> account.findById(id).then(acc=> true).catch(err=> false)
+  )
+  // account.find({
+  //   email: req.body.email
+  // }).then(async (acc) => {
+  //   if (acc.length) {
+  //     // console.log(acc);
+  //     if (await bcrypt.compare(req.body.password, acc[0].password)) {
+  //       res.redirect("/front")
+  //     } else {
+  //       console.log("Wrong");
+  //       res.redirect("/login")
+  //     }
+  //   } else {
+  //     console.log("No user");
+  //     res.redirect("/login")
+  //   }
+  // }).catch(err => {
+  //   res.redirect("/login")
+  // })
 })
 
-
-// initializePassport(
-//   passport,
-//   email=> account.find({email: req.body.email}).then(acc=> acc.json()).catch(err=> false),
-//   id=> account.findById(id).then(acc=> true).catch(err=> false)
-// )
-// app.post('/login', passport.authenticate('local',{
-//   successRedirect: '/front',
-//   failureRedirect: '/login',
-//   failureFlash: true
-// }))
+app.post('/login', passport.authenticate('local',{
+  successRedirect: '/front',
+  failureRedirect: '/login',
+  // failureFlash: true
+}))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
