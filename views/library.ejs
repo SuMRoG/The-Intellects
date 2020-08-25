@@ -10,6 +10,7 @@
     <header class=" header23">
       <div class="text-box">
         <h1 class="qwer">Library</h1>
+        <a href="/addbook">Addbook</a>
       </div>
     </header>
     <div class="row">
@@ -64,85 +65,108 @@
       </div>
       <div class="column-85">
         <div class="book-container">
-          <div class="card card0">
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card1">
-            <div class="diamonds">
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-              <div class="dia"></div>
-            </div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card2">
-            <div class="ribbon"></div>
-            <div class="centerdia"></div>
-            <div class="ribbon"></div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card3">
-            <div class="square"></div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card4">
-            <div class="band"></div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card5">
-            <div class="fallcontainer">
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-              <div class="fall"></div>
-            </div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card6">
-            <div class="rainbow">
-              <div class="bow"></div>
-              <div class="bow"></div>
-              <div class="bow"></div>
-              <div class="bow"></div>
-              <div class="bow"></div>
-              <div class="bow"></div>
-              <div class="bow"></div>
-            </div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
-          <div class="card card7">
-            <div class="circles">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
-            <span class="title">Mathematics</span>
-            <span class="author">Bs grewal</span>
-          </div>
+          <%books.map((book,i)=>{%>
+            <% if(book.cover==0){%>
+              <div class="card card0">
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
 
+            <% if(book.cover==1){%>
+              <div class="card card1">
+                <div class="diamonds">
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                  <div class="dia"></div>
+                </div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
 
+            <% if(book.cover==2){%>
+              <div class="card card2">
+                <div class="ribbon"></div>
+                <div class="centerdia"></div>
+                <div class="ribbon"></div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
 
+            <% if(book.cover==3){%>
+              <div class="card card3">
+                <div class="square"></div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
+
+            <% if(book.cover==4){%>
+              <div class="card card4">
+                <div class="band"></div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
+
+            <% if(book.cover==5){%>
+              <div class="card card5">
+                <div class="fallcontainer">
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                  <div class="fall"></div>
+                </div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
+
+            <% if(book.cover==6){%>
+              <div class="card card6">
+                <div class="rainbow">
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                  <div class="bow"></div>
+                </div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
+
+            <% if(book.cover==7){%>
+              <div class="card card7">
+                <div class="circles">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                </div>
+                <span class="title"><%=book.title%></span>
+                <span class="author"><%=book.author%></span>
+              </div>
+            <%}%>
+
+          <%})%>
 
 
 

@@ -22,7 +22,7 @@ function togglepostoff() {
 }
 
 window.addEventListener('click', function(e){
-  var fullblogcontainer = document.getElementById('fullblogcontainer')
+  var fullblogcontainer = document.getElementById('fullblogoverlay')
   if(e.target==fullblogcontainer){
     togglepostoff()
   }

@@ -1,0 +1,56 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css\start.css">
+<link rel="stylesheet" href="css\lib.css">
+<link rel="stylesheet" href="css\lib2.css">
+<div id="content">
+  <div class="container">
+    <header class=" header23">
+      <div class="text-box">
+        <h1 class="qwer">add Blog</h1>
+      </div>
+    </header>
+    <div class='wert'>
+    <form action="/addbook" method="post">
+      <label for="title">Title</label><br>
+      <input required type="text" name="title" value=""><br><br>
+      <label for="author">Author</label><br>
+      <input type="text" name="author" value=""><br><br>
+      <label for="type">Type</label>
+      <select name="type">
+        <option value="book">Book</option>
+        <option value="pdf">Pdf</option>
+        <option value="ques">Question paper</option>
+        <option value="notes">Notes</option>
+      </select><br>
+      <label for="year">Year</label>
+      <select name="year">
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+        <option value="4">Fourth</option>
+      </select><br>
+      <label for="department'">Department</label>
+      <select name="department" id="department" multiple>
+        <option value="cst">CST</option>
+        <option value="etc">ETC</option>
+        <option value="it">IT</option>
+        <option value="ee">EE</option>
+        <option value="me">ME</option>
+        <option value="ce">CE</option>
+        <option value="aero">Aero</option>
+        <option value="meta">Meta</option>
+      </select><br>
+      <label for="subject">Subject</label>
+      <input type="text" name="subject" value=""><br>
+      <label for="cover">Cover</label>
+      <input type="number" name="cover" value="">
+      <button type="submit" name="button">Add</button>
+
+    </form>
+</div>
+  </div>
+</div>
+
+
+<%- include('layouts/foot.ejs') %>

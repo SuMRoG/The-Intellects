@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
+const Book = require('../models/book');
 const Account = require('../models/account');
 const router = express.Router();
 
@@ -25,11 +26,19 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/add', function(req, res, next) {
-  res.render('add', {
-    title: 'Add post',
+router.get('/addbook', function(req, res, next) {
+  res.render('addbook', {
+    title: 'Add book',
   });
 });
+
+router.post("/addbook", (req, res) => {
+  console.log(req.body);
+  const book = new Book(req.body)
+  book.save()
+    .then(result => res.redirect("/library"))
+    .catch(err => console.log(err))
+})
 
 router.post("/add", (req, res) => {
   const blog = new Blog(req.body)
@@ -60,26 +69,26 @@ router.get('/register', function(req, res, next) {
   });
 });
 
-router.post('/register',async (req,res)=> {
-  try{
-        const hashedPassword = await bcrypt.hash(req.body.password,10)
-        let account= new Account({
-          // id: date.now().toString(),
-          name: req.body.name,
-          username: req.body.username,
-          gender: req.body.gender,
-          email: req.body.email,
-          password: hashedPassword
-        });
-          account = await account.save()
-          res.redirect('/login')
-  }catch{
+router.post('/register', async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    let account = new Account({
+      // id: date.now().toString(),
+      name: req.body.name,
+      username: req.body.username,
+      gender: req.body.gender,
+      email: req.body.email,
+      password: hashedPassword
+    });
+    account = await account.save()
+    res.redirect('/login')
+  } catch {
     res.redirect('/register')
   }
 })
 
 
-router.get('/body1', function(req, res, next) {
+router.get('/add', function(req, res, next) {
   res.render('body1', {
     title: 'Add Blog',
   });
@@ -98,9 +107,16 @@ router.get('/team', function(req, res, next) {
 });
 
 router.get('/library', function(req, res, next) {
-  res.render('library', {
-    title: 'Library',
-  });
+  Book.find()
+    .then((books) => {
+      res.render('library', {
+        title: 'Library',
+        books: books
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 });
 
 router.get('/proto', function(req, res, next) {
@@ -110,8 +126,10 @@ router.get('/proto', function(req, res, next) {
 });
 
 
-router.get('/hello',(req,res)=>{
-    res.render('hello',{name: "Sujal"})
+router.get('/hello', (req, res) => {
+  res.render('hello', {
+    name: "Sujal"
+  })
 })
 
 
