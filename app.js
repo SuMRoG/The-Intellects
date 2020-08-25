@@ -15,11 +15,6 @@ const passport= require('passport')
 const flash=require('express-flash')
 const session =require('express-session')
 const initializePassport = require('./passport-config')
-initializePassport(
-  passport,
-  email=> account.find( account => account.email === email),
-  id=> account.find( account => account.id === id)
-)
 
 app.use(flash())
 app.use(session({
@@ -38,6 +33,12 @@ mongoose.connect(dbURI, {
   })
   .then((result) => app.listen(3000))
   .catch(err => console.log(err))
+
+  initializePassport(
+    passport,
+    email=> account.find( account => account.email === email),
+    id=> account.find( account => account.id === id)
+  )
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
