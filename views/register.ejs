@@ -41,7 +41,7 @@
         <div class="details">
           <i class="fas fa-key"></i>
           <input onclick="go(this)" required type="password" name="password" placeholder="Password" id="password">
-          <i class="fa fa-eye" onclick="show()" style="cursor: pointer;"></i>
+          <i class="fa fa-eye" id="eye" onclick="show()" style="cursor: pointer;"></i>
         </div>
         <script>
           var all = document.getElementsByTagName('input')
@@ -55,6 +55,9 @@
           var pswrd= document.getElementById('password')
           var icon=document.querySelector('.fas')
           function show(){
+            var eye = document.getElementById('eye')
+            eye.classList.toggle('fa-eye-slash')
+            eye.classList.toggle('fa-eye')
             if(pswrd.type==="password")
             {
               pswrd.type="text";
