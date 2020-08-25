@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
@@ -33,7 +33,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //connect to database
-const dbURI= 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -56,24 +56,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.get('/add-blog', async (req,res)=> {
+app.get('/add-blog', async (req, res) => {
   res.render('/add-blog')
 })
 
-app.post('/login', (req,res)=> {
-  account.find({email: req.body.email}).then(async (acc)=>{
-    if(acc.length){
+app.post('/login', (req, res) => {
+  account.find({
+    email: req.body.email
+  }).then(async (acc) => {
+    if (acc.length) {
       // console.log(acc);
-      if(await bcrypt.compare(req.body.password, acc[0].password)) {
+      if (await bcrypt.compare(req.body.password, acc[0].password)) {
         res.redirect("/front")
-      }else{
+      } else {
         console.log("Wrong");
+        res.redirect("/login")
       }
-    }else{
+    } else {
       console.log("No user");
+      res.redirect("/login")
     }
-    res.redirect("/login")
-  }).catch(err=> {
+  }).catch(err => {
     res.redirect("/login")
   })
 })
