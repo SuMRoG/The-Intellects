@@ -7,9 +7,9 @@
 
 body {
   /* --highlight: #ffb000; */
-  /* --active-highlight: #ff7300; */
+  --active-highlight: #ff71a5;
   --highlight: #34e4c2;
-  --active-highlight: #1ad57a;
+  /* --active-highlight: #1ad57a; */
 
   --secondary-color: #ff9000;
   --sidebar: #3b3b3b;
@@ -135,7 +135,7 @@ body {
 }
 
 .active {
-  background-color: #ff71a5;
+  background-color: var(--active-highlight);
   color: var(--con-color) !important;
 }
 

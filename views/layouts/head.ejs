@@ -23,10 +23,17 @@
 				<div class="navbutton">
 					<i class="fas fa-bars" onclick="togglenav()"></i>
 				</div>
-				<div class="navlinks">
-					<a href="/login">Login</a>
-					<a href="/register">Register</a>
-				</div>
+				<% if(user){%>
+					<div class="navlinks">
+						<a href="user/view/profile">Blue</a>
+						<a href="user/logout">logout</a>
+					</div>
+				<% }else{%>
+					<div class="navlinks">
+						<a href="/login">Login</a>
+						<a href="/register">Register</a>
+					</div>
+				<%}%>
 			</div>
 			<div class="nav2 hidden">
 				<a href="/" class="active"><i class="fas fa-home"> &nbsp; </i> Home</a>

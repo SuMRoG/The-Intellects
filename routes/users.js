@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/logout', function(req, res, next) {
+  req.session.user=null
+  res.redirect("/front")
 });
 
 module.exports = router;
