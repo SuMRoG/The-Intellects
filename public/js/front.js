@@ -10,7 +10,9 @@ function togglepost(ele) {
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h1").innerText = title;
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span > a").innerText = author
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span.blog-date").innerText = datecreated
-  document.querySelector("body > div.fullblogcontainer > div > section:nth-child(3) > div").innerText = body
+  converter = new showdown.Converter(),
+  html = converter.makeHtml(body);
+  document.querySelector("#blogbody").innerHTML = html;
 
   fullblogcontainer.hidden = false;
 }

@@ -32,6 +32,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/front', (req, res) => {
   Blog.find()
+    .sort({createdAt: -1})
     .then((posts) => {
       res.render('front', {
         title: 'Blogs',
@@ -146,7 +147,7 @@ router.post('/register', async (req, res) => {
 
 
 router.get('/add', function(req, res, next) {
-  res.render('body1', {
+  res.render('add', {
     title: 'Add Blog',
     user: req.session.user
   });

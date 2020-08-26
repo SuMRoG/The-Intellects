@@ -1,0 +1,81 @@
+.werty {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+.options {
+  width: 100%;
+  padding: 20px;
+}
+
+.goahead {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.goahead button {
+  padding: 20px;
+  width: 20%;
+  background: inherit;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #216aef;
+  outline: none;
+}
+
+.goahead .checked {
+  border-bottom: 5px solid #5c76f3;
+}
+
+.addblogform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleinput {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1.4em;
+  outline: none;
+  color: var(--text);
+  font-weight: 600;
+  background: inherit;
+  /* background: var(--background-dim);*/
+}
+
+.subheading {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1em;
+  outline: none;
+  color: var(--text-dim);
+  font-weight: 600;
+  background: inherit;
+}
+
+.bodyinput {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1em;
+  outline: none;
+  color: var(--text-dim);
+  background: var(--background-dim);
+}
+
+.submitbutton {
+  padding: 8px 20px;
+  border: none;
+  background: inherit;
+  border: 2px solid #0e7eff;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #0254b2;
+  margin: 20px 0;
+}
