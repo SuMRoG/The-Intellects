@@ -4,7 +4,7 @@
 <head>
 	<title><%= title%></title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial scale-1">
+	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/slider.css">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -50,6 +50,20 @@
 						<label for="bopis" class="on-off-toggle__slider"></label>
 					</div>
 				</div>
+				<script type="text/javascript">
+					var checkbox = document.querySelector('input[id=bopis]')
+				  const currentTheme = localStorage.getItem("theme");
+				  const themeicon = document.getElementById('theme')
+				  if (currentTheme == "dark") {
+				    document.body.setAttribute('theme','dark');
+				    themeicon.setAttribute('class','far fa-moon');
+				    checkbox.checked = true;
+				  }else{
+				    document.body.setAttribute('theme','light');
+				    themeicon.setAttribute('class','far fa-sun');
+				    checkbox.checked = false;
+				  }
+				</script>
 			</div>
 		</div>
 	</div>

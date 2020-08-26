@@ -18,11 +18,11 @@
         <ul>
           <div class="option">
             <label for="year">Year</label>
-            <select name="year" id="year" multiple>
-              <option value="1" onclick="toggleselect(this)">First</option>
-              <option value="2" onclick="toggleselect(this)">Second</option>
-              <option value="3" onclick="toggleselect(this)">Third</option>
-              <option value="4" onclick="toggleselect(this)">Fourth</option>
+            <select name="year" id="year" size="4">
+              <option value="1">First</option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth</option>
             </select>
           </div>
 
@@ -31,20 +31,20 @@
           <div class="option">
             <label for="department'">Department</label>
             <select name="department" id="department" multiple>
-              <option value="1" onclick="toggleselect(this)">CST</option>
-              <option value="2" onclick="toggleselect(this)">ETC</option>
-              <option value="3" onclick="toggleselect(this)">IT</option>
-              <option value="4" onclick="toggleselect(this)">EE</option>
-              <option value="5" onclick="toggleselect(this)">ME</option>
-              <option value="6" onclick="toggleselect(this)">CE</option>
-              <option value="7" onclick="toggleselect(this)">Aero</option>
-              <option value="8" onclick="toggleselect(this)">Meta and others</option>
+              <option value="cst" onclick="toggleselect(0)">CST</option>
+              <option value="etc" onclick="toggleselect(1)">ETC</option>
+              <option value="it" onclick="toggleselect(2)">IT</option>
+              <option value="ee" onclick="toggleselect(3)">EE</option>
+              <option value="me" onclick="toggleselect(4)">ME</option>
+              <option value="ce" onclick="toggleselect(5)">CE</option>
+              <option value="aero" onclick="toggleselect(6)">Aero</option>
+              <option value="meta" onclick="toggleselect(7)">Meta</option>
             </select>
           </div>
 
           <br>
 
-          <div class="option">
+          <!-- <div class="option">
             <label for="subject'">Subject</label>
             <select name="subject" id="subject" multiple>
               <option value="1" onclick="toggleselect(this)">Mathematics</option>
@@ -56,114 +56,145 @@
               <option value="7" onclick="toggleselect(this)">Environ. and Ecology</option>
               <option value="8" onclick="toggleselect(this)">Sociology and Ethics</option>
             </select>
+          </div> -->
+
+          <br>
+
+          <div class="option">
+            <label for="type">Type</label>
+            <select name="type" id="type" size="4">
+              <option value="book">Book</option>
+              <option value="ques">Exam papers</option>
+              <option value="notes">Notes</option>
+              <option value="pdf">PDF</option>
+            </select>
           </div>
 
           <br>
         </ul>
-        <button type="button" name="filter" class="filter">filter</button>
+        <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
 
       </div>
       <div class="column-85">
         <div class="book-container">
+          <%if(books.length==0){%>
+            <h1>No books founds</h1>
+          <%}%>
           <%books.map((book,i)=>{%>
             <% if(book.cover==0){%>
-              <div class="card card0">
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card0">
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
+                </div>
+              </a>
             <%}%>
 
             <% if(book.cover==1){%>
-              <div class="card card1">
-                <div class="diamonds">
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
-                  <div class="dia"></div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card1">
+                  <div class="diamonds">
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                    <div class="dia"></div>
+                  </div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
                 </div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              </a>
             <%}%>
 
             <% if(book.cover==2){%>
-              <div class="card card2">
-                <div class="ribbon"></div>
-                <div class="centerdia"></div>
-                <div class="ribbon"></div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card2">
+                  <div class="ribbon"></div>
+                  <div class="centerdia"></div>
+                  <div class="ribbon"></div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
+                </div>
+              </a>
             <%}%>
 
             <% if(book.cover==3){%>
-              <div class="card card3">
-                <div class="square"></div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card3">
+                  <div class="square"></div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
+                </div>
+              </a>
             <%}%>
 
             <% if(book.cover==4){%>
-              <div class="card card4">
-                <div class="band"></div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card4">
+                  <div class="band"></div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
+                </div>
+              </a>
             <%}%>
 
             <% if(book.cover==5){%>
-              <div class="card card5">
-                <div class="fallcontainer">
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
-                  <div class="fall"></div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card5">
+                  <div class="fallcontainer">
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                    <div class="fall"></div>
+                  </div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
                 </div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              </a>
             <%}%>
 
             <% if(book.cover==6){%>
-              <div class="card card6">
-                <div class="rainbow">
-                  <div class="bow"></div>
-                  <div class="bow"></div>
-                  <div class="bow"></div>
-                  <div class="bow"></div>
-                  <div class="bow"></div>
-                  <div class="bow"></div>
-                  <div class="bow"></div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card6">
+                  <div class="rainbow">
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                    <div class="bow"></div>
+                  </div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
                 </div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              </a>
             <%}%>
 
             <% if(book.cover==7){%>
-              <div class="card card7">
-                <div class="circles">
-                  <div class="circle"></div>
-                  <div class="circle"></div>
-                  <div class="circle"></div>
-                  <div class="circle"></div>
-                  <div class="circle"></div>
+              <a href="<%=book.url%>" target="_blank">
+                <div class="card card7">
+                  <div class="circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                  </div>
+                  <span class="title"><%=book.title%></span>
+                  <span class="author"><%=book.author%></span>
                 </div>
-                <span class="title"><%=book.title%></span>
-                <span class="author"><%=book.author%></span>
-              </div>
+              </a>
             <%}%>
 
           <%})%>

@@ -384,7 +384,8 @@
 .card0 .title {
   font-size: 1.4em;
   top: 20%;
-  left: 17%;
+  width: 100%;
+  text-align: center;
 }
 
 .card0 .author {

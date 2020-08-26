@@ -27,6 +27,10 @@ const bookSchema = new Schema({
   cover:{
     type: Number,
     default: 0
+  },
+  url:{
+    type: String,
+    default: "#"
   }
 }, {
   timestamps: true

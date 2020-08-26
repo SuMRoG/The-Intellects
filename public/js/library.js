@@ -1,28 +1,40 @@
 var options = {
-  "year": [0,0,0,0],
-  "department": [0,0,0,0,0,0,0,0],
-  "subject": [0,0,0,0,0,0,0,0]
+  "department": [0,0,0,0,0,0,0,0]
 }
 
 function drive() {
-  var year = document.getElementById('year')
   var department = document.getElementById('department')
-  var subject = document.getElementById('subject')
-
-  for (var child of year.children) {
-    child.selected = options["year"][child.value-1]
-  }
-
-  for (var child of department.children) {
-    child.selected = options["department"][child.value-1]
-  }
-
-  for (var child of subject.children) {
-    child.selected = options["subject"][child.value-1]
+  for (var i = 0; i < department.children.length; i++) {
+    department.children[i].selected = options["department"][i]
   }
 }
 
-function toggleselect(ele) {
-  options[ele.parentElement.id][ele.value-1]^=1;
+function toggleselect(i) {
+  options["department"][i]^=1;
   drive()
+}
+
+function filter() {
+  var year = document.getElementById('year')
+  var type = document.getElementById('type')
+  var department = document.getElementById('department')
+  var data = {}
+  if(year.value!=""){
+    data.year=year.value
+  }
+
+  if(department.selectedOptions.length){
+    data.department = []
+    for (var option of department.selectedOptions) {
+      data.department.push(option.value)
+    }
+  }
+
+  if(type.value!=""){
+    data.type=type.value
+  }
+
+  var url = new URLSearchParams(data).toString();
+  location.href="/library?"+url;
+
 }

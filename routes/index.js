@@ -7,7 +7,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const initializePassport = require('../passport-config')
-const account = require('../models/account');
+const Account = require('../models/account');
 
 router.use(flash())
 router.use(session({
@@ -77,15 +77,20 @@ router.get("/delete/:id", (req, res) => {
 })
 
 router.get('/login', function(req, res, next) {
+  if(req.session.user!=null){
+    res.redirect("/front")
+  }
   res.render('login', {
-    title: 'Login',
-    user: req.session.user
+    title: 'Login'
   });
 });
 
 
 router.post('/login', (req, res) => {
-  account.find({
+  if(req.session.user!=null){
+    res.redirect("/front")
+  }
+  Account.find({
     email: req.body.email
   }).then(async (acc) => {
     if (acc.length) {
@@ -109,13 +114,18 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/register', function(req, res, next) {
+  if(req.session.user!=null){
+    res.redirect("/front")
+  }
   res.render('register', {
     title: 'Register',
-    user: req.session.user
   });
 });
 
 router.post('/register', async (req, res) => {
+  if(req.session.user!=null){
+    res.redirect("/front")
+  }
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     let account = new Account({
@@ -128,7 +138,8 @@ router.post('/register', async (req, res) => {
     });
     account = await account.save()
     res.redirect('/login')
-  } catch {
+  } catch(e) {
+    console.log(e);
     res.redirect('/register')
   }
 })
@@ -156,8 +167,31 @@ router.get('/team', function(req, res, next) {
 });
 
 router.get('/library', function(req, res, next) {
+  // console.log(req.query);
   Book.find()
-    .then((books) => {
+    .then((rawbooks) => {
+      var books = []
+      for (var book of rawbooks) {
+        if(book.year==req.query.year || req.query.year==null){
+          if(book.type==req.query.type || req.query.type==null){
+            var i = 0;
+            var expl = 0;
+            if(req.query.department!=null){
+              var department = req.query.department.split(",")
+              expl=department.length
+            }
+            for (; i < expl; i++) {
+              var dept = department[i]
+              if(book.department.includes(dept)==false){
+                break
+              }
+            }
+            if(i==expl){
+              books.push(book)
+            }
+          }
+        }
+      }
       res.render('library', {
         title: 'Library',
         books: books,

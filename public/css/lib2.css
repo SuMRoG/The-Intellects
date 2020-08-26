@@ -41,14 +41,14 @@ ul select option {
   color: #ecf0f1;
   text-decoration: none;
   text-transform: uppercase;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-ul select option:active {
-  background: #3498db;
+ul select option:checked {
+  background: #0d5bdf;
 }
 
-ul select option::after {
+/* ul select option::after {
   position: absolute;
   content: "";
   top: 100%;
@@ -61,14 +61,10 @@ ul select option::after {
   transition: transform 0.5s;
 }
 
-ul select option:hover {
-  color: #95a5a6;
-}
-
 ul select option:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
+} */
 
 .filter {
   border: 2px solid #257ee2;
