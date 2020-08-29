@@ -131,23 +131,6 @@ h1 {
   border-radius: 4px;
 }
 
-.options {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 0px;
-  color: #e030db;
-}
-
-.post-nav-slider {
-  position: relative;
-  left: 12%;
-  display: block;
-  padding: 4px;
-  width: 80px;
-  background: #da58e2;
-  border-radius: 4px;
-}
-
 .row {
   max-width: 1300px;
   /* margin: 50px auto 0; */

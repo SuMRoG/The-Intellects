@@ -157,8 +157,31 @@ router.get('/team', function(req, res, next) {
 });
 
 router.get('/library', function(req, res, next) {
+  // console.log(req.query);
   Book.find()
-    .then((books) => {
+    .then((rawbooks) => {
+      var books = []
+      for (var book of rawbooks) {
+        if(book.year==req.query.year || req.query.year==null){
+          if(book.type==req.query.type || req.query.type==null){
+            var i = 0;
+            var expl = 0;
+            if(req.query.department!=null){
+              var department = req.query.department.split(",")
+              expl=department.length
+            }
+            for (; i < expl; i++) {
+              var dept = department[i]
+              if(book.department.includes(dept)==false){
+                break
+              }
+            }
+            if(i==expl){
+              books.push(book)
+            }
+          }
+        }
+      }
       res.render('library', {
         title: 'Library',
         books: books,

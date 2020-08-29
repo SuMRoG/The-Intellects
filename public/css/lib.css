@@ -40,6 +40,22 @@ body {
   color: white;
 }
 
+.options {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0px;
+  color: #e030db;
+}
+
+.options span{
+  padding: 15px;
+}
+
+.checkedoption{
+  border-radius: 5px;
+  border-bottom: 8px solid #e030db;
+}
+
 .text-box {
   position: absolute;
   top: 70%;
