@@ -1,12 +1,12 @@
 function authUser(req,res,next){
-  if(req.user==null)
+  if(req.session.user==null)
   {
-    res.redirect("/login")
+    return res.redirect("/login")
   }
   next()
 }
 function notauthUser(req,res,next){
-  if(req.user!=null)
+  if(req.session.user!=null)
   {
     res.redirect("/front")
   }

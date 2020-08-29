@@ -52,7 +52,7 @@ router.get('/addbook',authUser, function(req, res, next) {
   });
 });
 
-router.post("/addbook",authUser, (req, res) => {
+router.post("/addbook", (req, res) => {
   console.log(req.body);
   const book = new Book(req.body)
   book.save()
@@ -136,13 +136,13 @@ router.post('/register',notauthUser, async (req, res) => {
 
 
 router.get('/add', authUser,function(req, res, next) {
-  res.render('body1', {
+  res.render('add', {
     title: 'Add Blog',
     user: req.session.user
   });
 });
 
-router.get('/terms',authUser, function(req, res, next) {
+router.get('/terms', function(req, res, next) {
   res.render('terms', {
     title: 'Terms',
     user: req.session.user
