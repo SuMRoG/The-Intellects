@@ -20,13 +20,15 @@
       </div>
     </div>
     <div class='werty'>
-      <form class="addblogform" id="addblogform" action="/add" method="post">
-        <input required type="text" class="titleinput" name="title" placeholder="Title" value="">
-        <input hidden type="text" name="author" value="blue">
-        <input required type="text" class="subheading" name="snippet" value="" placeholder="Snippet"><br>
-        <textarea required onchange="updatepreview()" id="blogbodyinput" class="bodyinput" name="body" rows="8" cols="80" name="body" placeholder="Start typing"></textarea><br><br>
-        <button type="submit" class="submitbutton" name="button">Post</button>
-      </form>
+      <div id="addblogform" >
+        <form class="addblogform" action="/add" method="post">
+          <input required type="text" class="titleinput" name="title" placeholder="Title" value="">
+          <input hidden type="text" name="author" value="blue">
+          <input required type="text" class="subheading" name="snippet" value="" placeholder="Snippet"><br>
+          <textarea required onchange="updatepreview()" id="blogbodyinput" class="bodyinput" name="body" rows="8" cols="80" name="body" placeholder="Start typing"></textarea><br><br>
+          <button type="submit" class="submitbutton" name="button">Post</button>
+        </form>
+      </div>
       <div class="previewarea markdown-body" id="previewarea" hidden>
       </div>
     </div>
