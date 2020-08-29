@@ -7,7 +7,8 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const initializePassport = require('../passport-config')
-const Account = require('../models/account');
+const account = require('../models/account');
+const { authUser,notauthUser }= require('../basicAuth')
 
 router.use(flash())
 router.use(session({
@@ -23,7 +24,7 @@ router.use(passport.initialize())
 router.use(passport.session())
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/',notauthUser, function(req, res, next) {
   res.render('start', {
     title: 'Get started',
     user: req.session.user
@@ -32,7 +33,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/front', (req, res) => {
   Blog.find()
-    .sort({createdAt: -1})
     .then((posts) => {
       res.render('front', {
         title: 'Blogs',
@@ -45,14 +45,14 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/addbook', function(req, res, next) {
+router.get('/addbook',authUser, function(req, res, next) {
   res.render('addbook', {
     title: 'Add book',
     user: req.session.user
   });
 });
 
-router.post("/addbook", (req, res) => {
+router.post("/addbook",authUser, (req, res) => {
   console.log(req.body);
   const book = new Book(req.body)
   book.save()
@@ -60,14 +60,14 @@ router.post("/addbook", (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.post("/add", (req, res) => {
+router.post("/add",authUser, (req, res) => {
   const blog = new Blog(req.body)
   blog.save()
     .then(result => res.redirect("/front"))
     .catch(err => console.log(err))
 })
 
-router.get("/delete/:id", (req, res) => {
+router.get("/delete/:id",authUser, (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
     .then(res => {
@@ -77,21 +77,16 @@ router.get("/delete/:id", (req, res) => {
     .catch(err => res.redirect("/front"))
 })
 
-router.get('/login', function(req, res, next) {
-  if(req.session.user!=null){
-    res.redirect("/front")
-  }
+router.get('/login',notauthUser, function(req, res, next) {
   res.render('login', {
-    title: 'Login'
+    title: 'Login',
+    user: req.session.user
   });
 });
 
 
-router.post('/login', (req, res) => {
-  if(req.session.user!=null){
-    res.redirect("/front")
-  }
-  Account.find({
+router.post('/login',notauthUser, (req, res) => {
+  account.find({
     email: req.body.email
   }).then(async (acc) => {
     if (acc.length) {
@@ -114,19 +109,14 @@ router.post('/login', (req, res) => {
   })
 })
 
-router.get('/register', function(req, res, next) {
-  if(req.session.user!=null){
-    res.redirect("/front")
-  }
+router.get('/register',notauthUser, function(req, res, next) {
   res.render('register', {
     title: 'Register',
+    user: req.session.user
   });
 });
 
-router.post('/register', async (req, res) => {
-  if(req.session.user!=null){
-    res.redirect("/front")
-  }
+router.post('/register',notauthUser, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     let account = new Account({
@@ -139,21 +129,20 @@ router.post('/register', async (req, res) => {
     });
     account = await account.save()
     res.redirect('/login')
-  } catch(e) {
-    console.log(e);
+  } catch {
     res.redirect('/register')
   }
 })
 
 
-router.get('/add', function(req, res, next) {
-  res.render('add', {
+router.get('/add', authUser,function(req, res, next) {
+  res.render('body1', {
     title: 'Add Blog',
     user: req.session.user
   });
 });
 
-router.get('/terms', function(req, res, next) {
+router.get('/terms',authUser, function(req, res, next) {
   res.render('terms', {
     title: 'Terms',
     user: req.session.user
@@ -168,31 +157,8 @@ router.get('/team', function(req, res, next) {
 });
 
 router.get('/library', function(req, res, next) {
-  // console.log(req.query);
   Book.find()
-    .then((rawbooks) => {
-      var books = []
-      for (var book of rawbooks) {
-        if(book.year==req.query.year || req.query.year==null){
-          if(book.type==req.query.type || req.query.type==null){
-            var i = 0;
-            var expl = 0;
-            if(req.query.department!=null){
-              var department = req.query.department.split(",")
-              expl=department.length
-            }
-            for (; i < expl; i++) {
-              var dept = department[i]
-              if(book.department.includes(dept)==false){
-                break
-              }
-            }
-            if(i==expl){
-              books.push(book)
-            }
-          }
-        }
-      }
+    .then((books) => {
       res.render('library', {
         title: 'Library',
         books: books,

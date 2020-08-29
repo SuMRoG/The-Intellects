@@ -150,5 +150,25 @@ a {
   .fullblog {
     left: 0;
     margin-left: 0;
+    padding: 15px 15px;
+    text-align: justify;
+  }
+  .blogbody {
+    padding: 10px;
+    color: var(--logo-color);
+  }
+  .blog-header .blog-details {
+    /* padding: 15px; */
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .blog-header img.photo {
+    margin-right: 10px;
+  }
+  .fullblogcontainer a i {
+    padding: 10px 50px 10px 10px;
+    font-size: 2em;
+    color: #fff;
   }
 }
