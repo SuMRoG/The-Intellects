@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body{
+  background-color: #e0e0e0;
+}
+:focus{
+  outline: none;
+}
+
+.parent{
+  height: auto;
+  font-family: Raleway, sans-serif;
+}
+
+.baby{
+  width: 1000px;
+  margin: 0 auto;
+  top: 50%;
+  color: #464646;
+  /* border: 2px solid silver; */
+}
+
+summary{
+  margin-top: 12px;
+  background: #fff;
+  padding: 20px;
+  width: 1000px;
+  font-size: 19px;
+  z-index: 1;
+  border-bottom: 1px solid silver;
+  cursor: pointer;
+  border-radius: 20px;
+}
+summary:hover{
+  transform: scale(1.1);
+}
+
+.wesr{
+  display: none;
+  background: #fff;
+  width: 1040px;
+  margin: -2px -20px 0;
+  padding: 30px;
+  font-size: 15px;
+  line-height: 1.5;
+  border: 2px solid silver;
+  text-align: justify;
+  z-index: 2;
+  box-shadow: 0 0 30px -12px #000;
+}
+
+.wesr p{
+  font-weight: 500;
+}
+
+.wesr{
+  animation: det .3s;
+}
+
+button{
+  float: right;
+  background:#0288d1;
+  border: 0;
+  padding: 11px;
+  margin:-6px -6px 0 0;
+  color: #fff;
+  border-radius:4px;
+  cursor:pointer
+}
+button:hover{
+background:#01579b
+}
+
+@media screen and (max-width: 650px) {
+  .baby{
+    width: 350px;
+    /* border: 2px solid silver; */
+  }
+  summary{
+    width: 350px;
+  }
+  .wesr{
+    width: 380px;
+  }
+}
