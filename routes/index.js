@@ -6,14 +6,19 @@ const router = express.Router();
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
-const account = require('../models/account');
+const Account = require('../models/account');
 // const imgModel = require('../models/image');
 const fs = require('fs');
-const multer= require('multer');
+const multer = require('multer');
 const path = require('path');
-const { authUser,notauthUser }= require('../basicAuth')
+const {
+  authUser,
+  notauthUser
+} = require('../basicAuth')
 require('dotenv/config');
-var upload= multer({dest: '../public/uploads'});
+var upload = multer({
+  dest: '../public/uploads'
+});
 
 router.use(express.static(__dirname + "../public/"));
 
@@ -31,45 +36,46 @@ router.use(passport.initialize())
 router.use(passport.session())
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-     cb(null,'../public/uploads');
+  destination: function(req, file, cb) {
+    cb(null, '../public/uploads');
   },
-  filename: function (req, file, cb){
-    cb(null,file.fieldname + "_" + Date.now() + path.extname(file.originalname));
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
   }
 })
 
-const fileFilter=(req, file, cb)=>{
-  if(file.mimetype ==='image/jpeg' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png'){
+const fileFilter = (req, file, cb) => {
+  console.log(req.body);
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
     cb(null, true);
-  } else{
+  } else {
     cb(null, false);
   }
 }
 var upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 *1024 *2
+    fileSize: 1024 * 1024 * 2
   },
   fileFilter: fileFilter
 }).single('image');
 
 /* GET home page. */
-router.get('/',notauthUser, function(req, res, next) {
+router.get('/', notauthUser, function(req, res, next) {
   res.render('start', {
     title: 'Get started',
     user: req.session.user
   });
 });
 
-router.get('/register',notauthUser, function(req, res, next) {
+router.get('/register', notauthUser, function(req, res, next) {
   res.render('register', {
     title: 'Register',
     user: req.session.user
   });
 });
 
-router.post('/register',notauthUser, upload, async (req, res) => {
+router.post('/register', notauthUser, upload, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     let account = new Account({
@@ -80,16 +86,23 @@ router.post('/register',notauthUser, upload, async (req, res) => {
       password: hashedPassword,
       image: req.file.filename
     });
-    account = await account.save()
-    res.redirect('/login')
-  } catch {
+    console.log(account);
+    account.save().then(result=> res.redirect('/login')).catch(err=> {
+      console.log(err)
+      res.redirect('/login')
+    })
+
+  } catch (err){
+    console.log(err);
     res.redirect('/register')
   }
 })
 
 router.get('/front', (req, res) => {
   Blog.find()
-    .sort({ createdAt: -1 })
+    .sort({
+      createdAt: -1
+    })
     .then((posts) => {
       res.render('front', {
         title: 'Blogs',
@@ -102,7 +115,7 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/addbook',authUser, function(req, res, next) {
+router.get('/addbook', authUser, function(req, res, next) {
   res.render('addbook', {
     title: 'Add book',
     user: req.session.user
@@ -118,21 +131,21 @@ router.post("/addbook", (req, res) => {
 })
 
 
-router.get('/add', authUser,function(req, res, next) {
+router.get('/add', authUser, function(req, res, next) {
   res.render('add', {
     title: 'Add Blog',
     user: req.session.user
   });
 });
 
-router.post("/add",authUser, (req, res) => {
+router.post("/add", authUser, (req, res) => {
   const blog = new Blog(req.body)
   blog.save()
     .then(result => res.redirect("/front"))
     .catch(err => console.log(err))
 })
 
-router.get("/delete/:id",authUser, (req, res) => {
+router.get("/delete/:id", authUser, (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
     .then(res => {
@@ -142,7 +155,7 @@ router.get("/delete/:id",authUser, (req, res) => {
     .catch(err => res.redirect("/front"))
 })
 
-router.get('/login',notauthUser, function(req, res, next) {
+router.get('/login', notauthUser, function(req, res, next) {
   res.render('login', {
     title: 'Login',
     user: req.session.user
@@ -150,7 +163,7 @@ router.get('/login',notauthUser, function(req, res, next) {
 });
 
 
-router.post('/login',notauthUser, (req, res) => {
+router.post('/login', notauthUser, (req, res) => {
   account.find({
     email: req.body.email
   }).then(async (acc) => {
@@ -160,7 +173,7 @@ router.post('/login',notauthUser, (req, res) => {
         console.log("Correct");
         req.session.user = acc[0]
         res.redirect("/front")
-        }else {
+      } else {
         console.log("Wrong");
         res.redirect("/login")
       }
@@ -194,21 +207,21 @@ router.get('/library', function(req, res, next) {
     .then((rawbooks) => {
       var books = []
       for (var book of rawbooks) {
-        if(book.year==req.query.year || req.query.year==null){
-          if(book.type==req.query.type || req.query.type==null){
+        if (book.year == req.query.year || req.query.year == null) {
+          if (book.type == req.query.type || req.query.type == null) {
             var i = 0;
             var expl = 0;
-            if(req.query.department!=null){
+            if (req.query.department != null) {
               var department = req.query.department.split(",")
-              expl=department.length
+              expl = department.length
             }
             for (; i < expl; i++) {
               var dept = department[i]
-              if(book.department.includes(dept)==false){
+              if (book.department.includes(dept) == false) {
                 break
               }
             }
-            if(i==expl){
+            if (i == expl) {
               books.push(book)
             }
           }
