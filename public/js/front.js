@@ -10,6 +10,9 @@ function togglepost(ele) {
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h1").innerText = title;
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span > a").innerText = author
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span.blog-date").innerText = datecreated
+  fetch("/user/getProfileImage/"+author).then(res=> res.json()).then(res=>{
+    document.querySelector("#fullblog > header > div > a > img").src = "uploads/"+res.image;
+  }).catch(err=> console.log(err))
   converter = new showdown.Converter(),
   html = converter.makeHtml(body);
   document.querySelector("#blogbody").innerHTML = html;

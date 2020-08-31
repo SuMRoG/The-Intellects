@@ -138,6 +138,7 @@ router.get('/add', authUser, function(req, res, next) {
   });
 });
 
+
 router.post("/add", authUser, (req, res) => {
   const blog = new Blog(req.body)
   blog.save()
@@ -164,7 +165,7 @@ router.get('/login', notauthUser, function(req, res, next) {
 
 
 router.post('/login', notauthUser, (req, res) => {
-  account.find({
+  Account.find({
     email: req.body.email
   }).then(async (acc) => {
     if (acc.length) {
