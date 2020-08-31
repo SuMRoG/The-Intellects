@@ -12,7 +12,7 @@
 <body>
   <div class="loginbox">
     <div class="logincard">
-      <form action="/register" method="post">
+      <form action="/register" method="post" enctype="multipart/form-data">
         <div class="uplogo">
           <img href="/home" src="img/logo.png">
           <span>Welcome</span>
@@ -42,6 +42,10 @@
           <i class="fas fa-key"></i>
           <input onclick="go(this)" required type="password" name="password" placeholder="Password" id="password">
           <i class="fa fa-eye" id="eye" onclick="show()" style="cursor: pointer;"></i>
+        </div>
+        <div class="details">
+          <i class="fas fa-key"></i>
+          <input onclick="go(this)" type="file" name="image" placeholder="Image" id="image">
         </div>
         <script>
           var all = document.getElementsByTagName('input')

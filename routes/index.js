@@ -6,14 +6,16 @@ const router = express.Router();
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
-const initializePassport = require('../passport-config')
 const account = require('../models/account');
-const imgModel = require('../models/image');
+// const imgModel = require('../models/image');
 const fs = require('fs');
 const multer= require('multer');
 const path = require('path');
 const { authUser,notauthUser }= require('../basicAuth')
 require('dotenv/config');
+var upload= multer({dest: '../public/uploads'});
+
+router.use(express.static(__dirname + "../public/"));
 
 router.use(flash())
 router.use(session({
@@ -28,16 +30,29 @@ router.use(session({
 router.use(passport.initialize())
 router.use(passport.session())
 
-var storage= multer.diskStorage({
-  destination: (req,file,cb)=>{
-    cb(null,'uploads')
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+     cb(null,'../public/uploads');
   },
-  filename: (req,file,cb)=>{
-    cb(null,file.fieldname + '-' + Date.now())
+  filename: function (req, file, cb){
+    cb(null,file.fieldname + "_" + Date.now() + path.extname(file.originalname));
   }
 })
 
-var upload = multer({storage: storage});
+const fileFilter=(req, file, cb)=>{
+  if(file.mimetype ==='image/jpeg' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png'){
+    cb(null, true);
+  } else{
+    cb(null, false);
+  }
+}
+var upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 *1024 *2
+  },
+  fileFilter: fileFilter
+}).single('image');
 
 /* GET home page. */
 router.get('/',notauthUser, function(req, res, next) {
@@ -47,54 +62,29 @@ router.get('/',notauthUser, function(req, res, next) {
   });
 });
 
-router.get('/pic',(req,res)=>{
-  imgModel.find()
-    .then((items) => {
-      res.render('/pic', {
-        title: 'Images',
-        items: items,
-        user: req.session.user
-      })
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-
-    imgModel.find({},(err,items)=>{
-      if(err){
-        console.log(err);
-      } else{
-        res.render('/pic',{
-          title: 'Images',
-          items: items,
-        });
-      }
-    });
+router.get('/register',notauthUser, function(req, res, next) {
+  res.render('register', {
+    title: 'Register',
+    user: req.session.user
+  });
 });
 
-router.post('/pic',upload.single('image'),async (req,res)=>{
+router.post('/register',notauthUser, upload, async (req, res) => {
   try {
-    let imgModel = new Image({
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    let account = new Account({
       name: req.body.name,
-      desc: req.body.desc,
-      img:{
-        data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-        contentType: 'image/png'
-    }
-  });
-    image = await imgModel.save()
-    res.redirect('/pic')
+      username: req.body.username,
+      gender: req.body.gender,
+      email: req.body.email,
+      password: hashedPassword,
+      image: req.file.filename
+    });
+    account = await account.save()
+    res.redirect('/login')
   } catch {
-    res.redirect('/')
+    res.redirect('/register')
   }
-  // imgModel.create(obj,(err,item)={
-  //   if(err){
-  //     console.log(err);
-  //   } else{
-  //       //item.save();
-  //       res.redirect('/image');
-  //   }
-  // })
 })
 
 router.get('/front', (req, res) => {
@@ -184,31 +174,6 @@ router.post('/login',notauthUser, (req, res) => {
   })
 })
 
-router.get('/register',notauthUser, function(req, res, next) {
-  res.render('register', {
-    title: 'Register',
-    user: req.session.user
-  });
-});
-
-router.post('/register',notauthUser, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    let account = new Account({
-      // id: date.now().toString(),
-      name: req.body.name,
-      username: req.body.username,
-      gender: req.body.gender,
-      email: req.body.email,
-      password: hashedPassword
-    });
-    account = await account.save()
-    res.redirect('/login')
-  } catch {
-    res.redirect('/register')
-  }
-})
-
 router.get('/terms', function(req, res, next) {
   res.render('terms', {
     title: 'Terms',
@@ -272,5 +237,57 @@ router.get('/connect', function(req, res, next) {
     user: req.session.user
   });
 });
+
+
+// router.get('/pic',(req,res)=>{
+//   imgModel.find()
+//     .then((items) => {
+//       res.render('/pic', {
+//         title: 'Images',
+//         items: items,
+//         user: req.session.user
+//       })
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     })
+//
+//     imgModel.find({},(err,items)=>{
+//       if(err){
+//         console.log(err);
+//       } else{
+//         res.render('/pic',{
+//           title: 'Images',
+//           items: items,
+//         });
+//       }
+//     });
+// });
+//
+// router.post('/pic',upload.single('image'),async (req,res)=>{
+//   try {
+//     let imgModel = new Image({
+//       name: req.body.name,
+//       desc: req.body.desc,
+//       img:{
+//         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+//         contentType: 'image/png'
+//     }
+//   });
+//     image = await imgModel.save()
+//     res.redirect('/pic')
+//   } catch {
+//     res.redirect('/')
+//   }
+//   // imgModel.create(obj,(err,item)={
+//   //   if(err){
+//   //     console.log(err);
+//   //   } else{
+//   //       //item.save();
+//   //       res.redirect('/image');
+//   //   }
+//   // })
+// })
+
 
 module.exports = router;

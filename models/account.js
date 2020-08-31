@@ -23,7 +23,9 @@ const accountSchema = new Schema({
       type: String,
       required: true
   },
-
+  image:{
+    type: String
+  }
 },{timestamps: true});
 
 const Account= mongoose.model('Account',accountSchema)
