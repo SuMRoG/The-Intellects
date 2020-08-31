@@ -65,15 +65,19 @@
           <%}%>
           <%books.map((book,i)=>{%>
           <% if(book.cover==0){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" class="cardcontainer" target="_blank">
             <div class="card card0">
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
-            <% if(book.cover==1){%>
-          <a href="<%=book.url%>" target="_blank">
+          <% if(book.cover==1){%>
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card1">
               <div class="diamonds">
                 <div class="dia"></div>
@@ -90,10 +94,14 @@
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
-            <% if(book.cover==2){%>
-          <a href="<%=book.url%>" target="_blank">
+          <% if(book.cover==2){%>
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card2">
               <div class="ribbon"></div>
               <div class="centerdia"></div>
@@ -101,28 +109,40 @@
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
             <% if(book.cover==3){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card3">
               <div class="square"></div>
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
             <% if(book.cover==4){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card4">
               <div class="band"></div>
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
             <% if(book.cover==5){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card5">
               <div class="fallcontainer">
                 <div class="fall"></div>
@@ -138,10 +158,14 @@
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
             <% if(book.cover==6){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card6">
               <div class="rainbow">
                 <div class="bow"></div>
@@ -155,10 +179,14 @@
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
             <% if(book.cover==7){%>
-          <a href="<%=book.url%>" target="_blank">
+          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card7">
               <div class="circles">
                 <div class="circle"></div>
@@ -170,63 +198,65 @@
               <span class="title"><%=book.title%></span>
               <span class="author"><%=book.author%></span>
             </div>
+            <div class="datacontainer">
+              <h4>Physics</h4>
+              <p class="title2">RODJ</p>
+            </div>
           </a>
           <%}%>
           <%})%>
 
         </div>
 
-<div class=="row">
-  <div class="column">
-    <div class="card27">
-    <div class="panel__image panel__image--book">
-  <a href="#" class="books__book__image">
-  <div class="books__book__img">
-<img src="/img/book.png" style="height: 150px; width: 110px;">
-  </div>
-  </a>
-  </div>
-  <div class="container">
-    <h4>Physics</h4>
-    <p class="title2">RODJ</p>
-  </div>
-  </div>
-  </div>
+        <div class="rowe paper-container">
+          <div class="cardcolumn">
+            <div class="card27">
+              <div class="panel__image panel__image--book">
+                <a href="#" class="books__book__image">
+                  <div class="books__book__img">
+                    <img src="/img/book.png">
+                  </div>
+                </a>
+              </div>
+              <div class="datacontainer">
+                <h4>Physics</h4>
+                <p class="title2">RODJ</p>
+              </div>
+            </div>
+        </div>
+        <div class="cardcolumn">
+          <div class="card27">
+            <div class="panel__image panel__image--book">
+              <a href="#" class="books__book__image">
+                <div class="books__book__img">
+                  <img src="/img/book.png">
+                </div>
+              </a>
+            </div>
+            <div class="datacontainer">
+              <h4>Maths</h4>
+              <p class="title2">Analytics</p>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card27">
-    <div class="panel__image panel__image--book">
-  <a href="#" class="books__book__image">
-  <div class="books__book__img">
-<img src="/img/book.png" style="height: 150px; width: 110px;">
-  </div>
-  </a>
-  </div>
-  <div class="container">
-    <h4>Maths</h4>
-    <p class="title2">Analytics</p>
-  </div>
-  </div>
-  </div>
-
-  <div class="column">
-    <div class="card27">
-    <div class="panel__image panel__image--book">
-  <a href="#" class="books__book__image">
-  <div class="books__book__img">
-<img src="/img/book.png" style="height: 150px; width: 110px;">
-  </div>
-  </a>
-  </div>
-  <div class="container">
-    <h4>Data structures</h4>
-    <p class="title2">Computing</p>
-  </div>
-  </div>
-  </div>
+        <div class="cardcolumn">
+          <div class="card27">
+            <div class="panel__image panel__image--book">
+              <a href="#" class="books__book__image">
+                <div class="books__book__img">
+                  <img src="/img/book.png">
+                </div>
+              </a>
+            </div>
+            <div class="datacontainer">
+              <h4>Data structures</h4>
+              <p class="title2">Computing</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-</div>
   </div>
 </div>
 
