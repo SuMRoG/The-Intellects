@@ -8,7 +8,11 @@ const flash = require('express-flash')
 const session = require('express-session')
 const initializePassport = require('../passport-config')
 const account = require('../models/account');
+const imgModel = require('../models/image');
+const fs = require('fs');
+const multer= require('multer');
 const { authUser,notauthUser }= require('../basicAuth')
+require('dotenv/config');
 
 router.use(flash())
 router.use(session({
@@ -23,6 +27,17 @@ router.use(session({
 router.use(passport.initialize())
 router.use(passport.session())
 
+var storage= multer.diskStorage({
+  destination: (req,file,cb)=>{
+    cb(null,'uploads')
+  },
+  filename: (req,file,cb)=>{
+    cb(null,file.fieldname + '-' + Date.now())
+  }
+})
+
+var upload = multer({storage: storage});
+
 /* GET home page. */
 router.get('/',notauthUser, function(req, res, next) {
   res.render('start', {
@@ -30,6 +45,56 @@ router.get('/',notauthUser, function(req, res, next) {
     user: req.session.user
   });
 });
+
+router.get('/pic',(req,res)=>{
+  imgModel.find()
+    .then((items) => {
+      res.render('/pic', {
+        title: 'Images',
+        items: items,
+        user: req.session.user
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+
+    imgModel.find({},(err,items)=>{
+      if(err){
+        console.log(err);
+      } else{
+        res.render('/pic',{
+          title: 'Images',
+          items: items,
+        });
+      }
+    });
+});
+
+router.post('/pic',upload.single('image'),async (req,res)=>{
+  try {
+    let imgModel = new Image({
+      name: req.body.name,
+      desc: req.body.desc,
+      img:{
+        data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+        contentType: 'image/png'
+    }
+  });
+    image = await imgModel.save()
+    res.redirect('/pic')
+  } catch {
+    res.redirect('/')
+  }
+  // imgModel.create(obj,(err,item)={
+  //   if(err){
+  //     console.log(err);
+  //   } else{
+  //       //item.save();
+  //       res.redirect('/image');
+  //   }
+  // })
+})
 
 router.get('/front', (req, res) => {
   Blog.find()

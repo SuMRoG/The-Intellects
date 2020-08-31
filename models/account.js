@@ -22,7 +22,8 @@ const accountSchema = new Schema({
   username:{
       type: String,
       required: true
-  }
+  },
+
 },{timestamps: true});
 
 const Account= mongoose.model('Account',accountSchema)
