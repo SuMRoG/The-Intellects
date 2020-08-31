@@ -11,7 +11,7 @@ const account = require('../models/account');
 const imgModel = require('../models/image');
 const fs = require('fs');
 const multer= require('multer');
-const path = require('path'); 
+const path = require('path');
 const { authUser,notauthUser }= require('../basicAuth')
 require('dotenv/config');
 
@@ -99,6 +99,7 @@ router.post('/pic',upload.single('image'),async (req,res)=>{
 
 router.get('/front', (req, res) => {
   Blog.find()
+    .sort({ createdAt: -1 })
     .then((posts) => {
       res.render('front', {
         title: 'Blogs',
@@ -125,6 +126,14 @@ router.post("/addbook", (req, res) => {
     .then(result => res.redirect("/library"))
     .catch(err => console.log(err))
 })
+
+
+router.get('/add', authUser,function(req, res, next) {
+  res.render('add', {
+    title: 'Add Blog',
+    user: req.session.user
+  });
+});
 
 router.post("/add",authUser, (req, res) => {
   const blog = new Blog(req.body)
@@ -199,14 +208,6 @@ router.post('/register',notauthUser, async (req, res) => {
     res.redirect('/register')
   }
 })
-
-
-router.get('/add', authUser,function(req, res, next) {
-  res.render('add', {
-    title: 'Add Blog',
-    user: req.session.user
-  });
-});
 
 router.get('/terms', function(req, res, next) {
   res.render('terms', {
