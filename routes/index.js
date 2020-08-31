@@ -11,6 +11,7 @@ const account = require('../models/account');
 const imgModel = require('../models/image');
 const fs = require('fs');
 const multer= require('multer');
+const path = require('path'); 
 const { authUser,notauthUser }= require('../basicAuth')
 require('dotenv/config');
 

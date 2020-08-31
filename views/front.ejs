@@ -108,15 +108,15 @@
       </div>
 
       <div class="boy">
-        <div class="post-navigator">
+        <!-- <div class="post-navigator">
           <div class="options">
             <span>Formal</span>
             <span>Informal</span>
             <span>Promotion</span>
           </div>
           <div class="post-nav-slider"></div>
-        </div>
-
+        </div> -->
+        <br><br>
         <%posts.map((post,i)=>{%>
         <%if(i&1^1){%>
         <div class="row">
@@ -132,7 +132,7 @@
               </div>
               <div class="data">
                 <div class="content1">
-                  <span class="author"> <%=post.author%> </span>
+                  <span class="author"> <%=req.session.user.name%> </span>
                   <h1 class="title"  onclick="togglepost(this)"><a> <%=post.title%> </a></h1>
                 </div>
                 <div class="content2">
