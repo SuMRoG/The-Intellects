@@ -91,7 +91,6 @@ router.post('/register', notauthUser, upload, async (req, res) => {
       console.log(err)
       res.redirect('/login')
     })
-
   } catch (err){
     console.log(err);
     res.redirect('/register')
@@ -138,7 +137,6 @@ router.get('/add', authUser, function(req, res, next) {
   });
 });
 
-
 router.post("/add", authUser, (req, res) => {
   const blog = new Blog(req.body)
   blog.save()
@@ -165,7 +163,7 @@ router.get('/login', notauthUser, function(req, res, next) {
 
 
 router.post('/login', notauthUser, (req, res) => {
-  Account.find({
+  account.find({
     email: req.body.email
   }).then(async (acc) => {
     if (acc.length) {

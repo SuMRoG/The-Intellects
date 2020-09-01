@@ -133,12 +133,12 @@
               <div class="data">
                 <div class="content1">
                   <span class="author"> <%=post.author%> </span>
-                  <h1 class="title"  onclick="togglepost(this)"><a> <%=post.title%> </a></h1>
+                  <h1 class="title"><a> <%=post.title%> </a></h1>
                 </div>
                 <div class="content2">
                   <p class="text"> <%=post.snippet%> </p>
                   <p hidden> <%=post.body%> </p>
-                  <a href="/delete/<%=post._id%>" class="but2">Read More</a>
+                  <a onclick="togglepost(this)" class="but2">Read More</a>
                 </div>
               </div>
             </div>
