@@ -29,6 +29,7 @@ body[theme="light"] {
   --text: #131313;
   --con-color: #f1f1f1;
   --text-dim: #4a4a4a;
+  --shadow: rgba(136, 136, 136, 0.34);
 }
 
 body[theme="dark"] {
@@ -43,6 +44,7 @@ body[theme="dark"] {
   --text: #f1f1f1;
   --con-color: #131313;
   --text-dim: #c4c4c4;
+  --shadow: rgba(28, 28, 28, 0.9);
 }
 
 body {
