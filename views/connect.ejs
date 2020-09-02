@@ -3,109 +3,115 @@
 <link rel="stylesheet" href="css\start.css">
 <link rel="stylesheet" href="css\lib.css">
 <link rel="stylesheet" href="css\connect.css">
+<link rel="stylesheet" href="css\lib2.css">
 <script type="text/javascript" src="js\connect.js"></script>
 <div id="content">
   <div class="container">
     <header class=" header23">
       <div class="text-box">
         <h1 class="qwer">Connect</h1>
+          <a href="/addcon" class="btn btn-white btn-animated">Add connect??</a>
       </div>
     </header>
 
-    <div class="parent">
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span> Sujal Modanwal</span> </summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
+    <div class="row">
+      <div class="column-15">
+        <ul>
+          <div class="confilters" id="confilters">
+            <div class="option">
+              <label for="year">Year</label>
+              <select name="year" id="year" size="2">
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+                <option value="4">Fourth</option>
+              </select>
+            </div>
+          </div>
+
+          <br>
+          <div class="option">
+            <label for="department">Department</label>
+            <select name="department" id="department" size="4">
+              <option value="cst">CST</option>
+              <option value="etc">ETC</option>
+              <option value="it">IT</option>
+              <option value="ee">EE</option>
+              <option value="me">ME</option>
+              <option value="ce">CE</option>
+              <option value="aero">Aero</option>
+              <option value="meta">Meta</option>
+            </select>
+          </div>
+          <br>
+          <div class="option">
+            <label for="state">State</label>
+            <select name="state" id="state" size="5">
+              <option value="in">International Candidate</option>
+              <option value="ap">Andhra Pradesh</option>
+              <option value="arp">Arunachal Pradesh</option>
+              <option value="asm">Assam</option>
+              <option value="bih">Bihar</option>
+              <option value="chat">Chhattisgarh</option>
+              <option value="goa">Goa</option>
+              <option value="guj">Gujarat</option>
+              <option value="har">Haryana</option>
+              <option value="hm">Himachal Pradesh</option>
+              <option value="jhar">Jharkhand</option>
+              <option value="kar">Karnataka</option>
+              <option value="ker">Kerala</option>
+              <option value="mp">Madhya Pradesh	</option>
+              <option value="maha">Maharashtra</option>
+              <option value="man">Manipur</option>
+              <option value="megh">Meghalaya</option>
+              <option value="miz">Mizoram</option>
+              <option value="nag">Nagaland</option>
+              <option value="odi">Odisha</option>
+              <option value="pun">Punjab</option>
+              <option value="raj">Rajasthan</option>
+              <option value="sik">Sikkim</option>
+              <option value="tn">Tamil Nadu</option>
+              <option value="tel">Telangana</option>
+              <option value="tri">Tripura</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="utta">Uttarakhand</option>
+              <option value="wb">West Bengal</option>
+            </select>
+          </div>
+          <br></ul>
+          <div class="filterbuttons">
+            <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
+            <button type="button" name="clearfilter" class="filter" onclick="clearfilter()">Clear</button>
+          </div>
       </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/rh.jpg"> <span> Rohan Gupta </span></summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Coding and Engineering Drawing
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="https://media-exp1.licdn.com/dms/image/C5603AQEwmaFeiGlCYg/profile-displayphoto-shrink_200_200/0?e=1604534400&v=beta&t=GRzLbRC_sC_JlQt5Yk6RBvXHJHfYvQoU6koT9iUNpJE"> <span> Rahul Halder </span> </summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span> Sujal Modanwal</span></summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span> Sujal Modanwal</span></summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span> Sujal Modanwal</span></summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
-      <div class="baby">
-        <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span> Sujal Modanwal</span></summary>
-        <div class="wesr">
-          <h4>Department</h4>
-          <p>Computer Science and Technology</p>
-          <h4>Hobbies</h4>
-          <p>Dancing, Coding and Football
-          <p>
-          <h4>About</h4>
-          <p>i AM that kind of person who is loves his friends and kills his enemies..
-            ..To contact me, tmhe mjhe dhundna pdega...hahahaha</p>
-        </div>
-      </div>
+      <div class="column-85">
+        <% if(connects.length==0){%>
+          <h1>No Student found</h1>
+          <%}%>
+            <div class="parent">
+              <%connects & connects.map(connect=>{%>
+                <div class="baby">
+                  <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span><%=connect.name%></span></summary>
+                  <div class="wesr">
+                    <p>from</p>
+                    <h5 style="color: skyblue;"><%=connect.city%>, <%=connect.state%></h5>
+                    <p style="display: inline-block;"><%=connect.gender%></p>
+                    <h4>Department</h4>
+                    <p><%=connect.department%></p>
+                    <h4>Email</h4>
+                    <p><%=connect.email%></p>
+                    <hr>
+                    <h4>About</h4>
+                    <p><%=connect.bio%></p>
+                  </div>
+                </div>
+              <%})%>
+
+          </div>
     </div>
   </div>
 </div>
+</div>
+
 
 <%- include('layouts/foot.ejs') %>
