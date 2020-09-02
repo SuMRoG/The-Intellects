@@ -14,7 +14,6 @@ const app = express();
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
-const initializePassport = require('./passport-config')
 const account = require('./models/account');
 
 // initializePassport(

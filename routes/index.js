@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
 const Book = require('../models/book');
 const Question = require('../models/question');
+const Connect = require('../models/conn');
 const router = express.Router();
 const passport = require('passport')
 const flash = require('express-flash')
@@ -84,6 +85,34 @@ router.get('/front', (req, res) => {
     .catch((err) => {
       console.log(err);
     })
+})
+
+router.get('/connect', (req,res) =>{
+  Connect.find()
+  .then((connects) =>{
+    res.render('connect',{
+      title: 'Connect',
+      connects: connects,
+      user: req.session.user
+    })
+  }) .catch((err) =>{
+    console.log(err);
+  })
+})
+
+router.get('/addcon', function(req,res, next ){
+  res.render('addcon',{
+    title: 'Add connect',
+    user: req.session.user
+  });
+})
+
+router.post("/addcon", (req,res) =>{
+  console.log(req.body);
+  const connect = new Connect(req.body)
+  connect.save()
+  .then(result => res.redirect("/connect"))
+  .catch(err => console.log(err))
 })
 
 router.get('/addbook', authUser, function(req, res, next) {
