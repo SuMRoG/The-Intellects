@@ -106,8 +106,4 @@ ul select option:checked {
     flex-direction: column;
   }
 
-  .filter{
-    margin: 0 40%;
-  }
-
 }

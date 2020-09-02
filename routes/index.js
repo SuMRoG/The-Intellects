@@ -89,15 +89,31 @@ router.get('/front', (req, res) => {
 
 router.get('/connect', (req,res) =>{
   Connect.find()
-  .then((connects) =>{
-    res.render('connect',{
-      title: 'Connect',
-      connects: connects,
-      user: req.session.user
+    .then((allstudents) => {
+      var students = []
+      for (var student of allstudents) {
+        if (student.year == req.query.year || req.query.year == null) {
+          if (student.department == req.query.department || req.query.department == null) {
+            if (student.state == req.query.state || req.query.state == null) {
+              students.push(student)
+            }
+          }
+        }
+      }
+      res.render('connect',{
+        title: 'Connect',
+        students: students,
+        user: req.session.user
+      })
     })
-  }) .catch((err) =>{
-    console.log(err);
-  })
+    .catch((err) => {
+      console.log(err)
+      res.render('connect', {
+        title: 'Connect',
+        user: req.session.user,
+        err: "Error 505"
+      });
+    })
 })
 
 router.get('/addcon', function(req,res, next ){

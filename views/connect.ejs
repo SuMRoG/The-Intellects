@@ -10,25 +10,22 @@
     <header class=" header23">
       <div class="text-box">
         <h1 class="qwer">Connect</h1>
-          <a href="/addcon" class="btn btn-white btn-animated">Add connect??</a>
+        <a href="/addcon" class="btn btn-white btn-animated">Add connect??</a>
       </div>
     </header>
 
     <div class="row">
       <div class="column-15">
         <ul>
-          <div class="confilters" id="confilters">
-            <div class="option">
-              <label for="year">Year</label>
-              <select name="year" id="year" size="2">
-                <option value="1">First</option>
-                <option value="2">Second</option>
-                <option value="3">Third</option>
-                <option value="4">Fourth</option>
-              </select>
-            </div>
+          <div class="option">
+            <label for="year">Year</label>
+            <select name="year" id="year" size="2">
+              <option value="1">First</option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth</option>
+            </select>
           </div>
-
           <br>
           <div class="option">
             <label for="department">Department</label>
@@ -60,7 +57,7 @@
               <option value="jhar">Jharkhand</option>
               <option value="kar">Karnataka</option>
               <option value="ker">Kerala</option>
-              <option value="mp">Madhya Pradesh	</option>
+              <option value="mp">Madhya Pradesh </option>
               <option value="maha">Maharashtra</option>
               <option value="man">Manipur</option>
               <option value="megh">Meghalaya</option>
@@ -78,36 +75,32 @@
               <option value="wb">West Bengal</option>
             </select>
           </div>
-          <br></ul>
-          <div class="filterbuttons">
-            <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
-            <button type="button" name="clearfilter" class="filter" onclick="clearfilter()">Clear</button>
-          </div>
+          <br>
+        </ul>
+        <div class="filterbuttons">
+          <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
+          <button type="button" name="clearfilter" class="filter" onclick="clearfilter()">Clear</button>
+        </div>
       </div>
       <div class="column-85">
-        <% if(connects.length==0){%>
+        <% if(students.length==0){%>
           <h1>No Student found</h1>
-          <%}%>
-            <div class="parent">
-              <%connects & connects.map(connect=>{%>
-                <div class="baby">
-                  <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span><%=connect.name%></span></summary>
-                  <div class="wesr">
-                    <p>from</p>
-                    <h5 style="color: skyblue;"><%=connect.city%>, <%=connect.state%></h5>
-                    <p style="display: inline-block;"><%=connect.gender%></p>
-                    <h4>Department</h4>
-                    <p><%=connect.department%></p>
-                    <h4>Email</h4>
-                    <p><%=connect.email%></p>
-                    <hr>
-                    <h4>About</h4>
-                    <p><%=connect.bio%></p>
-                  </div>
-                </div>
-              <%})%>
-
+        <%}%>
+        <div class="parent">
+        <%students & students.map(student=>{%>
+          <div class="baby">
+            <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span><%=student.name%></span></summary>
+            <div class="wesr">
+              <h5 style="color: skyblue;">from : <%=student.city%>, <%=student.state%></h5>
+              <p style="display: inline-block;"><%=student.gender%></p>
+              <p><strong>Department : </strong><%=student.department%> ( <%=student.year%> )</p>
+              <p><strong>Email : </strong><%=student.email%></p>
+              <hr>
+              <p><strong>About : </strong><%=student.bio%></p>
+            </div>
           </div>
+        <%})%>
+      </div>
     </div>
   </div>
 </div>

@@ -6,34 +6,34 @@ const connectSchema = new Schema({
     type: String,
     required: true
   },
-  email:{
+  email: {
     type: String,
     required: true
   },
-  gender:{
+  gender: {
     type: String,
     required: true
   },
-  department:{
+  department: {
     type: String,
     required: true
   },
-  year:{
-      type: Number,
-      required: true
+  year: {
+    type: Number,
+    required: true
   },
-  state:{
+  state: {
     type: String,
     required: true
   },
-  city:{
+  city: {
+    type: String,
+    default: "city",
+  },
+  profile: {
     type: String
   },
-  profile:{
-    type: String,
-    required: true
-  },
-  bio:{
+  bio: {
     type: String,
     required: true
   }

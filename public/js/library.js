@@ -68,17 +68,15 @@ function filter() {
 
   var url = new URLSearchParams(data).toString()
 
-  console.log(url)
   location.href = "/library?" + url
 
 }
 
 function setfilter() {
-  console.log("What");
   let params = {}
   window.location.search.slice(1).split('&').forEach(elm => {
     if (elm === '') return
-    let spl = elm.split('=')
+    var spl = elm.split('=')
     const d = decodeURIComponent
     params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true)
   })
@@ -88,8 +86,6 @@ function setfilter() {
   var sessionyear = document.getElementById('sessionyear')
   var semester = document.getElementById('semester')
   var department = document.getElementById('department')
-
-  console.log(params);
 
   if(params.type && params.type=="ques"){
     type.value = "ques"
