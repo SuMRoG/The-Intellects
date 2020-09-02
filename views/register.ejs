@@ -12,7 +12,7 @@
 <body>
   <div class="loginbox">
     <div class="logincard">
-      <form action="/register" method="post" enctype="multipart/form-data">
+      <form action="/register" method="post">
         <div class="uplogo">
           <img href="/home" src="img/logo.png">
           <span>Welcome</span>
@@ -32,20 +32,20 @@
         <div class="details1">
           <i class="fas fa-male"></i>
           <select id="gender" onclick="go(this)" required type="gender" name="gender" placeholder="Gender">
-            <option value="gender">Gender</option>
+            <option disabled>Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-            <option value= "Rohan"> Rohan</option>
+            <option value= "Other">Other</option>
           </select>
+        </div>
+        <div class="details">
+          <i class="fas fa-image"></i>
+          <input onclick="go(this)" type="text" name="filename" placeholder="Paste your profile image">
         </div>
         <div class="details">
           <i class="fas fa-key"></i>
           <input onclick="go(this)" required type="password" name="password" placeholder="Password" id="password">
           <i class="fa fa-eye" id="eye" onclick="show()" style="cursor: pointer;"></i>
-        </div>
-        <div class="details">
-          <i class="fas fa-key"></i>
-          <input onclick="go(this)" type="file" name="image" placeholder="Image" id="image">
         </div>
         <script>
           var all = document.getElementsByTagName('input')

@@ -24,7 +24,8 @@ const accountSchema = new Schema({
       required: true
   },
   image:{
-    type: String
+    type: String,
+    default: "img/default.png"
   }
 },{timestamps: true});
 

@@ -215,6 +215,7 @@ h1 {
   color: #fff;
   line-height: 1;
   position: relative;
+  cursor: pointer;
   font-weight: 700;
 }
 

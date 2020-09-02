@@ -4,7 +4,7 @@
   padding: 20px;
 }
 
-.options {
+.optional {
   width: 100%;
   padding: 20px;
 }
@@ -34,6 +34,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.imageinput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.imageinput span {
+  width: 20%;
+  text-align: left;
+  padding: 20px;
+  color: var(--text-dim);
+  outline: none;
+  font-weight: 600;
+  background: inherit;
+}
+
+.imageinput input{
+  background: var(--background-dim);
+  height: 40px;
 }
 
 .titleinput {
@@ -69,6 +90,20 @@
   background: var(--background-dim);
 }
 
+.previewcontainer {
+  padding: 5%;
+}
+
+.postimage {
+  margin-bottom: 50px;
+}
+
+.postimage img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
 .submitbutton {
   padding: 8px 20px;
   border: none;
@@ -78,4 +113,6 @@
   font-weight: 600;
   color: #0254b2;
   margin: 20px 0;
+  cursor: pointer;
+  outline: none;
 }
