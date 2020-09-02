@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="css\start.css">
 <link rel="stylesheet" href="css\lib.css">
 <link rel="stylesheet" href="css\lib2.css">
+<script type="text/javascript" src="js\addbook.js"></script>
 <div id="content">
   <div class="container">
     <header class=" header23">
@@ -11,25 +12,66 @@
       </div>
     </header>
     <div class='wert'>
-    <form action="/addbook" method="post">
-      <label for="title">Title</label><br>
-      <input required type="text" name="title" value=""><br><br>
-      <label for="author">Author</label><br>
-      <input type="text" name="author" value=""><br><br>
+    <form action="/addbook" id="addbook" method="post">
       <label for="type">Type</label>
-      <select name="type">
+      <select name="type" id="type" onchange="changetab()">
         <option value="book">Book</option>
-        <option value="pdf">Pdf</option>
         <option value="ques">Question paper</option>
-        <option value="notes">Notes</option>
       </select><br>
-      <label for="year">Year</label>
-      <select name="year">
-        <option value="1">First</option>
-        <option value="2">Second</option>
-        <option value="3">Third</option>
-        <option value="4">Fourth</option>
-      </select><br>
+
+      <div class="bookinputs" id="bookinputs">
+        <label for="title">Title</label>
+        <input required type="text" name="title" value=""><br>
+        <label for="author">Author or source</label>
+        <input type="text" name="author" value=""><br><br>
+
+        <label for="year">Year</label>
+        <select name="year" id="year">
+          <option value="1">First</option>
+          <option value="2">Second</option>
+          <option value="3">Third</option>
+          <option value="4">Fourth</option>
+        </select><br>
+
+      </div>
+
+      <div class="paperinputs" id="paperinputs" hidden>
+
+        <label for="sessionyear">Year</label>
+        <select name="sessionyear" id="sessionyear" size="5">
+          <option value="2020">2020-21</option>
+          <option value="2019">2019-20</option>
+          <option value="2018">2018-19</option>
+          <option value="2017">2017-18</option>
+          <option value="2016">2016-17</option>
+        </select>
+        <script>
+          var date = new Date()
+          var year = date.getFullYear()
+          var sessionyear = document.getElementById('sessionyear')
+          for (var option of sessionyear.children) {
+            option.value = year
+            option.innerText = year + "-" + (year - 1999)
+            year--
+          }
+        </script><br>
+
+        <label for="semester">Semester</label>
+        <select name="semester" id="semester" size="4">
+          <option value="1">First / Second</option>
+          <option value="3">Third</option>
+          <option value="4">Fourth</option>
+          <option value="5">Fifth</option>
+          <option value="6">Sixth</option>
+          <option value="7">Seventh</option>
+          <option value="8">Eighth</option>
+        </select><br>
+
+      </div>
+
+      <label for="subject">Subject</label>
+      <input type="text" name="subject" value=""><br>
+
       <label for="department'">Department</label>
       <select name="department" id="department" multiple>
         <option value="cst">CST</option>
@@ -41,14 +83,10 @@
         <option value="aero">Aero</option>
         <option value="meta">Meta</option>
       </select><br>
-      <label for="subject">Subject</label>
-      <input type="text" name="subject" value=""><br>
-      <label for="cover">Cover</label>
-      <input type="number" name="cover" value=""><br>
+
       <label for="url">Url</label>
       <input type="text" name="url" value=""><br>
       <button type="submit" name="button">Add</button>
-
     </form>
 </div>
   </div>
