@@ -278,4 +278,9 @@ h1 {
     font-size: 30px;
     font-weight: bold;
   }
+  .card .data {
+    transform: translateY(calc(60px + 6em));
+    transition: transform 0.3s;
+    color: #fff;
+  }
 }
