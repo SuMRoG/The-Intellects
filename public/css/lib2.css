@@ -48,23 +48,10 @@ ul select option:checked {
   background: #0d5bdf;
 }
 
-/* ul select option::after {
-  position: absolute;
-  content: "";
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #3498db;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.5s;
+.filterbuttons{
+  display: flex;
+  justify-content: space-around;
 }
-
-ul select option:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-} */
 
 .filter {
   border: 2px solid #257ee2;
@@ -74,7 +61,6 @@ ul select option:hover::after {
   font-size: 1.1em;
   align-self: center;
   border-radius: 10px;
-  margin: 0 60px;
   outline: none;
   cursor: pointer;
   transition: 0.5s;

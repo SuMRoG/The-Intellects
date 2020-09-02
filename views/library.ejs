@@ -17,17 +17,62 @@
       <div class="column-15">
         <ul>
           <div class="option">
-            <label for="year">Year</label>
-            <select name="year" id="year" size="4">
-              <option value="1">First</option>
-              <option value="2">Second</option>
-              <option value="3">Third</option>
-              <option value="4">Fourth</option>
+            <label for="type">Type</label>
+            <select name="type" id="type" size="4" onchange="changedtab()">
+              <option selected value="book">Book and notes</option>
+              <option value="ques">Exam papers</option>
             </select>
           </div>
 
-          <br>
+          <div class="bookfilters" id="bookfilters">
+            <div class="option">
+              <label for="year">Year</label>
+              <select name="year" id="year" size="4">
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+                <option value="4">Fourth</option>
+              </select>
+            </div>
+          </div>
 
+          <div class="quesfilters" id="quesfilters" hidden>
+            <div class="option">
+              <label for="sessionyear">Year</label>
+              <select name="sessionyear" id="sessionyear" size="5">
+                <option value="2020">2020-21</option>
+                <option value="2019">2019-20</option>
+                <option value="2018">2018-19</option>
+                <option value="2017">2017-18</option>
+                <option value="2016">2016-17</option>
+              </select>
+              <script>
+                var date = new Date()
+                var year = date.getFullYear()
+                var sessionyear = document.getElementById('sessionyear')
+                for (var option of sessionyear.children) {
+                  option.value = year
+                  option.innerText = year + "-" + (year - 1999)
+                  year--
+                }
+              </script>
+            </div>
+            <br>
+            <div class="option">
+              <label for="semester">Semester</label>
+              <select name="semester" id="semester" size="4">
+                <option value="1">First / Second</option>
+                <option value="3">Third</option>
+                <option value="4">Fourth</option>
+                <option value="5">Fifth</option>
+                <option value="6">Sixth</option>
+                <option value="7">Seventh</option>
+                <option value="8">Eighth</option>
+              </select>
+            </div>
+          </div>
+
+          <br>
           <div class="option">
             <label for="department'">Department</label>
             <select name="department" id="department" multiple>
@@ -43,27 +88,21 @@
           </div>
 
           <br>
-          <br>
-
-          <div class="option">
-            <label for="type">Type</label>
-            <select name="type" id="type" size="4">
-              <option value="book">Book and notes</option>
-              <option value="ques">Exam papers</option>
-            </select>
-          </div>
-
-          <br>
         </ul>
-        <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
+        <div class="filterbuttons">
+          <button type="button" name="filter" class="filter" onclick="filter()">filter</button>
+          <button type="button" name="clearfilter" class="filter" onclick="clearfilter()">Clear</button>
+        </div>
 
       </div>
       <div class="column-85">
-        <div class="book-container">
-          <%if(books.length==0){%>
-          <h1>No books founds</h1>
+        <%if(books.length==0){%>
+          <%if(papers.length==0){%>
+            <h1>No books founds</h1>
           <%}%>
-          <%books.map((book,i)=>{%>
+        <%}%>
+        <div class="book-container">
+          <%books & books.map(book=>{%>
           <% if(book.cover==0){%>
           <a href="<%=book.url%>" class="cardcontainer" class="cardcontainer" target="_blank">
             <div class="card card0">
@@ -209,55 +248,29 @@
         </div>
 
         <div class="rowe paper-container">
-          <div class="cardcolumn">
-            <div class="card27">
-              <div class="panel__image panel__image--book">
-                <a href="#" class="books__book__image">
-                  <div class="books__book__img">
-                    <img src="/img/book.png">
+          <%papers & papers.map(paper=>{%>
+            <div class="cardcolumn">
+              <div class="card27">
+                <div class="panel__image panel__image--book">
+                  <a href="#" class="books__book__image">
+                    <div class="books__book__img">
+                      <img src="/img/book.png">
+                    </div>
+                  </a>
+                </div>
+                <div class="datacontainer">
+                  <h4><%=paper.subject%></h4>
+                  <div class="title2 paperdetails">
+                    <p><%=paper.sessionyear%>-<%=paper.sessionyear-1999%></p>
+                    <p><%=paper.semester%> sem</p>
                   </div>
-                </a>
-              </div>
-              <div class="datacontainer">
-                <h4>Physics</h4>
-                <p class="title2">RODJ</p>
+                </div>
               </div>
             </div>
-        </div>
-        <div class="cardcolumn">
-          <div class="card27">
-            <div class="panel__image panel__image--book">
-              <a href="#" class="books__book__image">
-                <div class="books__book__img">
-                  <img src="/img/book.png">
-                </div>
-              </a>
-            </div>
-            <div class="datacontainer">
-              <h4>Maths</h4>
-              <p class="title2">Analytics</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardcolumn">
-          <div class="card27">
-            <div class="panel__image panel__image--book">
-              <a href="#" class="books__book__image">
-                <div class="books__book__img">
-                  <img src="/img/book.png">
-                </div>
-              </a>
-            </div>
-            <div class="datacontainer">
-              <h4>Data structures</h4>
-              <p class="title2">Computing</p>
-            </div>
-          </div>
+          <%})%>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<%- include('layouts/foot.ejs') %>
+  <%- include('layouts/foot.ejs') %>

@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
 const Book = require('../models/book');
+const Question = require('../models/question');
 const router = express.Router();
 const passport = require('passport')
 const flash = require('express-flash')
@@ -45,11 +46,11 @@ router.get('/register', notauthUser, function(req, res, next) {
   });
 });
 
-router.post('/register',notauthUser, async (req, res) => {
+router.post('/register', notauthUser, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const image = "img/default.png"
-    if(req.body.filename!="") image=req.body.filename
+    if (req.body.filename != "") image = req.body.filename
 
     let account = new Account({
       name: req.body.name,
@@ -61,7 +62,7 @@ router.post('/register',notauthUser, async (req, res) => {
     });
     account = await account.save()
     res.redirect('/login')
-  } catch(err){
+  } catch (err) {
     console.log(err);
     console.log(req.body);
     res.redirect('/register')
@@ -173,12 +174,12 @@ router.get('/team', function(req, res, next) {
 
 router.get('/library', function(req, res, next) {
   // console.log(req.query);
-  Book.find()
-    .then((rawbooks) => {
-      var books = []
-      for (var book of rawbooks) {
-        if (book.year == req.query.year || req.query.year == null) {
-          if (book.type == req.query.type || req.query.type == null) {
+  if (req.query.type != "ques") {
+    Book.find()
+      .then((rawbooks) => {
+        var books = []
+        for (var book of rawbooks) {
+          if (book.year == req.query.year || req.query.year == null) {
             var i = 0;
             var expl = 0;
             if (req.query.department != null) {
@@ -196,16 +197,62 @@ router.get('/library', function(req, res, next) {
             }
           }
         }
-      }
-      res.render('library', {
-        title: 'Library',
-        books: books,
-        user: req.session.user
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+        res.render('library', {
+          title: 'Library',
+          books: books,
+          papers: [],
+          user: req.session.user
+        });
+      })
+      .catch((err) => {
+        console.log(err)
+        res.render('library', {
+          title: 'Library',
+          user: req.session.user,
+          err: "Error 505"
+        });
+      })
+  }else{
+    Question.find()
+      .then((rawpapers) => {
+        var papers = []
+        for (var paper of rawpapers) {
+          if (paper.sessionyear == req.query.sessionyear || req.query.sessionyear == null) {
+            if (paper.semester == req.query.semester || req.query.semester == null) {
+              var i = 0;
+              var expl = 0;
+              if (req.query.department != null) {
+                var department = req.query.department.split(",")
+                expl = department.length
+              }
+              for (; i < expl; i++) {
+                var dept = department[i]
+                if (paper.department.includes(dept) == false) {
+                  break
+                }
+              }
+              if (i == expl){
+                papers.push(paper)
+              }
+            }
+          }
+        }
+        res.render('library', {
+          title: 'Library',
+          books: [],
+          papers: papers,
+          user: req.session.user
+        });
+      })
+      .catch((err) => {
+        console.log(err)
+        res.render('library', {
+          title: 'Library',
+          user: req.session.user,
+          err: "Error 505"
+        })
+      })
+  }
 });
 
 router.get('/proto', function(req, res, next) {

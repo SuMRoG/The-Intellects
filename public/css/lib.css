@@ -47,6 +47,14 @@ body {
   color: #e030db;
 }
 
+.bookfilters {
+  width: 100%;
+}
+
+.quesfilters {
+  width: 100%;
+}
+
 .options span {
   padding: 15px;
 }
@@ -65,7 +73,7 @@ body {
 }
 
 .btn:link,
-.btn:visited{
+.btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 10px 20px;
@@ -75,16 +83,17 @@ body {
   position: relative;
 }
 
-.btn:hover{
+.btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
-.btn:active{
+
+.btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn-white{
+.btn-white {
   font-size: 14px;
   background-color: #fff;
   color: #777;
@@ -149,6 +158,13 @@ body {
   color: grey;
 }
 
+.paperdetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8em;
+}
+
 .datacontainer {
   padding: 0 16px;
   align-items: center;
@@ -156,12 +172,12 @@ body {
   flex-direction: column;
 }
 
-.datacontainer h4{
+.datacontainer h4 {
   margin: 10px;
 }
 
-.title2{
-  margin: 10px 10px 50px 10px;
+.title2 {
+  margin: 10px 10px 20px 10px;
 }
 
 .container::after, .row::after {

@@ -10,6 +10,16 @@ body {
   background: var(--background);
 }
 
+body[theme="light"]{
+  --header-gradient-one: rgba(76, 216, 255, 0.8);
+  --header-gradient-two: rgba(30, 108, 217, 0.8);
+}
+
+body[theme="dark"]{
+  --header-gradient-one: rgba(0, 0, 0, 0.8);
+  --header-gradient-two: rgba(0, 0, 0, 0.8);
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -18,8 +28,8 @@ body {
   height: 70vh;
   background-image:
   linear-gradient(to right bottom,
-     rgba(76, 216, 255, 0.8),
-     rgba(30, 108, 217, 0.8)),
+     var(--header-gradient-one),
+     var(--header-gradient-two)),
      url('/img/3496602.jpg');
      background-size: cover;
      background-position: top;

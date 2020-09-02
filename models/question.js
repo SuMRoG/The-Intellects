@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const questionSchema = new Schema({
-  year: {
+  sessionyear: {
+    type: Number,
+    required: true,
+    default: 1
+  },
+  semester: {
     type: Number,
     required: true,
     default: 1
@@ -15,7 +20,7 @@ const questionSchema = new Schema({
   url: {
     type: String,
     default: "#"
-  }
+  },
   type: {
     type: String,
     default: "endsem"
