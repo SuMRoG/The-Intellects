@@ -36,6 +36,7 @@ body[theme="dark"] {
   background-size: cover;
   background-position: top;
   position: relative;
+  filter: drop-shadow(2px 4px 6px black);
   clip-path: polygon(0 0, 100% 0, 100% 20vh, 0 100%);
 }
 
@@ -266,4 +267,25 @@ body[theme="dark"] {
   .header23 {
     clip-path: polygon(0 0, 100% 0, 100% 22.5vh, 0 100%);
   }
+}
+
+.term{
+  color: var(--logo-color);
+}
+
+.term p{
+  margin-left:5%;
+  margin-top:5%;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 200px 0 200px;
+  text-align: justify;
+}
+
+.term h2{
+  margin-left:5%;
+  font-size: 30px;
+  margin-bottom: -3rem;
+  padding: 40px 200px 0 200px;
+  text-align: justify;
 }

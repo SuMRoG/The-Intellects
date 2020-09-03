@@ -10,3 +10,12 @@ function slideit(i) {
   slider.style.left = a[i]+"%"
   info.innerHTML = infotext[i]
 }
+
+function myfunction2(){
+  var x= document.getElementById('bar2');
+  if(x.style.display === "none"){
+    x.style.display="block";
+  }else{
+    x.style.display="none";
+  }
+}

@@ -44,35 +44,35 @@
           <div class="option">
             <label for="state">State</label>
             <select name="state" id="state" size="5">
-              <option value="in">International Candidate</option>
-              <option value="ap">Andhra Pradesh</option>
-              <option value="arp">Arunachal Pradesh</option>
-              <option value="asm">Assam</option>
-              <option value="bih">Bihar</option>
-              <option value="chat">Chhattisgarh</option>
-              <option value="goa">Goa</option>
-              <option value="guj">Gujarat</option>
-              <option value="har">Haryana</option>
-              <option value="hm">Himachal Pradesh</option>
-              <option value="jhar">Jharkhand</option>
-              <option value="kar">Karnataka</option>
-              <option value="ker">Kerala</option>
-              <option value="mp">Madhya Pradesh </option>
-              <option value="maha">Maharashtra</option>
-              <option value="man">Manipur</option>
-              <option value="megh">Meghalaya</option>
-              <option value="miz">Mizoram</option>
-              <option value="nag">Nagaland</option>
-              <option value="odi">Odisha</option>
-              <option value="pun">Punjab</option>
-              <option value="raj">Rajasthan</option>
-              <option value="sik">Sikkim</option>
-              <option value="tn">Tamil Nadu</option>
-              <option value="tel">Telangana</option>
-              <option value="tri">Tripura</option>
-              <option value="up">Uttar Pradesh</option>
-              <option value="utta">Uttarakhand</option>
-              <option value="wb">West Bengal</option>
+              <option value="International Candidate">International Candidate</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh	</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
             </select>
           </div>
           <br>
@@ -89,10 +89,16 @@
         <div class="parent">
         <%students & students.map(student=>{%>
           <div class="baby">
-            <summary onclick="myfunction(this)"> <img src="img/sm.jpeg"> <span><%=student.name%></span></summary>
+            <summary onclick="myfunction(this)">
+              <% if(student.gender=="Male"){%>
+                  <img src="/img/icon-5359553_1920.png">
+                <%} else{%>
+                    <img src="/img/user-310807_1280.png">
+                  <%} %>
+
+              <span><%=student.name%></span></summary>
             <div class="wesr">
               <h5>from : <%=student.city%>, <%=student.state%></h5>
-              <p><%=student.gender%></p>
               <p><strong>Department : </strong><%=student.department%> ( <%=student.year%> )</p>
               <p><strong>Email : </strong><%=student.email%></p>
               <hr>

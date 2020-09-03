@@ -147,6 +147,10 @@
   border-radius: 8px;
   background-color: #4CAF50;
 }
+.button2 a{
+  color: white;
+  text-decoration: none;
+}
 
 .startImage {
   display: block;
@@ -203,18 +207,16 @@
 
 .paras {
   color: var(--logo-color);
-  text-align: left;
+  text-align: justify;
   font-weight: 500;
 }
 
 .paras span {
   font-size: 30px;
-  ;
 }
 
 .topics {
   color: var(--logo-color);
-  text-align: justify;
 }
 
 .text {
@@ -253,6 +255,10 @@
 
 .pepe {
   padding: 0px;
+}
+
+.paras2{
+  margin-right: 40px;
 }
 
 @media only screen and (max-width: 300px) {
@@ -330,4 +336,51 @@
     font-style: normal;
     font-weight: 500;
   }
+  .paras2 {
+    margin-right: 0;
+    text-align: center;
+  }
+  .hb-close-wrapper .icon-close{
+      text-align: right;
+      top: 15px;
+      right: 0;
+  }
+  #bar2{
+    text-align: left;
+  }
+}
+
+#bar2{
+  position: absolute;
+  padding: 8px;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right:0;
+  background: var(--logo-color);
+  color: var(--background);
+  text-align: center;
+  line-height: 2.5;
+  overflow: hidden;
+  box-shadow: 0 0 5px black;
+}
+
+.hb-close-wrapper{
+  display: table-cell;
+  width: 1.6em;
+}
+.hb-close-wrapper .icon-close{
+  font-size: 15px;
+  top: 15px;
+  right: 30px;
+  width: 15px;
+  height: 15px;
+  opacity: .3;
+  color: var(--background);
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  line-height: 15px;
+  z-index:1000;
+  text-decoration: none;
 }

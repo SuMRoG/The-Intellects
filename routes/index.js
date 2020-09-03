@@ -87,7 +87,7 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/connect', (req,res) =>{
+router.get('/connect', authUser, (req,res) =>{
   Connect.find()
     .then((allstudents) => {
       var students = []
@@ -123,7 +123,7 @@ router.get('/addcon', function(req,res, next ){
   });
 })
 
-router.post("/addcon", (req,res) =>{
+router.post("/addcon", authUser, (req,res) =>{
   console.log(req.body);
   const connect = new Connect(req.body)
   connect.save()
@@ -138,7 +138,7 @@ router.get('/addbook', authUser, function(req, res, next) {
   });
 });
 
-router.post("/addbook", (req, res) => {
+router.post("/addbook", authUser, (req, res) => {
   console.log(req.body);
   const book = new Book(req.body)
   book.save()
@@ -217,7 +217,7 @@ router.get('/team', function(req, res, next) {
   });
 });
 
-router.get('/library', function(req, res, next) {
+router.get('/library', authUser, function(req, res, next) {
   // console.log(req.query);
   if (req.query.type != "ques") {
     Book.find()
@@ -306,7 +306,7 @@ router.get('/proto', function(req, res, next) {
   });
 });
 
-router.get('/connect', function(req, res, next) {
+router.get('/connect', authUser, function(req, res, next) {
   res.render('connect', {
     title: 'Connect',
     user: req.session.user
