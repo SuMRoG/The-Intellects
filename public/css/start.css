@@ -32,11 +32,11 @@
   width: 500px;
   height: 240px;
   background-color: var(--background);
-  margin: 0 40% 0 17.5%;
+  margin: 0 40% 0 17%;
   padding: 40px;
   border-radius: 15px;
   float: left;
-  transform: translateY(-320px);
+  transform: translateY(-290px);
 }
 
 .start a {
@@ -147,7 +147,8 @@
   border-radius: 8px;
   background-color: #4CAF50;
 }
-.button2 a{
+
+.button2 a {
   color: white;
   text-decoration: none;
 }
@@ -157,8 +158,8 @@
   height: auto;
   max-width: 100%;
   vertical-align: middle;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
-   /* border: 5px solid var(--secondary-color);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  /* border: 5px solid var(--secondary-color);
    border-radius: 40px; */
 }
 
@@ -257,7 +258,7 @@
   padding: 0px;
 }
 
-.paras2{
+.paras2 {
   margin-right: 40px;
 }
 
@@ -336,51 +337,54 @@
     font-style: normal;
     font-weight: 500;
   }
+
   .paras2 {
     margin-right: 0;
     text-align: center;
   }
-  .hb-close-wrapper .icon-close{
-      text-align: right;
-      top: 15px;
-      right: 0;
+
+  .hb-close-wrapper .icon-close {
+    text-align: right;
+    top: 15px;
+    right: 0;
   }
-  #bar2{
+
+  #bar2 {
     text-align: left;
   }
 }
 
-#bar2{
+#bar2 {
   position: absolute;
-  padding: 8px;
-  z-index: 101;
-  top: 0;
+  padding: 2px;
+  z-index: 2;
+  top: 50px;
   left: 0;
-  right:0;
-  background: var(--logo-color);
-  color: var(--background);
+  right: 0;
+  background: var(--background);
+  color: var(--logo-color);
   text-align: center;
   line-height: 2.5;
   overflow: hidden;
   box-shadow: 0 0 5px black;
 }
 
-.hb-close-wrapper{
+.hb-close-wrapper {
   display: table-cell;
   width: 1.6em;
 }
-.hb-close-wrapper .icon-close{
+
+.hb-close-wrapper .icon-close {
   font-size: 15px;
-  top: 15px;
+  top: 16px;
   right: 30px;
   width: 15px;
   height: 15px;
   opacity: .3;
-  color: var(--background);
+  color: var(--logo-color);
   cursor: pointer;
   position: absolute;
   text-align: center;
   line-height: 15px;
-  z-index:1000;
   text-decoration: none;
 }

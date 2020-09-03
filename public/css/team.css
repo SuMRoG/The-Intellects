@@ -115,13 +115,13 @@ body[theme="dark"] {
 }
 
 .our-team {
+  position: relative;
   padding: 30px 0 40px;
-  box-shadow: 0 0 12px 2px grey;
+  box-shadow: 0 0 12px 2px var(--background-dim);
   margin-bottom: 30px;
-  background-color: #f7f5ec;
+  background-color: var(--background);
   text-align: center;
   overflow: hidden;
-  position: relative;
 }
 
 .our-team .picture {
