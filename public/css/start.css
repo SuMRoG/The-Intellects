@@ -361,8 +361,8 @@
   top: 50px;
   left: 0;
   right: 0;
-  background: var(--background);
-  color: var(--logo-color);
+  background:var(--logo-color);
+  color: var(--con-color);
   text-align: center;
   line-height: 2.5;
   overflow: hidden;
@@ -380,8 +380,9 @@
   right: 30px;
   width: 15px;
   height: 15px;
+  /* padding: 40px; */
   opacity: .3;
-  color: var(--logo-color);
+  color: var(--con-color);
   cursor: pointer;
   position: absolute;
   text-align: center;
