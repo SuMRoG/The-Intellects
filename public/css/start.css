@@ -214,6 +214,7 @@
 
 .topics {
   color: var(--logo-color);
+  text-align: justify;
 }
 
 .text {

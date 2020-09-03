@@ -184,6 +184,7 @@ body[theme="dark"] {
 
 .datacontainer h4 {
   margin: 10px;
+  color: var(--logo-color);
 }
 
 .title2 {
