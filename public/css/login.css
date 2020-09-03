@@ -28,6 +28,13 @@ body {
   z-index: 1;
 }
 
+@media screen and (max-width: 650px) {
+  .logincard{
+    margin-top: 10px;
+    transform: scale(0.9);
+  }
+}
+
 .uplogo {
   display: flex;
   flex-direction: column;
@@ -64,7 +71,7 @@ body {
   vertical-align: middle;
 }
 
-.details input{
+.details input {
   background-color: #f3f3f3;
   border: none;
   color: #282828;
@@ -100,7 +107,7 @@ body {
   vertical-align: middle;
 }
 
-.details1 select{
+.details1 select {
   background-color: #f3f3f3;
   border: none;
   color: #282828;
@@ -117,7 +124,7 @@ body {
   transition: 0.3s;
 }
 
-.accept{
+.accept {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +132,7 @@ body {
   margin: 15px auto;
 }
 
-.accept a{
+.accept a {
   text-decoration: none;
 }
 
@@ -217,12 +224,12 @@ button[type="submit"]:hover {
   }
 }
 
-.otherlinks{
+.otherlinks {
   display: flex;
   justify-content: space-around;
 }
 
-.otherlinks a{
+.otherlinks a {
   text-decoration: none;
   color: #4f60ff;
   font-weight: bold;

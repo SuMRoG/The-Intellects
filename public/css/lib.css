@@ -113,7 +113,6 @@ body[theme="dark"] {
 .qwer {
   grid-area: 2 / 1 / 2 / 3;
   font-family: Raleway, sans-serif;
-  align-self: left;
   justify-self: left;
   color: white;
   text-transform: uppercase;
@@ -250,7 +249,7 @@ body[theme="dark"] {
 @media screen and (max-width: 650px) {
   .qwer {
     font-size: 3rem;
-    margin-left: -8rem;
+    margin-left: -5rem;
     margin-top: -7rem;
   }
 
