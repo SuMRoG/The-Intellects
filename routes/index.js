@@ -33,7 +33,7 @@ router.use(passport.initialize())
 router.use(passport.session())
 
 /* GET home page. */
-router.get('/', notauthUser, function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('start', {
     title: 'Get started',
     user: req.session.user
@@ -87,7 +87,7 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/connect', authUser, (req,res) =>{
+router.get('/connect', (req,res) =>{
   Connect.find()
     .then((allstudents) => {
       var students = []
@@ -217,7 +217,7 @@ router.get('/team', function(req, res, next) {
   });
 });
 
-router.get('/library', authUser, function(req, res, next) {
+router.get('/library', function(req, res, next) {
   // console.log(req.query);
   if (req.query.type != "ques") {
     Book.find()
@@ -306,7 +306,7 @@ router.get('/proto', function(req, res, next) {
   });
 });
 
-router.get('/connect', authUser, function(req, res, next) {
+router.get('/connect', function(req, res, next) {
   res.render('connect', {
     title: 'Connect',
     user: req.session.user

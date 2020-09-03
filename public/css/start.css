@@ -7,7 +7,7 @@
   transform: skew(-35deg);
   background: linear-gradient(30deg, var(--primary-color) 0%, var(--secondary-grad) 100%);
   border-bottom-right-radius: 20px;
-  /* box-shadow: 15px 0px 0px #fff; */
+  box-shadow: 15px 0px 0px #fff;
   z-index: 0;
 }
 
@@ -277,13 +277,13 @@
     height: 400px;
     width: 100%;
     /* clip-path: url(#headercut); */
-    clip-path: polygon(0% 0%, 0% 70%, 100% 55%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 80%, 100% 65%, 100% 0%);
   }
 
   .headwrapper {
     position: absolute;
     top: 0;
-    /* filter: drop-shadow(0px 10px 0px #fff); */
+    filter: drop-shadow(0px 10px 0px #fff);
   }
 
   .why {
