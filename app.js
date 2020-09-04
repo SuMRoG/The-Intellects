@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -36,7 +32,7 @@ mongoose.connect(dbURI, {
 
   app.use(flash())
   app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: "thecakeisalie",
     resave: false,
     saveUninitialized: false
   }))
