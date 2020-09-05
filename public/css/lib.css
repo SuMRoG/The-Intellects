@@ -253,6 +253,10 @@ body[theme="dark"] {
     margin-top: -7rem;
   }
 
+  #rare{
+    margin-left: 0;
+  }
+
   .column-15 {
     width: 100%;
     clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
