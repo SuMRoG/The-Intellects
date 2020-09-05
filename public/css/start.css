@@ -15,14 +15,14 @@
 .header {
   text-align: center;
   height: 670px;
-  width: 1519px;
+  width: 100%;
   background: url(../img/mainbuilding.jpg);
   background-repeat: no-repeat;
-  background-position-x: 180%;
+  /* background-position-x: 180%; */
   background-position-y: 100%;
   overflow: hidden;
-  background-size: contain;
-  object-fit: cover;
+  background-size: cover;
+  /* object-fit: cover; */
 }
 
 .header h1 {
