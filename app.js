@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -22,18 +18,21 @@ const account = require('./models/account');
 //   id=> account.find( account => account.id === id)
 // )
 
+var PORT = process.env.PORT || 3000;
 //connect to database
 const dbURI = 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .then((result) => app.listen(3000))
+  .then((result) => {
+    app.listen(PORT)
+  })
   .catch(err => console.log(err))
 
   app.use(flash())
   app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: "thecakeisalie",
     resave: false,
     saveUninitialized: false
   }))

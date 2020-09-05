@@ -15,7 +15,6 @@ const {
   authUser,
   notauthUser
 } = require('../basicAuth')
-require('dotenv/config');
 
 router.use(express.static(__dirname + "../public/"));
 
