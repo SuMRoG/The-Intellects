@@ -91,7 +91,7 @@
 }
 
 .previewcontainer {
-  padding: 5%;
+  padding: 0 15%;
 }
 
 .postimage {
@@ -115,4 +115,11 @@
   margin: 20px 0;
   cursor: pointer;
   outline: none;
+}
+
+
+@media screen and (max-width: 650px) {
+  .previewcontainer {
+    padding: 5%;
+  }
 }

@@ -78,15 +78,13 @@ body[theme="dark"] {
 }
 
 .btn-white {
-  font-size: 14px;
+  font-size: 10px;
   background-color: #fff;
   color: #777;
 }
 
 .qwer {
-  grid-area: 2 / 1 / 2 / 3;
   align-self: center;
-  justify-self: center;
   color: white;
   text-transform: uppercase;
   font-size: 4rem;
@@ -101,13 +99,9 @@ body[theme="dark"] {
 }
 
 .column11 {
-  float: left;
-  min-width: 400px;
   width: 25%;
-  /* margin: 0 15%; */
   margin-bottom: 16px;
   margin-top: 16px;
-  /* padding: 50px; */
 }
 
 .our-team {

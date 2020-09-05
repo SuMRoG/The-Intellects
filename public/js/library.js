@@ -29,8 +29,14 @@ function clearfilter() {
 function changedtab() {
   var bookfilters = document.getElementById('bookfilters')
   var quesfilters = document.getElementById('quesfilters')
-  bookfilters.hidden = bookfilters.hidden ^ 1
-  quesfilters.hidden = quesfilters.hidden ^ 1
+  var type = document.getElementById('type').value
+  if(type=="book"){
+    bookfilters.hidden = false
+    quesfilters.hidden = true
+  }else{
+    bookfilters.hidden = true
+    quesfilters.hidden = false
+  }
 }
 
 function filter() {
