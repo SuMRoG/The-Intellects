@@ -315,6 +315,10 @@ body[theme="dark"] {
     margin-left: 0;
   } */
 
+  #termsandconditions {
+    margin-left: 0;
+  }
+
   .column-15 {
     width: 100%;
     clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
@@ -326,6 +330,17 @@ body[theme="dark"] {
   }
 
   .header23 {
-    clip-path: polygon(0 0, 100% 0, 100% 22.5vh, 0 100%);
+    clip-path: polygon(0 0, 100% 3%, 100% 22.5vh, 0 100%);
   }
+  /* .column-15 {
+    float: left;
+    width: 20%;
+    transform: translateY(-20px);
+    padding: 80px 10px;
+    background: var(--filter-bar);
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    clip-path: polygon(0 5%, 100% 3%, 100% 100%, 0% 100%);
+  } */
 }
