@@ -117,7 +117,7 @@ body[theme="dark"] {
 }
 
 .qwer {
-  font-size: 40px;
+  font-size: 55px;
   grid-area: 2 / 1 / 2 / 3;
   font-family: Raleway, sans-serif;
   justify-self: left;
@@ -307,7 +307,7 @@ body[theme="dark"] {
   }
 
   .qwer {
-    margin-left: 0px;
+    /* margin-left: 0px; */
     margin-top: -7rem;
   }
 
