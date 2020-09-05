@@ -317,11 +317,12 @@ body[theme="dark"] {
 
   #termsandconditions {
     margin-left: 0;
+    font-size: 35px;
   }
 
   .column-15 {
     width: 100%;
-    clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 12%, 100% 0%, 100% 22.5vh, 0% 100%);
   }
 
   .column-85 {
@@ -330,7 +331,7 @@ body[theme="dark"] {
   }
 
   .header23 {
-    clip-path: polygon(0 0, 100% 3%, 100% 22.5vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 22.5vh, 0 100%);
   }
   /* .column-15 {
     float: left;
