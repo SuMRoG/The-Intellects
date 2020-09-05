@@ -36,11 +36,11 @@
 					</div>
 				<%}%>
 			</div>
-			<div class="nav2 hidden">
-				<a href="/" class="active"><i class="fas fa-home"> &nbsp; </i> Home</a>
+			<div id="nav2" class="nav2 hidden">
+				<a href="/front"><i class="fas fa-home"> &nbsp; </i> Home</a>
 				<a href="/front"><i class="fab fa-blogger-b"> &nbsp; </i> Blogs</a>
 				<a href="/library"><i class="far fa-building"> &nbsp; </i> Library</a>
-				<a href="/connect"><i class="fas fa-user-shield"> &nbsp; </i>Connect</a>
+				<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
 				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
 				<div style="display: flex; align-items: center;padding: 10%">
@@ -63,6 +63,22 @@
 				    themeicon.setAttribute('class','far fa-sun');
 				    checkbox.checked = false;
 				  }
+
+					var nav2 = document.getElementById('nav2')
+
+					if(document.title=="Get started"){
+						nav2.children[0].classList.toggle('active')
+					}else if (document.title=="Blogs") {
+						nav2.children[1].classList.toggle('active')
+					}else if (document.title=="Library") {
+						nav2.children[2].classList.toggle('active')
+					}else if (document.title=="Connect") {
+						nav2.children[3].classList.toggle('active')
+					}else if (document.title=="Team") {
+						nav2.children[4].classList.toggle('active')
+					}else if (document.title=="Terms") {
+						nav2.children[5].classList.toggle('active')
+					}
 				</script>
 			</div>
 		</div>

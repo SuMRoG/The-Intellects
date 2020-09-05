@@ -1,3 +1,15 @@
+body[theme="light"] {
+  --labels: #4a4a4a;
+  --options-color: #000;
+  --scrollback: #b5b8be;
+}
+
+body[theme="dark"] {
+  --labels: #d7eaee;
+  --options-color: #ecf0f1;
+  --scrollback: #252930;
+}
+
 .option{
   width: 100%;
 }
@@ -12,7 +24,7 @@ ul {
 }
 
 ul label {
-  color: #d7eaee;
+  color: var(--labels);
 }
 
 ul select {
@@ -23,9 +35,13 @@ ul select {
   outline: none;
 }
 
+#type::-webkit-scrollbar {
+  width: 0;
+}
+
 ul select::-webkit-scrollbar {
   width: 5px;
-  background-color: #252930;
+  background-color: var(--scrollback);
 }
 
 ul select::-webkit-scrollbar-thumb {
@@ -38,7 +54,7 @@ ul select option {
   position: relative;
   display: block;
   padding: 6px;
-  color: #ecf0f1;
+  color: var(--options-color);
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.3s;
@@ -58,6 +74,7 @@ ul select option:checked {
   padding: 5px 12px;
   background: inherit;
   color: #48ade8;
+  font-weight: 600;
   font-size: 1.1em;
   align-self: center;
   border-radius: 10px;
@@ -88,20 +105,12 @@ ul select option:checked {
     margin: 10px auto;
   }
 
-  /* ul select::-webkit-scrollbar {
-    width: 0;
-  } */
-
   ul select {
     padding: 2px;
   }
 
-  .option:nth-child(1){
-    width: 20%;
-  }
-
   .option{
-    width: 33%;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }

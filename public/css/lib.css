@@ -11,11 +11,13 @@ body {
 }
 
 body[theme="light"] {
+  --filter-bar: #e7e7e7;
   --header-gradient-one: rgba(76, 216, 255, 0.8);
   --header-gradient-two: rgba(30, 108, 217, 0.8);
 }
 
 body[theme="dark"] {
+  --filter-bar: #1a1e22;
   --header-gradient-one: rgba(0, 0, 0, 0.8);
   --header-gradient-two: rgba(0, 0, 0, 0.8);
 }
@@ -105,18 +107,22 @@ body[theme="dark"] {
 }
 
 .btn-white {
-  font-size: 14px;
+  font-size: 10px;
   background-color: #fff;
   color: #777;
 }
 
+#termsandconditions {
+  margin-left: 200px;
+}
+
 .qwer {
+  font-size: 40px;
   grid-area: 2 / 1 / 2 / 3;
   font-family: Raleway, sans-serif;
   justify-self: left;
   color: white;
   text-transform: uppercase;
-  font-size: 3rem;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
   margin-top: -5rem;
 }
@@ -132,11 +138,27 @@ body[theme="dark"] {
   width: 20%;
   transform: translateY(-20px);
   padding: 80px 10px;
-  background: #1a1e22;
+  background: var(--filter-bar);
   overflow: hidden;
   display: block;
   height: 100%;
   clip-path: polygon(0 5%, 100% 3%, 100% 100%, 0% 100%);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty h1{
+  color: var(--text-dim);
+}
+
+#emptysvg {
+  width: 100%;
+  padding: 30px;
+  max-width: 600px;
 }
 
 .wert {
@@ -246,10 +268,46 @@ body[theme="dark"] {
   position: relative;
 }
 
+.term {
+  color: var(--logo-color);
+}
+
+.term p {
+  max-width: 1180px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 200px 0 200px;
+  text-align: justify;
+  line-height: 35px;
+}
+
+.term h2 {
+  margin-left: 5%;
+  font-size: 30px;
+  margin-bottom: -3rem;
+  padding: 40px 200px 0 200px;
+  text-align: justify;
+}
+
 @media screen and (max-width: 650px) {
+  .term p {
+    margin-left: 0;
+    padding: 0 20px;
+    font-size: 15px;
+    text-align: inherit;
+    line-height: 30px;
+  }
+
+  .term h2 {
+    margin-left: 0;
+    padding: 0 20px;
+    margin-bottom: 0;
+  }
+
   .qwer {
-    font-size: 3rem;
-    margin-left: -5rem;
+    margin-left: 0px;
     margin-top: -7rem;
   }
 
@@ -270,25 +328,4 @@ body[theme="dark"] {
   .header23 {
     clip-path: polygon(0 0, 100% 0, 100% 22.5vh, 0 100%);
   }
-}
-
-.term{
-  color: var(--logo-color);
-}
-
-.term p{
-  margin-left:5%;
-  margin-top:5%;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0 200px 0 200px;
-  text-align: justify;
-}
-
-.term h2{
-  margin-left:5%;
-  font-size: 30px;
-  margin-bottom: -3rem;
-  padding: 40px 200px 0 200px;
-  text-align: justify;
 }

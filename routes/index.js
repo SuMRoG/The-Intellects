@@ -211,7 +211,7 @@ router.get('/terms', function(req, res, next) {
 
 router.get('/team', function(req, res, next) {
   res.render('team', {
-    title: 'Our Team',
+    title: 'Team',
     user: req.session.user
   });
 });
