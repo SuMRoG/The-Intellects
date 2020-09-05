@@ -9,6 +9,7 @@
   border-bottom-right-radius: 20px;
   box-shadow: 15px 0px 0px #fff;
   z-index: 0;
+  object-fit: cover;
 }
 
 .header {
@@ -21,6 +22,7 @@
   background-position-y: 100%;
   overflow: hidden;
   background-size: contain;
+  object-fit: cover;
 }
 
 .header h1 {
