@@ -99,8 +99,12 @@ ul select option:checked {
     justify-content: space-between;
   }
 
+  #yearoption{
+    width: 60%;
+  }
+
   label{
-    text-align: center;
+    text-align: left;
   }
 
   select{

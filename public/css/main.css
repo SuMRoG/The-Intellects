@@ -56,6 +56,17 @@ body {
   background: var(--background);
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--scrollback);
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: #2932d1a8;
+}
+
 .container {
   max-width: 1540px;
   width: 100%;

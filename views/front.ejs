@@ -108,45 +108,28 @@
       </div>
 
       <div class="boy">
-        <!-- <div class="post-navigator">
-          <div class="options">
-            <span>Formal</span>
-            <span>Informal</span>
-            <span>Promotion</span>
-          </div>
-          <div class="post-nav-slider"></div>
-        </div> -->
-        <br><br>
         <%posts.map((post,i)=>{%>
-        <%if(i&1^1){%>
-        <div class="row">
-          <%}%>
-          <div class="column">
-            <div class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('<%=post.bannerimage%>')  center / cover no-repeat;">
-              <div class="header4">
-                <div class="date">
-                  <span>
-                    <%= post.createdAt.toLocaleDateString("en-US",{weekday: "short",year:"numeric",month:"short",day: "numeric" })%>
-                  </span>
-                </div>
+          <div class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('<%=post.bannerimage%>')  center / cover no-repeat;">
+            <div class="header4">
+              <div class="date">
+                <span>
+                  <%= post.createdAt.toLocaleDateString("en-US",{weekday: "short",year:"numeric",month:"short",day: "numeric" })%>
+                </span>
               </div>
-              <div class="data">
-                <div class="content1">
-                  <span class="author"> <%=post.author%> </span>
-                  <h1 class="title"><a> <%=post.title%> </a></h1>
-                </div>
-                <div class="content2">
-                  <p class="text"> <%=post.snippet%> </p>
-                  <p hidden> <%=post.body%> </p>
-                  <a onclick="togglepost(this)" class="but2">Read More</a>
-                </div>
+            </div>
+            <div class="data">
+              <div class="content1">
+                <span class="author"> <%=post.author%> </span>
+                <h1 class="title"><a> <%=post.title%> </a></h1>
+              </div>
+              <div class="content2">
+                <p class="text"> <%=post.snippet%> </p>
+                <p hidden> <%=post.body%> </p>
+                <a onclick="togglepost(this)" class="but2">Read More</a>
               </div>
             </div>
           </div>
-        <%if(i&1){%>
-        </div>
-        <%}%>
-      <%})%>
+        <%})%>
 
       </div>
     </div>

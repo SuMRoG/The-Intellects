@@ -1,3 +1,14 @@
+.fullblogcontainer::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--scrollback);
+}
+
+.fullblogcontainer::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: #2932d1a8;
+}
+
 .fullblogcontainer {
   top: 0;
   left: 0;
@@ -14,9 +25,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 99.35%;
   height: 100%;
-  backdrop-filter: blur(30px);
+  background: rgba(37, 36, 36, 0.7);
+  backdrop-filter: blur(3px);
 }
 
 .fullblogcontainer>a {

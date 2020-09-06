@@ -20,14 +20,15 @@ function togglepost(ele) {
   converter = new showdown.Converter(),
   html = converter.makeHtml(body);
   document.querySelector("#blogbody").innerHTML = html;
-
   fullblogcontainer.hidden = false;
+  document.body.style.overflowY = "hidden";
 }
 
 function togglepostoff() {
   // console.log("Called off");
   var fullblogcontainer = document.getElementById('fullblogcontainer')
   fullblogcontainer.hidden = true;
+  document.body.style.overflowY = "scroll";
 }
 
 window.addEventListener('click', function(e){
