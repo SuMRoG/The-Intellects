@@ -1,7 +1,10 @@
 body[theme="light"] {
-  --labels: #4a4a4a;
+  /* --labels: #4a4a4a;
   --options-color: #000;
-  --scrollback: #b5b8be;
+  --scrollback: #b5b8be; */
+  --labels: #d7eaee;
+  --options-color: #ecf0f1;
+  --scrollback: #252930;
 }
 
 body[theme="dark"] {

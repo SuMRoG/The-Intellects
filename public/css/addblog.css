@@ -17,7 +17,7 @@
 
 .goahead button {
   padding: 20px;
-  width: 20%;
+  width: 180px;
   background: inherit;
   border: none;
   font-size: 1.1em;
@@ -33,7 +33,7 @@
 .addblogform {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .imageinput {
@@ -52,7 +52,7 @@
   background: inherit;
 }
 
-.imageinput input{
+.imageinput input {
   background: var(--background-dim);
   height: 40px;
 }
@@ -105,6 +105,8 @@
 }
 
 .submitbutton {
+  width: 100px;
+  align-self: center;
   padding: 8px 20px;
   border: none;
   background: inherit;
@@ -117,8 +119,19 @@
   outline: none;
 }
 
-
 @media screen and (max-width: 650px) {
+  .imageinput {
+    justify-content: space-between;
+  }
+
+  .imageinput input {
+    font-size: 11px;
+  }
+
+  .subheading {
+    width: 70%;
+  }
+
   .previewcontainer {
     padding: 5%;
   }

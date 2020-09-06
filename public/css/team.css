@@ -78,7 +78,7 @@ body[theme="dark"] {
 }
 
 .btn-white {
-  font-size: 10px;
+  font-size: 14px;
   background-color: #fff;
   color: #777;
 }
@@ -99,9 +99,8 @@ body[theme="dark"] {
 }
 
 .column11 {
-  width: 25%;
-  margin-bottom: 16px;
-  margin-top: 16px;
+  width: 400px;
+  margin: 20px 0;
 }
 
 .our-team {
@@ -213,6 +212,9 @@ body[theme="dark"] {
 }
 
 @media screen and (max-width: 650px) {
+  .btn-white {
+    font-size: 10px;
+  }
 
   .column11,
   .column12 {

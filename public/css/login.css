@@ -107,7 +107,8 @@ body {
   vertical-align: middle;
 }
 
-.details1 select {
+.details1 select,
+.dropdown{
   background-color: #f3f3f3;
   border: none;
   color: #282828;

@@ -10,7 +10,7 @@
   <div class="container">
     <header class=" header23">
       <div class="text-box">
-        <h1 class="qwer">add Blog</h1>
+        <h1 class="qwer addheader">Add Blog</h1>
       </div>
     </header>
     <div class="optional">
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class='werty'>
-      <div id="addblogform" >
+      <div id="addblogform">
         <form class="addblogform" action="/add" method="post">
           <input required type="text" class="titleinput" name="title" placeholder="Title" value="" maxlength="45">
           <input hidden type="text" name="author" value="<%=user.username%>">
@@ -28,7 +28,7 @@
           <input hidden type="text" id="inputbanner" name="bannerimage" value="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600"><br>
           <div class="imageinput">
             <span>Post image </span>
-            <input type="text" onchange="setbannerimage(this)" class="subheading imageurlfield" placeholder="Paste a url">
+            <input type="text" onchange="setbannerimage(this)" class="subheading imageurlfield" placeholder="Paste a url or type words to search">
           </div>
           <br>
           <textarea required onchange="updatepreview()" id="blogbodyinput" class="bodyinput" name="body" rows="8" cols="80" name="body" placeholder="Start typing"></textarea><br><br>

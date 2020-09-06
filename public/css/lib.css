@@ -11,7 +11,8 @@ body {
 }
 
 body[theme="light"] {
-  --filter-bar: #e7e7e7;
+  /* --filter-bar: #e7e7e7; */
+  --filter-bar: #1a1e22;
   --header-gradient-one: rgba(76, 216, 255, 0.8);
   --header-gradient-two: rgba(30, 108, 217, 0.8);
 }
@@ -27,7 +28,7 @@ body[theme="dark"] {
 }
 
 .header23 {
-  height: 30vh;
+  height: 210px;
   background-attachment: fixed;
   width: 100%;
   background-image:
@@ -83,6 +84,7 @@ body[theme="dark"] {
   left: 200px;
   transform: translate(-50%, -50%);
   text-align: left;
+  margin-left: -3em;
 }
 
 .btn:link,
@@ -107,7 +109,7 @@ body[theme="dark"] {
 }
 
 .btn-white {
-  font-size: 10px;
+  font-size: 14px;
   background-color: #fff;
   color: #777;
 }
@@ -116,6 +118,10 @@ body[theme="dark"] {
   margin-left: 200px;
   font-size: 40px;
   padding: 0 0 0 20px;
+}
+
+.addheader {
+  margin-left: 60px;
 }
 
 .qwer {
@@ -144,7 +150,7 @@ body[theme="dark"] {
   overflow: hidden;
   display: block;
   height: 100%;
-  clip-path: polygon(0 5%, 100% 3%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 4.8%, 100% 3%, 100% 100%, 0% 100%);
 }
 
 .empty {
@@ -153,7 +159,7 @@ body[theme="dark"] {
   align-items: center;
 }
 
-.empty h1{
+.empty h1 {
   color: var(--text-dim);
 }
 
@@ -213,12 +219,6 @@ body[theme="dark"] {
 
 .title2 {
   margin: 10px 10px 20px 10px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .panel__image.panel__image--book {
@@ -294,6 +294,10 @@ body[theme="dark"] {
 }
 
 @media screen and (max-width: 650px) {
+  .btn-white {
+    font-size: 10px;
+  }
+
   .term p {
     margin-left: 0;
     padding: 0 20px;
@@ -309,13 +313,13 @@ body[theme="dark"] {
   }
 
   .qwer {
-    /* margin-left: 0px; */
+    margin-left: 30px;
     margin-top: -7rem;
   }
 
-  /* #rare{
+  #libqwer {
     margin-left: 0;
-  } */
+  }
 
   #termsandconditions {
     margin-left: 0;
@@ -324,7 +328,7 @@ body[theme="dark"] {
 
   .column-15 {
     width: 100%;
-    clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 49px, 100% 0%, 100% 100%, 0% 100%);
   }
 
   .column-85 {
@@ -333,8 +337,9 @@ body[theme="dark"] {
   }
 
   .header23 {
-    clip-path: polygon(0 0, 100% 0%, 100% 22.5vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 75%, 0 100%);
   }
+
   /* .column-15 {
     float: left;
     width: 20%;
