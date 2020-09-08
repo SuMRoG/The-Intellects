@@ -17,6 +17,7 @@
 
 #realsvg {
   margin-right: -53%;
+  margin-top: 6%;
   transform: scale(0.8);
 }
 
@@ -29,7 +30,8 @@
     /* margin-right: 0%; */
     transform: scale(1);
     /* margin-left: -61%; */
-    width: 100%;
+    width: 90%;
+    margin-bottom: -80px;
     margin: auto;
   }
 }
