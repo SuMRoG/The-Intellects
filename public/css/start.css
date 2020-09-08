@@ -16,13 +16,13 @@
   text-align: center;
   height: 670px;
   width: 100%;
-  background: url(../img/mainbuilding.jpg);
-  background-repeat: no-repeat;
-  /* background-position-x: 180%; */
-  background-position-y: 100%;
-  overflow: hidden;
-  background-size: cover;
-  /* object-fit: cover; */
+  position: relative;
+  z-index: -5;
+  /* background: url(../img/mainbuilding.jpg); */
+  /* background-repeat: no-repeat; */
+  /* background-position-y: 100%; */
+  /* overflow: hidden; */
+  /* background-size: cover; */
 }
 
 .header h1 {

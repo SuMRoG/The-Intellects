@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.svgcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.bots {
+  margin: auto 0;
+  overflow: hidden;
+}
+
+#realsvg {
+  margin-right: -53%;
+  transform: scale(0.8);
+}
+
+#rectsvg{
+  fill: var(--background);
+}
+
+@media screen and (max-width: 650px) {
+  #realsvg {
+    /* margin-right: 0%; */
+    transform: scale(1);
+    /* margin-left: -61%; */
+    width: 100%;
+    margin: auto;
+  }
+}
+
+#card1 {
+  animation: vib 1.5s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#card2 {
+  animation: vib 2s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#Vector_56 {
+  transform: rotate(180deg);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#singlehand1 {
+  animation: vib2 0.3s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+}
+
+#minhands1 {
+  animation: vib3 1s linear infinite alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+
+#eyes {
+  animation: eye 1s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#Vector_21 {
+  animation: smile 1s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#hat1 {
+  animation: hat 2s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes hat {
+  from {
+    transform: rotate(-10deg);
+  }
+
+  to {
+    transform: rotateZ(10deg);
+  }
+}
+
+@keyframes smile {
+  from {
+    transform: scale(1, 1);
+  }
+
+  to {
+    transform: scale(2, 1.2);
+  }
+}
+
+@keyframes eye {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  10% {
+    transform: scale(1, 0);
+  }
+
+  20% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#Vector_3{
+  fill: var(--background);
+}
+
+#Vector_3a {
+  animation: bar 2s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+}
+
+#Vector_3b {
+  animation: bar2 2s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+  animation-delay: 1s;
+}
+
+#Vector_3c {
+  animation: bar3 1s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+  animation-delay: 0;
+}
+
+#Vector_3d {
+  animation: bar4 3s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+  animation-delay: 0s;
+}
+
+#Vector_3e {
+  animation: bar5 0.75s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+  animation-delay: 1s;
+}
+
+#Vector_3f {
+  animation: bar6 1s linear infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+  animation-delay: 1s;
+}
+
+#Vector_3g{
+  fill: var(--background);
+}
+
+@keyframes bar {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, -1400px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, -1400px);
+  }
+}
+
+@keyframes bar2 {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, -900px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, -900px);
+  }
+}
+
+@keyframes bar3 {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, -400px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, -400px);
+  }
+}
+
+@keyframes bar4 {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, 100px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, 100px);
+  }
+}
+
+@keyframes bar5 {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, 600px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, 600px);
+  }
+}
+
+@keyframes bar6 {
+  from {
+    transform: scale(0.1, 0.1) translate(-60px, 1400px);
+  }
+
+  to {
+    transform: scale(0.5, 0.1) translate(-40px, 1400px);
+  }
+}
+
+@keyframes vib4 {
+  from {
+    height: 30px;
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@keyframes vib {
+  from {
+    transform: rotateZ(-3deg);
+  }
+
+  to {
+    transform: rotateZ(3deg);
+  }
+}
+
+@keyframes vib2 {
+  from {
+    transform: rotateZ(-35deg);
+  }
+
+  to {
+    transform: rotateZ(35deg);
+  }
+}
+
+@keyframes vib3 {
+  from {
+    transform: rotateZ(-18deg);
+  }
+
+  to {
+    transform: rotateZ(18deg);
+  }
+}
