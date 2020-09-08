@@ -103,6 +103,10 @@ body[theme="dark"] {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
+#yoyo{
+  margin-left: 100px;
+}
+
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -115,8 +119,8 @@ body[theme="dark"] {
 }
 
 #termsandconditions {
-  margin-left: 200px;
-  font-size: 40px;
+  margin-left: 400px;
+  font-size: 50px;
   padding: 0 0 0 20px;
 }
 
@@ -276,7 +280,7 @@ body[theme="dark"] {
 
 .term p {
   max-width: 1180px;
-  margin-left: 5%;
+  margin-left: 12%;
   margin-top: 5%;
   font-size: 20px;
   font-weight: 500;
@@ -286,7 +290,7 @@ body[theme="dark"] {
 }
 
 .term h2 {
-  margin-left: 5%;
+  margin-left: 12%;
   font-size: 30px;
   margin-bottom: -3rem;
   padding: 40px 200px 0 200px;
@@ -315,6 +319,10 @@ body[theme="dark"] {
   .qwer {
     margin-left: 30px;
     margin-top: -7rem;
+  }
+
+  #yoyo{
+    margin-left: 20px;
   }
 
   #libqwer {
