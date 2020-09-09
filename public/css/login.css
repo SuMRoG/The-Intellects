@@ -28,6 +28,14 @@ body {
   z-index: 1;
 }
 
+.err{
+  text-align:center;
+  margin:20px 0px 0px 0;
+  /* text-transform: uppercase; */
+  font-weight: 550;
+  color: red;
+}
+
 @media screen and (max-width: 650px) {
   .logincard{
     margin-top: 10px;

@@ -10,9 +10,11 @@
 </head>
 
 <body>
-  	<%if(error!=""){%>
-  		<span><%=error%></span>
-  	<%}%>
+  <div class="err">
+    <%if(error!=""){%>
+      <span><%=error%></span>
+    <%}%>
+  </div>
   <div class="loginbox">
     <div class="logincard">
       <form action="/register" method="post">
@@ -128,6 +130,7 @@
       <rect fill="#fff" height="100%" width="100%" y="0" x="0"></rect>
     </svg>
   </div>
+  <br><br><br><br>
   <script>
     for (var wave of document.getElementsByClassName('wave')) {
       wave.style.display = "none";

@@ -2,7 +2,7 @@
   position: absolute;
   top: 40px;
   left: -40%;
-  width: 80%;
+  width: 85%;
   height: 680px;
   transform: skew(-35deg);
   background: linear-gradient(30deg, var(--primary-color) 0%, var(--secondary-grad) 100%);
@@ -63,7 +63,7 @@
 
 .titleName {
   margin-top: 30px;
-  margin-left: 47%;
+  margin-left: 45%;
   width: 45%;
   transform: skew(35deg);
   font-size: 200%;

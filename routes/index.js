@@ -82,6 +82,42 @@ router.post('/register', notauthUser, async (req, res) => {
   }
 })
 
+router.get('/login', notauthUser, function(req, res, next) {
+  var error=""
+  if(req.query.error){
+    error=req.query.error
+  }
+  res.render('login', {
+    title: 'Login',
+    user: req.session.user,
+    error: error
+  });
+});
+
+
+router.post('/login', notauthUser, (req, res) => {
+  Account.find({
+    email: req.body.email
+  }).then(async (acc) => {
+    if (acc.length) {
+      // console.log(acc);
+      if (await bcrypt.compare(req.body.password, acc[0].password)) {
+        console.log("Correct");
+        req.session.user = acc[0]
+        res.redirect("/front")
+      } else {
+        console.log("Wrong");
+        res.redirect('/login?error=password%20is%20wrong')
+      }
+    } else {
+      console.log("No user");
+      res.redirect('/login?error=email%20does%20not%20exist')
+    }
+  }).catch(err => {
+    res.redirect("/login")
+  })
+})
+
 router.get('/front', (req, res) => {
   Blog.find()
     .sort({
@@ -216,38 +252,6 @@ router.get("/delete/:id", authUser, (req, res) => {
       res.redirect('/front')
     })
     .catch(err => res.redirect("/front"))
-})
-
-router.get('/login', notauthUser, function(req, res, next) {
-  res.render('login', {
-    title: 'Login',
-    user: req.session.user
-  });
-});
-
-
-router.post('/login', notauthUser, (req, res) => {
-  Account.find({
-    email: req.body.email
-  }).then(async (acc) => {
-    if (acc.length) {
-      // console.log(acc);
-      if (await bcrypt.compare(req.body.password, acc[0].password)) {
-        console.log("Correct");
-        req.session.user = acc[0]
-        res.redirect("/front")
-      } else {
-        console.log("Wrong");
-        res.redirect("/login")
-      }
-    } else {
-      console.log("No user");
-      res.redirect("/login")
-    }
-  }).catch(err => {
-    console.log(err);
-    res.redirect("/login")
-  })
 })
 
 router.get('/terms', function(req, res, next) {

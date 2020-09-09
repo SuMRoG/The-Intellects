@@ -10,6 +10,11 @@
 </head>
 
 <body>
+  <div class="err">
+    <%if(error!=""){%>
+      <span><%=error%></span>
+    <%}%>
+  </div>
   <div class="loginbox">
     <div class="logincard">
       <form action="/login" method="post">
