@@ -14,19 +14,19 @@
     </header>
 
     <div class="loginbox">
-      <div class="logincard">
+      <div class="logincard addbookcard">
         <form action="/addbook" id="addbook" method="post">
           <div class="details">
             <label for="type">Type</label>
             <select name="type" class="dropdown" id="type" onchange="changetab()">
-              <option value="book">Book</option>
+              <option selected value="book">Book</option>
               <option value="ques">Question paper</option>
             </select>
           </div>
           <div class="bookinputs" id="bookinputs">
             <div class="details">
               <label for="title">Title</label>
-              <input required type="text" name="title" value="">
+              <input type="text" name="title" value="">
             </div>
             <div class="details">
               <label for="author">Author or source</label>
@@ -35,7 +35,7 @@
             <div class="details">
               <label for="year">Year</label>
               <select name="year" class="dropdown" id="year">
-                <option value="1">First</option>
+                <option selected value="1">First</option>
                 <option value="2">Second</option>
                 <option value="3">Third</option>
                 <option value="4">Fourth</option>
@@ -47,7 +47,7 @@
             <div class="details">
               <label for="sessionyear">Year</label>
               <select name="sessionyear" class="dropdown" id="sessionyear" size="5">
-                <option value="2020">2020-21</option>
+                <option selected value="2020">2020-21</option>
                 <option value="2019">2019-20</option>
                 <option value="2018">2018-19</option>
                 <option value="2017">2017-18</option>
@@ -67,7 +67,7 @@
             <div class="details">
               <label for="semester">Semester</label>
               <select name="semester" class="dropdown" id="semester" size="4">
-                <option value="1">First / Second</option>
+                <option selected value="1">First / Second</option>
                 <option value="3">Third</option>
                 <option value="4">Fourth</option>
                 <option value="5">Fifth</option>
@@ -78,13 +78,13 @@
             </div>
           </div>
 
-          <div class="details">
+          <div required class="details">
             <label for="subject">Subject code</label>
-            <input type="text" name="subject" value="">
+            <input required type="text" name="subject" value="">
           </div>
           <div class="details">
             <label for="department'">Department</label>
-            <select name="department" class="dropdown multidropdown" id="department" multiple>
+            <select required name="department" class="dropdown multidropdown" id="department" multiple>
               <option value="none" disabled>Department(s)</option>
               <option value="cst">CST</option>
               <option value="etc">ETC</option>
@@ -98,7 +98,7 @@
           </div>
           <div class="details">
             <label for="url">Url</label>
-            <input type="text" name="url" value="">
+            <input required type="text" name="url" value="">
           </div>
 
           <div class="sub">
@@ -107,86 +107,6 @@
         </form>
       </div>
     </div>
-
-    <!-- <div class='wert'>
-    <form action="/addbook" id="addbook" method="post">
-      <label for="type">Type</label>
-      <select name="type" id="type" onchange="changetab()">
-        <option value="book">Book</option>
-        <option value="ques">Question paper</option>
-      </select><br>
-
-      <div class="bookinputs" id="bookinputs">
-        <label for="title">Title</label>
-        <input required type="text" name="title" value=""><br>
-        <label for="author">Author or source</label>
-        <input type="text" name="author" value=""><br><br>
-
-        <label for="year">Year</label>
-        <select name="year" id="year">
-          <option value="1">First</option>
-          <option value="2">Second</option>
-          <option value="3">Third</option>
-          <option value="4">Fourth</option>
-        </select><br>
-
-      </div>
-
-      <div class="paperinputs" id="paperinputs" hidden>
-
-        <label for="sessionyear">Year</label>
-        <select name="sessionyear" id="sessionyear" size="5">
-          <option value="2020">2020-21</option>
-          <option value="2019">2019-20</option>
-          <option value="2018">2018-19</option>
-          <option value="2017">2017-18</option>
-          <option value="2016">2016-17</option>
-        </select>
-        <script>
-          var date = new Date()
-          var year = date.getFullYear()
-          var sessionyear = document.getElementById('sessionyear')
-          for (var option of sessionyear.children) {
-            option.value = year
-            option.innerText = year + "-" + (year - 1999)
-            year--
-          }
-        </script><br>
-
-        <label for="semester">Semester</label>
-        <select name="semester" id="semester" size="4">
-          <option value="1">First / Second</option>
-          <option value="3">Third</option>
-          <option value="4">Fourth</option>
-          <option value="5">Fifth</option>
-          <option value="6">Sixth</option>
-          <option value="7">Seventh</option>
-          <option value="8">Eighth</option>
-        </select><br>
-
-      </div>
-
-      <label for="subject">Subject</label>
-      <input type="text" name="subject" value=""><br>
-
-      <label for="department'">Department</label>
-      <select name="department" id="department" multiple>
-        <option value="cst">CST</option>
-        <option value="etc">ETC</option>
-        <option value="it">IT</option>
-        <option value="ee">EE</option>
-        <option value="me">ME</option>
-        <option value="ce">CE</option>
-        <option value="aero">Aero</option>
-        <option value="meta">Meta</option>
-      </select>
-
-      <label for="url">Url</label>
-      <input type="text" name="url" value=""><br>
-      <button type="submit" name="button">Add</button>
-    </form>
-</div> -->
-
   </div>
 </div>
 

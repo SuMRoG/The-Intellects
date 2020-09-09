@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema= mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const accountSchema = new Schema({
   // _id: Number,
@@ -7,27 +7,31 @@ const accountSchema = new Schema({
     type: String,
     required: true
   },
-  email:{
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  gender: {
     type: String,
     required: true
   },
-  gender:{
+  password: {
     type: String,
     required: true
   },
-  password:{
+  username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
-  username:{
-      type: String,
-      required: true
-  },
-  image:{
+  image: {
     type: String,
     default: "img/default.png"
   }
-},{timestamps: true});
+}, {
+  timestamps: true
+});
 
-const Account= mongoose.model('Account',accountSchema)
-module.exports= Account;
+const Account = mongoose.model('Account', accountSchema)
+module.exports = Account;

@@ -51,8 +51,7 @@ summary {
 }
 
 .wesr h5{
-  color: var(--highlight);
-  text-shadow: 0 0 1px #a5a5a5;
+  color: #1bc2a1;
 }
 
 .wesr>* {

@@ -92,6 +92,11 @@ ul select option:checked {
   transition: 0.5s;
 }
 
+.addbookcard{
+  margin: 50px 0;
+  width: 40% !important;
+}
+
 
 @media screen and (max-width: 650px) {
   ul{

@@ -14,7 +14,7 @@
     <div class="logincard">
       <form action="/login" method="post">
         <div class="uplogo">
-          <img href="/home" src="img/logo.png">
+          <img onclick="location.href='/'" src="img/logo.png">
           <span>Welcome Back</span>
         </div>
         <div class="details">
@@ -81,6 +81,11 @@
       <rect fill="#fff" height="100%" width="100%" y="0" x="0"></rect>
     </svg>
   </div>
+    <script>
+      for (var wave of document.getElementsByClassName('wave')) {
+        wave.style.display = "none";
+      }
+    </script>
 </body>
 
 </html>

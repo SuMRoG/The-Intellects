@@ -43,6 +43,7 @@ body {
 
 .uplogo img {
   width: 30%;
+  cursor: pointer;
 }
 
 .uplogo span {

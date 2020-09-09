@@ -10,11 +10,14 @@
 </head>
 
 <body>
+  	<%if(error!=""){%>
+  		<span><%=error%></span>
+  	<%}%>
   <div class="loginbox">
     <div class="logincard">
       <form action="/register" method="post">
         <div class="uplogo">
-          <img href="/home" src="img/logo.png">
+          <img onclick="location.href='/'" src="img/logo.png">
           <span>Welcome</span>
         </div>
         <div class="details">
@@ -23,7 +26,7 @@
         </div>
         <div class="details">
           <i class="fas fa-user"></i>
-          <input onclick="go(this)" required type="username" name="username" placeholder="Username" id="username">
+          <input onclick="go(this)" pattern="[a-zA-Z0-9-]+" required type="username" name="username" placeholder="only letters and numbers are allowed" id="username">
         </div>
         <div class="details">
           <i class="fas fa-envelope"></i>
@@ -85,7 +88,7 @@
         </div>
       </form>
       <div class="otherlinks">
-        <a href="#">Already have an account ?</a>
+        <a href="#" style="cursor: default">Already have an account ?</a>
         <a href="/login">Login</a>
       </div>
     </div>
@@ -125,6 +128,11 @@
       <rect fill="#fff" height="100%" width="100%" y="0" x="0"></rect>
     </svg>
   </div>
+  <script>
+    for (var wave of document.getElementsByClassName('wave')) {
+      wave.style.display = "none";
+    }
+  </script>
 </body>
 
 </html>

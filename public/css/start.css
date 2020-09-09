@@ -2,7 +2,7 @@
   position: absolute;
   top: 40px;
   left: -40%;
-  width: 90%;
+  width: 80%;
   height: 680px;
   transform: skew(-35deg);
   background: linear-gradient(30deg, var(--primary-color) 0%, var(--secondary-grad) 100%);
@@ -38,7 +38,7 @@
   padding: 40px;
   border-radius: 15px;
   float: left;
-  transform: translateY(-290px);
+  transform: translate(-140px,-285px);
 }
 
 .start a {
@@ -321,7 +321,7 @@
     transform: translateY(-10px);
     border-radius: 0;
     height: 250px;
-    box-shadow: -2px 0px 14px 2px #333;
+    box-shadow: -2px 0px 14px 2px #4e4a4a7a;
   }
 
   .titleName {

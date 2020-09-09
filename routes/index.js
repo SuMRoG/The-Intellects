@@ -40,16 +40,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/register', notauthUser, function(req, res, next) {
+  var error = ""
+  if (req.query.error) {
+    error = req.query.error
+  }
+
   res.render('register', {
     title: 'Register',
-    user: req.session.user
+    user: req.session.user,
+    error: error
   });
 });
 
 router.post('/register', notauthUser, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const image = "img/default.png"
+    var image = "img/default.png"
     if (req.body.filename != "") image = req.body.filename
 
     let account = new Account({
@@ -60,12 +66,19 @@ router.post('/register', notauthUser, async (req, res) => {
       image: image,
       password: hashedPassword
     });
-    account = await account.save()
-    res.redirect('/login')
+    account = await account.save().then(success=>{
+      res.redirect('/login')
+    }).catch(err=>{
+      if(err.message.includes("email")){
+        res.redirect('/register?error=email%20already%20exist')
+      }else if(err.message.includes("username")){
+        res.redirect('/register?error=username%20already%20exist')
+      }
+    })
   } catch (err) {
     console.log(err);
     console.log(req.body);
-    res.redirect('/register')
+    res.redirect('/register?error=Some internal%20error%20occured')
   }
 })
 
@@ -86,7 +99,7 @@ router.get('/front', (req, res) => {
     })
 })
 
-router.get('/connect', (req,res) =>{
+router.get('/connect', (req, res) => {
   Connect.find()
     .then((allstudents) => {
       var students = []
@@ -99,7 +112,7 @@ router.get('/connect', (req,res) =>{
           }
         }
       }
-      res.render('connect',{
+      res.render('connect', {
         title: 'Connect',
         students: students,
         user: req.session.user
@@ -115,34 +128,69 @@ router.get('/connect', (req,res) =>{
     })
 })
 
-router.get('/addcon', function(req,res, next ){
-  res.render('addcon',{
+router.get('/addcon', function(req, res, next) {
+  res.render('addcon', {
     title: 'Add connect',
     user: req.session.user
   });
 })
 
-router.post("/addcon", authUser, (req,res) =>{
+router.post("/addcon", authUser, (req, res) => {
   console.log(req.body);
   const connect = new Connect(req.body)
   connect.save()
-  .then(result => res.redirect("/connect"))
-  .catch(err => console.log(err))
+    .then(result => res.redirect("/connect"))
+    .catch(err => console.log(err))
 })
 
-router.get('/addbook', authUser, function(req, res, next) {
+router.get('/addbook', authUser, (req, res, next)=>{ //
   res.render('addbook', {
     title: 'Add book',
     user: req.session.user
   });
 });
 
-router.post("/addbook", authUser, (req, res) => {
-  console.log(req.body);
-  const book = new Book(req.body)
-  book.save()
-    .then(result => res.redirect("/library"))
-    .catch(err => console.log(err))
+router.post("/addbook", authUser, (req, res) => { //
+  // console.log(req.body);
+  var doc = {}
+  if (req.body.type == "book") {
+    doc.title = req.body.title
+    doc.author = req.body.author
+    doc.year = req.body.year
+    doc.department = req.body.department
+    if(typeof(doc.department)=="string"){
+      doc.department = [doc.department]
+    }
+    doc.subject = req.body.subject
+    doc.url = req.body.url
+    doc.cover = Math.floor(Math.random() * 8)
+    const book = new Book(doc)
+    book.save()
+      .then(result => res.redirect("/library"))
+      .catch(err => {
+        console.log(err)
+        res.redirect("/library")
+      })
+  } else if (req.body.type == "ques") {
+    doc.sessionyear = req.body.sessionyear
+    doc.semester = req.body.semester
+    doc.department = req.body.department
+    if(typeof(doc.department)=="string"){
+      doc.department = [doc.department]
+    }
+    doc.subject = req.body.subject
+    doc.url = req.body.url
+    console.log(doc);
+    const ques = new Question(doc)
+    ques.save()
+      .then(result => res.redirect("/library"))
+      .catch(err => {
+        console.log(err)
+        res.redirect("/library")
+      })
+  } else {
+    res.redirect("/addbook")
+  }
 })
 
 
@@ -256,7 +304,7 @@ router.get('/library', function(req, res, next) {
           err: "Error 505"
         });
       })
-  }else{
+  } else {
     Question.find()
       .then((rawpapers) => {
         var papers = []
@@ -275,7 +323,7 @@ router.get('/library', function(req, res, next) {
                   break
                 }
               }
-              if (i == expl){
+              if (i == expl) {
                 papers.push(paper)
               }
             }
