@@ -261,6 +261,13 @@ router.get('/terms', function(req, res, next) {
   });
 });
 
+router.get('/profile', function(req, res, next) {
+  res.render('profile', {
+    title: 'Profile',
+    user: req.session.user
+  });
+});
+
 router.get('/team', function(req, res, next) {
   res.render('team', {
     title: 'Team',
