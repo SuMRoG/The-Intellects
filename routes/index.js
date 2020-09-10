@@ -261,7 +261,7 @@ router.get('/terms', function(req, res, next) {
   });
 });
 
-router.get('/profile', function(req, res, next) {
+router.get('/profile',authUser, function(req, res, next) {
   res.render('profile', {
     title: 'Profile',
     user: req.session.user

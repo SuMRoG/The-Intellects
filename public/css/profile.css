@@ -1,4 +1,64 @@
 .yaya{
      background-image: linear-gradient(29deg, #512DA8 50%, #673AB7 50%);
      min-height: 100vh;
-   }
+     padding: 40px;
+     width: 100%;
+}
+
+.usercard{
+  box-sizing: border-box;
+  display: block;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  /* flex-direction: column; */
+  background-color: #fff;
+  margin: 2rem 0 3rem 30%;
+  position: relative;
+  z-index: 5;
+}
+
+@media screen and (min-width: 641px){
+  .usercard{
+    width: 38rem;
+  }
+}
+
+@media screen and (max-width: 640px){
+  .usercard{
+    width: 90%;
+  }
+}
+
+.usercard_body{
+  padding-bottom: 2rem;
+  flex-grow: 2;
+  color:#000;
+}
+
+.usercard_header{
+  padding: 3rem 5% 2rem;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #3F51B5, #041886);
+  color: #fff;
+}
+
+.usercard_image{
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  margin-right: 4%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.usercard_name{
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-top: 0;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+.about2{
+  min-height: 25rem;
+}
