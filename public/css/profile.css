@@ -61,4 +61,32 @@
 
 .about2{
   min-height: 25rem;
+  padding: 15px 25px 15px 25px;
+}
+
+.baby2 {
+  width: 500px;
+  max-width: 95%;
+  margin: 20px auto;
+  color: #464646;
+  /* border: 2px solid silver; */
+}
+
+.lolo {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  background: var(--background-dim);
+  padding: 0px 20px;
+  width: 500px;
+  max-width: 100%;
+  font-size: 12px;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 5px 3px 10px var(--shadow);
+  transition: 0.5s;
+}
+p{
+  font-weight: 300;
 }
