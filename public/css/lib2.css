@@ -13,7 +13,7 @@ body[theme="dark"] {
   --scrollback: #252930;
 }
 
-.option{
+.option {
   width: 100%;
 }
 
@@ -67,7 +67,7 @@ ul select option:checked {
   background: #0d5bdf;
 }
 
-.filterbuttons{
+.filterbuttons {
   display: flex;
   justify-content: space-around;
 }
@@ -86,33 +86,59 @@ ul select option:checked {
   transition: 0.5s;
 }
 
-.filter:active{
+.filter:active {
   transform: scale(0.9) translateZ(0);
   font-size: 1em;
   transition: 0.5s;
 }
 
-.addbookcard{
+.addbookcard {
   margin: 50px 0;
-  width: 40% !important;
+  width: 40%;
+  background: var(--background);
+  color: var(--logo-color);
 }
 
+.addbookcard select{
+  background: var(--background-dim);
+  color: var(--text-dim);
+}
+
+.addbookcard input{
+  background: var(--background-dim);
+  color: var(--text-dim);
+}
+
+#department::-webkit-scrollbar{
+  width: 8px;
+  background: inherit;
+}
+
+#department::-webkit-scrollbar-thumb{
+  width: 8px;
+  background: #036cd6;
+  border-radius: 4px;
+}
 
 @media screen and (max-width: 650px) {
-  ul{
+  .addbookcard{
+    width: 100%;
+  }
+
+  ul {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  #yearoption{
+  #yearoption {
     width: 60%;
   }
 
-  label{
+  label {
     text-align: left;
   }
 
-  select{
+  select {
     color: #fff;
     margin: 10px auto;
   }
@@ -121,10 +147,9 @@ ul select option:checked {
     padding: 2px;
   }
 
-  .option{
+  .option {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-
 }

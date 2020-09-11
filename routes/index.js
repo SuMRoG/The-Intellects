@@ -114,7 +114,7 @@ router.post('/login', notauthUser, (req, res) => {
       res.redirect('/login?error=email%20does%20not%20exist')
     }
   }).catch(err => {
-    res.redirect("/login")
+    res.redirect("/login?error=internal%20server%20error")
   })
 })
 
@@ -189,10 +189,11 @@ router.get('/addbook', authUser, (req, res, next)=>{ //
 router.post("/addbook", authUser, (req, res) => { //
   // console.log(req.body);
   var doc = {}
-  if (req.body.type == "book") {
+  if (req.body.type == "book" || req.body.type == "other") {
     doc.title = req.body.title
     doc.author = req.body.author
     doc.year = req.body.year
+    doc.type = req.body.type
     doc.department = req.body.department
     if(typeof(doc.department)=="string"){
       doc.department = [doc.department]

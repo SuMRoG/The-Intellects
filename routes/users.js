@@ -8,7 +8,6 @@ router.get('/logout', function(req, res, next) {
   res.redirect("/front")
 });
 
-
 router.get('/getProfileImage/:id', function(req, res){
   Account.find({username: req.params.id})
   .then(user=> {
