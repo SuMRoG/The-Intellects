@@ -4,22 +4,18 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
 const accountSchema = new Schema({
-  // _id: Number,
   name: {
     type: String,
     // required: true
   },
   email: {
     type: String,
+    unique: true
     // required: true,
-    // unique: true
   },
   gender: {
     type: String,
-    // required: true
-  },
-  password: {
-    type: String,
+    default: "gender"
     // required: true
   },
   username: {
@@ -27,12 +23,12 @@ const accountSchema = new Schema({
     // required: true,
   },
   image: {
-      type: String,
+    type: String,
     default: "img/default.png"
   },
-  googleId:{
+  googleId: {
     type: String,
-    // unique: true 
+    // unique: true
   }
 }, {
   timestamps: true

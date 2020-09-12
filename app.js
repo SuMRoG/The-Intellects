@@ -1,5 +1,7 @@
+var callbackURL = "https://hailiiest.herokuapp.com/auth/google/front"
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
+  callbackURL = "http://localhost:3000/auth/google/front"
 }
 
 const createError = require('http-errors');
@@ -32,45 +34,53 @@ mongoose.connect(dbURI, {
   })
   .catch(err => console.log(err))
 
-  app.use(flash())
-  app.use(session({
-    secret: "thecakeisalie",
-    resave: false,
-    saveUninitialized: false
-  }))
-  app.use(passport.initialize())
-  app.use(passport.session())
+app.use(flash())
+app.use(session({
+  secret: "thecakeisalie",
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
-  // mongoose.set('useCreateIndex', true)
-  // mongoose.connect(config.dbUri, { useNewUrlParser: true })
+// mongoose.set('useCreateIndex', true)
+// mongoose.connect(config.dbUri, { useNewUrlParser: true })
 
-  passport.use(Account.createStrategy());
+passport.use(Account.createStrategy());
 
-  passport.serializeUser(function(user, done) {
-      done(null, user.id);
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
 });
 
-  passport.deserializeUser(function(id, done) {
-    Account.findById(id, function(err, user) {
-      done(err, user);
-    });
+passport.deserializeUser(function(id, done) {
+  Account.findById(id, function(err, user) {
+    done(err, user);
   });
+});
 
-  passport.use(new GoogleStrategy({
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "https://hailiiest.herokuapp.com/auth/google/front",
-      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-        console.log(profile);
-      Account.findOrCreate({ googleId: profile.id, name: profile.displayName, image: profile.photos[0].value ,email: profile.emails[0].value,
-         username: profile.displayName, password: profile.displayName, gender: profile.displayName },
-          function (err, user) {
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: callbackURL,
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    Account.findOrCreate({
+        googleId: profile.id,
+        name: profile.displayName,
+        image: profile.photos[0].value,
+        email: profile.emails[0].value,
+        username: profile.displayName,
+        gender: profile.displayName
+      },
+      function(err, user) {
+        if (err) {
+          console.log(err)
+        };
         return cb(err, user);
-      });
-    }
-  ));
+      })
+  }
+));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

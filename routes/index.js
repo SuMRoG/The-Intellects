@@ -21,56 +21,77 @@ const {
 
 router.use(express.static(__dirname + "../public/"));
 
-router.use(flash())
-router.use(session({
-  secret: "thecakeisalie",
-  // secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: true
-  }
-}))
-router.use(passport.initialize())
-router.use(passport.session())
-
-passport.use(Account.createStrategy());
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  Account.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
-
-passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://hailiiest.herokuapp.com/auth/google/front",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-      console.log(profile);
-    Account.findOrCreate({ googleId: profile.id, name: profile.displayName, image: profile.photos[0].value ,email: profile.emails[0].value,
-       username: profile.displayName, password: profile.displayName, gender: profile.displayName },
-        function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+// router.use(flash())
+// router.use(session({
+//   secret: "thecakeisalie",
+//   // secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: {
+//     secure: true
+//   }
+// }))
+// router.use(passport.initialize())
+// router.use(passport.session())
+//
+// passport.use(Account.createStrategy());
+//
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+//
+// passport.deserializeUser(function(id, done) {
+//   Account.findById(id, function(err, user) {
+//     done(err, user);
+//   });
+// });
+//
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.CLIENT_ID,
+//     clientSecret: process.env.CLIENT_SECRET,
+//     callbackURL: "https://hailiiest.herokuapp.com/auth/google/front",
+//     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//     Account.findOrCreate({
+//       googleId: profile.id,
+//       name: profile.displayName,
+//       image: profile.photos[0].value,
+//       email: profile.emails[0].value,
+//       username: profile.displayName,
+//       password: profile.displayName,
+//       gender: profile.displayName
+//     }).then(acc => {
+//       req.session.user = acc;
+//     }).catch(err => {
+//       console.log(err.code);
+//       if (err.message.includes("email")) {
+//         Account.find({
+//           email: profile.emails[0].value
+//         }).then(acc => {
+//           req.session.user = acc[0];
+//         })
+//       }
+//     });
+//   }
+// ));
 
 router.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+  })
 );
 
 router.get('/auth/google/front',
-passport.authenticate('google', { failureRedirect: '/login' }),
-function(req, res) {
-  res.redirect('/front');
-});
+  passport.authenticate('google', {
+    failureRedirect: '/login'
+  }),
+  async (req, res)=>{
+    console.log("Logged In");
+    req.session.user = await req.user
+    res.redirect('/front');
+  }
+);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -93,41 +114,13 @@ router.get('/register', notauthUser, function(req, res, next) {
   });
 });
 
-router.post('/register', notauthUser, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    var image = "img/default.png"
-    if (req.body.filename != "") image = req.body.filename
-    let account = new Account({
-      name: req.body.name,
-      username: req.body.username,
-      gender: req.body.gender,
-      email: req.body.email,
-      image: image,
-      password: hashedPassword
-    });
-    account = await account.save().then(success=>{
-      res.redirect('/login')
-    }).catch(err=>{
-      if(err.message.includes("email")){
-        res.redirect('/register?error=email%20already%20exist')
-      }else if(err.message.includes("username")){
-        res.redirect('/register?error=username%20already%20exist')
-      }
-    })
-  } catch (err) {
-    console.log(err);
-    console.log(req.body);
-    res.redirect('/register?error=Some internal%20error%20occured')
-  }
-})
-
 router.get('/login', notauthUser, function(req, res, next) {
-  var error=""
-  if(req.query.error){
-    error=req.query.error
+  var error = ""
+  if (req.query.error) {
+    error = req.query.error
   }
   passport.authenticate("local")
+
   res.render('login', {
     title: 'Login',
     user: req.session.user,
@@ -135,48 +128,25 @@ router.get('/login', notauthUser, function(req, res, next) {
   });
 });
 
-
-router.post('/login', notauthUser, (req, res) => {
-  Account.find({
-    email: req.body.email
-  }).then(async (acc) => {
-    if (acc.length) {
-      // console.log(acc);
-      if (await bcrypt.compare(req.body.password, acc[0].password)) {
-        console.log("Correct");
-        req.session.user = acc[0]
-        res.redirect("/front")
-      } else {
-        console.log("Wrong");
-        res.redirect('/login?error=password%20is%20wrong')
-      }
-    } else {
-      console.log("No user");
-      res.redirect('/login?error=email%20does%20not%20exist')
-    }
-  }).catch(err => {
-    res.redirect("/login?error=internal%20server%20error")
-  })
-})
+// req.session.user =
 
 router.get('/front', (req, res) => {
-  if(req.isAuthenticated()) {
-  Blog.find()
-    .sort({
-      createdAt: -1
-    })
-    .then((posts) => {
-      res.render('front', {
-        title: 'Blogs',
-        posts: posts,
-        user: req.session.user
+  if (req.isAuthenticated()) {
+    Blog.find()
+      .sort({
+        createdAt: -1
       })
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
-  else{
+      .then((posts) => {
+        res.render('front', {
+          title: 'Blogs',
+          posts: posts,
+          user: req.session.user
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  } else {
     res.redirect('/login');
   }
 })
@@ -225,7 +195,7 @@ router.post("/addcon", authUser, (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/addbook', authUser, (req, res, next)=>{ //
+router.get('/addbook', authUser, (req, res, next) => { //
   res.render('addbook', {
     title: 'Add book',
     user: req.session.user
@@ -241,7 +211,7 @@ router.post("/addbook", authUser, (req, res) => { //
     doc.year = req.body.year
     doc.type = req.body.type
     doc.department = req.body.department
-    if(typeof(doc.department)=="string"){
+    if (typeof(doc.department) == "string") {
       doc.department = [doc.department]
     }
     doc.subject = req.body.subject
@@ -258,7 +228,7 @@ router.post("/addbook", authUser, (req, res) => { //
     doc.sessionyear = req.body.sessionyear
     doc.semester = req.body.semester
     doc.department = req.body.department
-    if(typeof(doc.department)=="string"){
+    if (typeof(doc.department) == "string") {
       doc.department = [doc.department]
     }
     doc.subject = req.body.subject
@@ -308,7 +278,7 @@ router.get('/terms', function(req, res, next) {
   });
 });
 
-router.get('/profile',authUser, function(req, res, next) {
+router.get('/profile', authUser, function(req, res, next) {
   res.render('profile', {
     title: 'Profile',
     user: req.session.user
