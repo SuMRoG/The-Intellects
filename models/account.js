@@ -28,7 +28,7 @@ const accountSchema = new Schema({
     unique: true
   },
   image: {
-    type: String,
+      type: Array,
     default: "img/default.png"
   },
   googleId:{

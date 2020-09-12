@@ -169,6 +169,10 @@ button[type="submit"]:hover {
   color: white;
 }
 
+a{
+  text-decoration: none;
+}
+
 .sub {
   display: flex;
   justify-content: space-around;
