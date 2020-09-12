@@ -339,6 +339,7 @@ body[theme="dark"] {
   .column-15 {
     width: 100%;
     clip-path: polygon(0 49px, 100% 0%, 100% 100%, 0% 100%);
+    margin-top: -32px;
   }
 
   .column-85 {
