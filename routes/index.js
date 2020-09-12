@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
@@ -11,6 +12,9 @@ const session = require('express-session')
 const Account = require('../models/account');
 const fs = require('fs');
 const path = require('path');
+const passportLocalMongoose = require("passport-local-mongoose");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 const {
   authUser,
   notauthUser
@@ -30,6 +34,42 @@ router.use(session({
 }))
 router.use(passport.initialize())
 router.use(passport.session())
+
+passport.use(Account.createStrategy());
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  Account.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "https://hailiiest.herokuapp.com/auth/google/front",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+      console.log(profile);
+    Account.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+router.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile'] })
+);
+
+router.get('/auth/google/front',
+passport.authenticate('google', { failureRedirect: '/login' }),
+function(req, res) {
+  res.redirect('/front');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -57,7 +97,6 @@ router.post('/register', notauthUser, async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     var image = "img/default.png"
     if (req.body.filename != "") image = req.body.filename
-
     let account = new Account({
       name: req.body.name,
       username: req.body.username,
@@ -87,6 +126,7 @@ router.get('/login', notauthUser, function(req, res, next) {
   if(req.query.error){
     error=req.query.error
   }
+  passport.authenticate("local")
   res.render('login', {
     title: 'Login',
     user: req.session.user,
@@ -119,6 +159,7 @@ router.post('/login', notauthUser, (req, res) => {
 })
 
 router.get('/front', (req, res) => {
+  if(req.isAuthenticated()) {
   Blog.find()
     .sort({
       createdAt: -1
@@ -133,6 +174,10 @@ router.get('/front', (req, res) => {
     .catch((err) => {
       console.log(err);
     })
+  }
+  else{
+    res.redirect('/login');
+  }
 })
 
 router.get('/connect', (req, res) => {

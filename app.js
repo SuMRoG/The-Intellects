@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -10,13 +11,10 @@ const app = express();
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
-const account = require('./models/account');
-
-// initializePassport(
-//   passport,
-//   email=> account.find( account => account.email === email),
-//   id=> account.find( account => account.id === id)
-// )
+const Account = require('./models/account');
+const passportLocalMongoose = require("passport-local-mongoose");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 
 var PORT = process.env.PORT || 3000;
 //connect to database
@@ -38,6 +36,35 @@ mongoose.connect(dbURI, {
   }))
   app.use(passport.initialize())
   app.use(passport.session())
+
+  // mongoose.set('useCreateIndex', true)
+  // mongoose.connect(config.dbUri, { useNewUrlParser: true })
+
+  passport.use(Account.createStrategy());
+
+  passport.serializeUser(function(user, done) {
+      done(null, user.id);
+});
+
+  passport.deserializeUser(function(id, done) {
+    Account.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
+
+  passport.use(new GoogleStrategy({
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: "https://hailiiest.herokuapp.com/auth/google/front",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+        console.log(profile);
+      Account.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  ));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

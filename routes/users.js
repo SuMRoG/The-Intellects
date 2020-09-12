@@ -5,7 +5,8 @@ const Account = require('../models/account');
 /* GET users listing. */
 router.get('/logout', function(req, res, next) {
   req.session.user=null
-  res.redirect("/front")
+  req.logOut();
+  res.redirect("/")
 });
 
 router.get('/getProfileImage/:id', function(req, res){
