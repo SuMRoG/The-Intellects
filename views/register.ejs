@@ -10,99 +10,18 @@
 </head>
 
 <body>
-  <div class="err">
-    <%if(error!=""){%>
-      <span><%=error%></span>
-    <%}%>
-  </div>
-  <div class="loginbox">
-    <div class="logincard">
-      <form hidden action="/register" method="post">
-        <div class="uplogo">
-          <img onclick="location.href='/'" src="img/logo.png">
-          <span>Welcome</span>
-        </div>
-        <div class="details">
-          <i class="fas fa-user"></i>
-          <input onclick="go(this)" required type="text" name="name" placeholder="Full name" id="name">
-        </div>
-        <div class="details">
-          <i class="fas fa-user"></i>
-          <input onclick="go(this)" pattern="[a-zA-Z0-9-]+" required type="username" name="username" placeholder="only letters and numbers are allowed" id="username">
-        </div>
-        <div class="details">
-          <i class="fas fa-envelope"></i>
-          <input onclick="go(this)" required type="email" name="email" placeholder="Email" id="email">
-        </div>
-        <div class="details1">
-          <i class="fas fa-male"></i>
-          <select id="gender" onclick="go(this)" required type="gender" name="gender" placeholder="Gender">
-            <option disabled>Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value= "Other">Other</option>
-          </select>
-        </div>
-        <div class="details">
-          <i class="fas fa-image"></i>
-          <input onclick="go(this)" type="text" name="filename" placeholder="Paste your profile image">
-        </div>
-        <div class="details">
-          <i class="fas fa-key"></i>
-          <input onclick="go(this)" required type="password" name="password" placeholder="Password" id="password">
-          <i class="fa fa-eye" id="eye" onclick="show()" style="cursor: pointer;"></i>
-        </div>
-        <script>
-          var all = document.getElementsByTagName('input')
-          function go(ele) {
-            for (var inp of all) {
-              inp.style.border = "none";
-            }
-            ele.style.border = "3px solid #0a67d4"
-          }
-
-          var pswrd= document.getElementById('password')
-          var icon=document.querySelector('.fas')
-          function show(){
-            var eye = document.getElementById('eye')
-            eye.classList.toggle('fa-eye-slash')
-            eye.classList.toggle('fa-eye')
-            if(pswrd.type==="password")
-            {
-              pswrd.type="text";
-              pswrd.style.marginTop="20px";
-              icon.style.color="#7f2092";
-            }
-            else{
-              pswrd.type="password";
-              icon.style.color="grey";
-            }
-          }
-        </script>
-
-        <div class="accept">
-          <input required type="checkbox" name="check">
-          <span>I agree to the <a href="/terms"> terms & conditions </a> </span>
-        </div>
-
-        <div class="sub">
-          <button type="submit" name="button">Register</button>
-        </div>
-      </form>
-      <div hidden class="otherlinks">
-        <a href="#" style="cursor: default">Already have an account ?</a>
-        <a href="/login">Login</a>
-      </div>
-      <div class="sub">
-        <button type="submit"><a href="/auth/google">Login with <i class="fa fa-google"></i></a></button>
-      </div>
-      <!-- <div class="otherlinks">
-        <a href="/auth/google">Login with <i class="fa fa-google"></i></a>
-      </div> -->
+  <div class="form">
+    <img class="img1" src="/img/logo.png">
+    <h3>Hail IIEST</h3>
+    <div class="google-auth">
+      <button onclick="location.href='/auth/google' ">Sign up with<img src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Search-Thumb-150x150.png&w=150&h=150&zc=3" class="img2"></button>
+    </div>
+    <div class="google-auth">
+      <button onclick="location.href='/auth/google' ">Sign in with<img src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Search-Thumb-150x150.png&w=150&h=150&zc=3" class="img2"></button>
     </div>
   </div>
 
-  <div class="wave wave4">
+  <!-- <div class="wave wave4">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 410">
       <path fill="#315bC7" fill-opacity="1"
         d="M0,64L48,58.7C96,53,192,43,288,48C384,53,480,75,576,90.7C672,107,768,117,864,112C960,107,1056,85,1152,101.3C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
@@ -135,7 +54,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
       <rect fill="#fff" height="100%" width="100%" y="0" x="0"></rect>
     </svg>
-  </div>
+  </div> -->
 
   <br><br><br><br>
   <script>
