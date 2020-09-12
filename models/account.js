@@ -7,24 +7,24 @@ const accountSchema = new Schema({
   // _id: Number,
   name: {
     type: String,
-    required: true
+    // required: true
   },
   email: {
     type: String,
-    required: true,
-    unique: true
+    // required: true,
+    // unique: true
   },
   gender: {
     type: String,
-    required: true
+    // required: true
   },
   password: {
     type: String,
-    required: true
+    // required: true
   },
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true
   },
   image: {
@@ -33,7 +33,7 @@ const accountSchema = new Schema({
   },
   googleId:{
     type: String,
-    unique: true
+    // unique: true
   }
 }, {
   timestamps: true
