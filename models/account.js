@@ -25,7 +25,6 @@ const accountSchema = new Schema({
   username: {
     type: String,
     // required: true,
-    unique: true
   },
   image: {
       type: Array,

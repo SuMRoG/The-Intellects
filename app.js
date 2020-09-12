@@ -64,7 +64,9 @@ mongoose.connect(dbURI, {
     },
     function(accessToken, refreshToken, profile, cb) {
         console.log(profile);
-      Account.findOrCreate({ googleId: profile.id, name: profile.displayName, image: profile.photos[0] ,email: profile.emails[0] }, function (err, user) {
+      Account.findOrCreate({ googleId: profile.id, name: profile.displayName, image: profile.photos[0] ,email: profile.emails[0],
+         username: profile.displayName, password: profile.displayName, gender: profile.displayName },
+          function (err, user) {
         return cb(err, user);
       });
     }
