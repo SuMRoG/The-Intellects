@@ -1,4 +1,5 @@
 var callbackURL = "https://hailiiest.herokuapp.com/auth/google/front"
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
   callbackURL = "http://localhost:3000/auth/google/front"
@@ -70,14 +71,24 @@ passport.use(new GoogleStrategy({
         name: profile.displayName,
         image: profile.photos[0].value,
         email: profile.emails[0].value,
-        username: profile.displayName,
-        gender: profile.displayName
+        username: profile.displayName
       },
       function(err, user) {
         if (err) {
-          console.log(err)
-        };
-        return cb(err, user);
+          if (err.code == 11000 && err.keyPattern.email) {
+            Account.find({
+              email: profile.emails[0].value
+            }).then(acc=>{
+              if(acc.length){
+                return cb(null, acc[0])
+              }
+            }).catch(err=>{
+              return cb(err, {})
+            })
+          }
+        } else {
+          return cb(null, user);
+        }
       })
   }
 ));
