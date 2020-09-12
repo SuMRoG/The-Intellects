@@ -10,7 +10,7 @@ const accountSchema = new Schema({
     // required: true
   },
   email: {
-    type: Array,
+    type: String,
     // required: true,
     // unique: true
   },
@@ -27,12 +27,12 @@ const accountSchema = new Schema({
     // required: true,
   },
   image: {
-      type: Array,
+      type: String,
     default: "img/default.png"
   },
   googleId:{
     type: String,
-    // unique: true
+    // unique: true 
   }
 }, {
   timestamps: true
