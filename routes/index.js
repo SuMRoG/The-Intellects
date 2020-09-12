@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require('express');
 const bcrypt = require('bcrypt');
 const Blog = require('../models/blog');
