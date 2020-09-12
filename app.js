@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -16,6 +20,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
 var PORT = process.env.PORT || 3000;
+
 //connect to database
 const dbURI = 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {
