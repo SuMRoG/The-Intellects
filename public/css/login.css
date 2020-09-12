@@ -19,7 +19,7 @@ h3{
 .img1 {
   display: block;
   width: 80px;
-  margin-left: 130px;
+  margin: auto;
   /* box-shadow: 0 5px 10px -7px #333333; */
   border-radius: 50%;
 }
@@ -101,6 +101,10 @@ h3{
   .logincard{
     margin-top: 10px;
     transform: scale(0.9);
+  }
+  .form{
+    width: 300px;
+    text-align: center;
   }
 }
 

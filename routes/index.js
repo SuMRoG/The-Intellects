@@ -29,7 +29,7 @@ router.get('/auth/google',
 
 router.get('/auth/google/front',
   passport.authenticate('google', {
-    failureRedirect: '/login'
+    failureRedirect: '/register'
   }),
   async (req, res)=>{
     console.log("Logged In");
@@ -75,7 +75,7 @@ router.get('/front', (req, res) => {
         console.log(err);
       })
   } else {
-    res.redirect('/login');
+    res.redirect('/register');
   }
 })
 
