@@ -388,6 +388,7 @@
 
 .title {
   position: absolute;
+  text-align: center;
 }
 
 .author {
@@ -399,8 +400,8 @@
 .card0 .title {
   font-size: 1.4em;
   top: 20%;
+  left: 0;
   width: 100%;
-  text-align: center;
 }
 
 .card0 .author {
@@ -412,7 +413,7 @@
 .card1 .title {
   font-size: 1.1em;
   top: 18%;
-  left: 48%;
+  right: 1%;
   color: #0760bb;
 }
 
@@ -436,6 +437,7 @@
 }
 
 .card3 .title {
+  width: 65%;
   top: 12%;
   font-size: 1.4em;
   color: #00b8ff;
@@ -451,8 +453,9 @@
 }
 
 .card4 .title {
+  width: 100%;
   top: 40%;
-  left: 10%;
+  left: 0%;
   font-size: 1.8em;
   color: #f63e52;
   transform: rotate(-10deg);
@@ -467,14 +470,15 @@
 }
 
 .card5 .title {
+  width: 100%;
   top: 62%;
-  left: 15%;
+  left: 0%;
   font-size: 1.6em;
   color: #403838;
 }
 
 .card5 .author {
-  top: 80%;
+  top: 90%;
   left: 60%;
   color: #505050;
 }
@@ -482,10 +486,9 @@
 .card6 .title {
   width: 100%;
   top: 25%;
-  text-align: center;
   font-size: 1.7em;
   left: 0;
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 35%, #4a3f3f 35%, #4a3f3f 100%);
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 80px, #4a3f3f 80px, #4a3f3f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -497,9 +500,10 @@
 }
 
 .card7 .title {
+  width: 100%;
   top: 18%;
   font-size: 1.6em;
-  left: 22%;
+  left: 0%;
   color: #971a42;
 }
 

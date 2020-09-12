@@ -103,7 +103,7 @@ body[theme="dark"] {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-#yoyo{
+#yoyo {
   margin-left: 100px;
 }
 
@@ -218,6 +218,8 @@ body[theme="dark"] {
 
 .datacontainer h4 {
   margin: 10px;
+  max-width: 300px;
+  text-align: center;
   color: var(--logo-color);
 }
 
@@ -321,7 +323,7 @@ body[theme="dark"] {
     margin-top: -7rem;
   }
 
-  #yoyo{
+  #yoyo {
     margin-left: 20px;
   }
 
