@@ -1,3 +1,32 @@
+showdown.extension('codehighlight', function() {
+  function htmlunencode(text) {
+    return (
+      text
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+      );
+  }
+  return [
+    {
+      type: 'output',
+      filter: function (text, converter, options) {
+        var left  = '<pre><code\\b[^>]*>',
+            right = '</code></pre>',
+            flags = 'g',
+            replacement = function (wholeMatch, match, left, right) {
+              // unescape match to prevent double escaping
+              match = htmlunencode(match);
+              return left + hljs.highlightAuto(match).value + right;
+            };
+        return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags);
+      }
+    }
+  ];
+});
+showdown.setFlavor('github')
+
+
 function togglepost(ele) {
   // console.log("Called");
   var fullblogcontainer = document.getElementById('fullblogcontainer')
@@ -17,8 +46,10 @@ function togglepost(ele) {
   fetch("/user/getProfileImage/"+author).then(res=> res.json()).then(res=>{
     document.querySelector("#fullblog > header > div > a > img").src = res.image;
   }).catch(err=> console.log(err))
-  converter = new showdown.Converter(),
-  html = converter.makeHtml(body);
+
+  // const converter = new showdown.Converter();
+  const converter = new showdown.Converter({ extensions: ['codehighlight'] });
+  const html = converter.makeHtml(body);
   document.querySelector("#blogbody").innerHTML = html;
   fullblogcontainer.hidden = false;
   document.body.style.overflowY = "hidden";

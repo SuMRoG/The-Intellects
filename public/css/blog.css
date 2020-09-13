@@ -185,6 +185,7 @@ h1 {
 
 .card .title {
   margin-top: 10px;
+  height: 110px;
   font-size: 1.55em;
   cursor: pointer;
 }
