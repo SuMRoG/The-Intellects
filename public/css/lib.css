@@ -198,10 +198,6 @@ body[theme="dark"] {
   justify-content: space-around;
 }
 
-.title2 {
-  color: grey;
-}
-
 .paperdetails {
   width: 100%;
   display: flex;
@@ -224,7 +220,10 @@ body[theme="dark"] {
 }
 
 .title2 {
+  max-width: 260px;
+  text-align: center;
   margin: 10px 10px 20px 10px;
+  color: grey;
 }
 
 .panel__image.panel__image--book {

@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title> <%=title%> </title>
   <link rel="stylesheet" href="css/login.css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" type="image/png" href="img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -16,12 +18,14 @@
     <div class="google-auth">
       <button onclick="location.href='/auth/google' ">Sign up with<img src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Search-Thumb-150x150.png&w=150&h=150&zc=3" class="img2"></button>
     </div>
+    <span class="loginoptional">or</span>
     <div class="google-auth">
       <button onclick="location.href='/auth/google' ">Sign in with<img src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Search-Thumb-150x150.png&w=150&h=150&zc=3" class="img2"></button>
     </div>
+    <a href="mailto:blueedgetechno@gmail.com" class="needhelp">Need help ?</a>
   </div>
 
-  <!-- <div class="wave wave4">
+  <div class="wave wave4">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 410">
       <path fill="#315bC7" fill-opacity="1"
         d="M0,64L48,58.7C96,53,192,43,288,48C384,53,480,75,576,90.7C672,107,768,117,864,112C960,107,1056,85,1152,101.3C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
@@ -54,14 +58,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
       <rect fill="#fff" height="100%" width="100%" y="0" x="0"></rect>
     </svg>
-  </div> -->
-
-  <br><br><br><br>
-  <script>
-    for (var wave of document.getElementsByClassName('wave')) {
-      wave.style.display = "none";
-    }
-  </script>
+  </div>
 </body>
 
 </html>

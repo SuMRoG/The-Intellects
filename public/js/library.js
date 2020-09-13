@@ -121,6 +121,22 @@ function setfilter() {
       i++
     }
   }
+
+  var bookyear = document.getElementsByClassName('bookyear')
+  for (var oneyear of bookyear) {
+    if(oneyear.innerText=="1 year"){
+      oneyear.innerText="1st year"
+    }
+    else if(oneyear.innerText=="2 year"){
+      oneyear.innerText="2nd year"
+    }
+    else if(oneyear.innerText=="3 year"){
+      oneyear.innerText="3rd year"
+    }
+    else{
+      oneyear.innerText="4th year"
+    }
+  }
 }
 
 window.onload = setfilter

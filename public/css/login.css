@@ -3,11 +3,11 @@
 body {
   margin: 0;
   padding: 0;
-background-image: linear-gradient(29deg, #512DA8 50%, #673AB7 50%);
+  /* background-image: linear-gradient(29deg, #512ea6 50%, #6739b8 50%); */
   font-family: 'Montserrat', sans-serif;
 }
 
-h3{
+h3 {
   text-align: center;
   color: #719BE6;
 }
@@ -19,36 +19,40 @@ h3{
 .img1 {
   display: block;
   width: 80px;
-  margin: auto;
-  /* box-shadow: 0 5px 10px -7px #333333; */
+  margin: 0 auto;
+  filter: drop-shadow(1px 1px 1px #d7d7d7);
   border-radius: 50%;
 }
 
 .form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   width: 400px;
   margin: 50px auto 10px auto;
   padding: 30px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px -3px #333;
+  box-shadow: 2px 3px 9px 0px #999999b3;
   text-align: center;
   height: 450px;
+  z-index: 5;
 }
 
 .google-auth button {
-      border-radius: 100px;
-      border: none;
-      background: #719BE6;
-      width: 50%;
-      padding: 10px;
-      color: #FFFFFF;
-      margin-top: 25px;
-      font-size: 17px;
-      box-shadow: 0 2px 10px -3px #719BE6;
-      display: block;
-      margin: 55px auto 10px auto;
-      cursor: pointer;
+  border-radius: 100px;
+  border: none;
+  background: #1b6cfc;
+  width: 50%;
+  margin: 30px auto;
+  padding: 10px;
+  color: #fcfcfc;
+  font-size: 17px;
+  box-shadow: 0 2px 10px -3px #709ae6;
+  display: block;
+  outline: none;
+  cursor: pointer;
 }
 
 .google-auth button a {
@@ -57,14 +61,19 @@ h3{
   font-size: 17px;
 }
 
-.img2{
+.img2 {
   display: inline-block;
   width: 23px;
   margin-bottom: -6px;
-  margin-left: 5px;
-  /* margin: 30px auto; */
+  margin-left: 8px;
   box-shadow: 0 5px 10px -7px #333333;
   border-radius: 50%;
+}
+
+.loginoptional {
+  font-size: larger;
+  font-weight: 500;
+  color: #4f4f4f;
 }
 
 .loginbox {
@@ -89,20 +98,21 @@ h3{
   z-index: 1;
 }
 
-.err{
-  text-align:center;
-  margin:20px 0px 0px 0;
+.err {
+  text-align: center;
+  margin: 20px 0px 0px 0;
   /* text-transform: uppercase; */
   font-weight: 550;
   color: red;
 }
 
 @media screen and (max-width: 650px) {
-  .logincard{
+  .logincard {
     margin-top: 10px;
     transform: scale(0.9);
   }
-  .form{
+
+  .form {
     width: 300px;
     text-align: center;
   }
@@ -182,7 +192,7 @@ h3{
 }
 
 .details1 select,
-.dropdown{
+.dropdown {
   background-color: #f3f3f3;
   border: none;
   color: #282828;
@@ -234,7 +244,7 @@ button[type="submit"]:hover {
   color: white;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -254,7 +264,51 @@ a{
   animation: updown 3s linear infinite;
 }
 
-@keyframes updown {
+.wave2 {
+  animation-duration: 4s;
+}
+
+.wave3 {
+  animation-duration: 5s;
+}
+
+.wave4 {
+  animation-duration: 6s;
+}
+
+.needhelp {
+  margin-top: 30px;
+  font-weight: 600;
+  color: #0732cf;
+}
+
+.coverup {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  bottom: 20px;
+  overflow-y: hidden;
+  animation: upcover 3s linear infinite;
+}
+
+.otherlinks {
+  display: flex;
+  justify-content: space-around;
+}
+
+.otherlinks a {
+  text-decoration: none;
+  color: #4f60ff;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 650px) {
+  .google-auth button {
+    width: 70%;
+  }
+}
+
+@keyframes updown_ {
   0% {
     transform: translateY(20px);
   }
@@ -268,28 +322,8 @@ a{
   }
 }
 
-.wave2 {
-  animation-duration: 4s;
-}
 
-.wave3 {
-  animation-duration: 5s;
-}
-
-.wave4 {
-  animation-duration: 6s;
-}
-
-.coverup {
-  position: absolute;
-  width: 100%;
-  height: 28px;
-  bottom: 20px;
-  overflow-y: hidden;
-  animation: upcover 3s linear infinite;
-}
-
-@keyframes upcover {
+@keyframes upcover_ {
   0% {
     height: 20px;
   }
@@ -301,15 +335,4 @@ a{
   100% {
     height: 20px;
   }
-}
-
-.otherlinks {
-  display: flex;
-  justify-content: space-around;
-}
-
-.otherlinks a {
-  text-decoration: none;
-  color: #4f60ff;
-  font-weight: bold;
 }

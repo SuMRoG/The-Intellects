@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head lang="en" dir="ltr">
 	<title><%= title%></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/slider.css">
-	  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+	<link rel="apple-touch-icon" type="image/png" href="img/favicon.png">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<script src="js/main.js"></script>
 	<script src="js/start.js"></script>
@@ -25,15 +26,15 @@
 					<i class="fas fa-bars" onclick="togglenav()"></i>
 				</div>
 				<% if(user){%>
-					<div class="navlinks">
-						<a href="/profile"><%=user.name%></a>
-						<a href="user/logout">logout</a>
-					</div>
+				<div class="navlinks">
+					<a href="/profile"><%=user.name%></a>
+					<a href="user/logout">logout</a>
+				</div>
 				<% }else{%>
-					<div class="navlinks">
-						<!-- <a href="/login">Login</a> -->
-						<a href="/register">Login/Signup</a>
-					</div>
+				<div class="navlinks">
+					<!-- <a href="/login">Login</a> -->
+					<a href="/register">Login/Signup</a>
+				</div>
 				<%}%>
 			</div>
 			<div id="nav2" class="nav2 hidden">

@@ -5,5 +5,6 @@ prepros.config
 backup
 .env
 operation.js
-con.js
-rough
+rough.js
+books.json
+.gitignore
