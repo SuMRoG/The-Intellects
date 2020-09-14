@@ -15,9 +15,16 @@
   <div id="bar2">
     We suggest you to read upto the bottom
     <div class="hb-close-wrapper">
-      <a onclick="myfunction2(this)" class="icon-close">&#10006;</a>
+      <a onclick="myfunction2()" class="icon-close">&#10006;</a>
     </div>
   </div>
+
+  <script>
+    if(localStorage.getItem("closedSuggestion") && localStorage.getItem("closedSuggestion")<=0){
+      myfunction2()
+    }
+  </script>
+
   <div class="container">
     <div class="headwrapper">
       <div class="header-overlap">

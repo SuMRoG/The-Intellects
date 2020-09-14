@@ -30,7 +30,7 @@ function changedtab() {
   var bookfilters = document.getElementById('bookfilters')
   var quesfilters = document.getElementById('quesfilters')
   var type = document.getElementById('type').value
-  if(type=="book"){
+  if(type!="ques"){
     bookfilters.hidden = false
     quesfilters.hidden = true
   }else{

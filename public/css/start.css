@@ -364,6 +364,7 @@
   top: 50px;
   left: 0;
   right: 0;
+  font-weight: 600; 
   background: var(--logo-color);
   color: var(--con-color);
   text-align: center;

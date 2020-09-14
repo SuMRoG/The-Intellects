@@ -424,8 +424,9 @@
 }
 
 .card2 .title {
+  width: 100%;
   top: 15%;
-  left: 31%;
+  left: 0%;
   font-size: 1.4em;
   color: #941cdf;
 }

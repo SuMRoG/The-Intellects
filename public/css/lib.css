@@ -179,7 +179,7 @@ body[theme="dark"] {
 }
 
 .cardcolumn {
-  margin-bottom: 16px;
+  margin: 16px 0;
   padding: 10px 40px;
 }
 
@@ -232,7 +232,7 @@ body[theme="dark"] {
   justify-content: center;
   position: relative;
   padding: 10px;
-  margin-top: 40px;
+  margin-top: -50px;
 }
 
 .books__book__img {
@@ -245,9 +245,9 @@ body[theme="dark"] {
 
 .books__book__img img {
   position: relative;
-  left: -70px;
-  width: 200px;
-  height: 250px;
+  left: -100px;
+  width: 250px;
+  height: 300px;
 }
 
 .books__book__img:hover {

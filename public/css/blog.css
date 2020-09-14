@@ -98,6 +98,7 @@
 
 .boy {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

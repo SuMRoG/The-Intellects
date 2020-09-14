@@ -17,6 +17,10 @@ const questionSchema = new Schema({
     type: String,
     default: "maths"
   },
+  sender: {
+    type: String,
+    default: "admin"
+  },
   url: {
     type: String,
     default: "#"

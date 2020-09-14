@@ -13,9 +13,9 @@ function slideit(i) {
 
 function myfunction2(){
   var x= document.getElementById('bar2');
-  if(x.style.display === "none"){
-    x.style.display="block";
-  }else{
-    x.style.display="none";
+  x.style.display="none";
+  if(localStorage.getItem("closedSuggestion")==null){
+    localStorage.setItem("closedSuggestion",2);
   }
+  localStorage.setItem("closedSuggestion",localStorage.getItem("closedSuggestion")-1);
 }

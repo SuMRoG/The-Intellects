@@ -144,7 +144,11 @@ router.post("/addbook", authUser, (req, res) => { //
     }
     doc.subject = req.body.subject
     doc.url = req.body.url
-    doc.cover = Math.floor(Math.random() * 8)
+    doc.cover = -1
+    if(req.body.type == "book"){
+      doc.cover = Math.floor(Math.random() * 8)
+    }
+    doc.sender = req.session.user.email
     const book = new Book(doc)
     book.save()
       .then(result => res.redirect("/library"))
@@ -161,7 +165,8 @@ router.post("/addbook", authUser, (req, res) => { //
     }
     doc.subject = req.body.subject
     doc.url = req.body.url
-    console.log(doc);
+    doc.sender = req.session.user.email
+    // console.log(doc);
     const ques = new Question(doc)
     ques.save()
       .then(result => res.redirect("/library"))
@@ -223,24 +228,29 @@ router.get('/library', function(req, res, next) {
   // console.log(req.query);
   if (req.query.type != "ques") {
     Book.find()
+      .sort({
+        createdAt: -1
+      })
       .then((rawbooks) => {
         var books = []
         for (var book of rawbooks) {
           if (book.year == req.query.year || req.query.year == null) {
-            var i = 0;
-            var expl = 0;
-            if (req.query.department != null) {
-              var department = req.query.department.split(",")
-              expl = department.length
-            }
-            for (; i < expl; i++) {
-              var dept = department[i]
-              if (book.department.includes(dept) == false) {
-                break
+            if(book.type == req.query.type || req.query.type == null){
+              var i = 0;
+              var expl = 0;
+              if (req.query.department != null) {
+                var department = req.query.department.split(",")
+                expl = department.length
               }
-            }
-            if (i == expl) {
-              books.push(book)
+              for (; i < expl; i++) {
+                var dept = department[i]
+                if (book.department.includes(dept) == false) {
+                  break
+                }
+              }
+              if (i == expl) {
+                books.push(book)
+              }
             }
           }
         }
@@ -261,6 +271,9 @@ router.get('/library', function(req, res, next) {
       })
   } else {
     Question.find()
+      .sort({
+        createdAt: -1
+      })
       .then((rawpapers) => {
         var papers = []
         for (var paper of rawpapers) {

@@ -681,6 +681,7 @@ body[theme="dark"] {
 
 .markdown-body>:last-child {
   margin-bottom: 0 !important;
+  border-radius: 10px;
 }
 
 .markdown-body a:not([href]) {

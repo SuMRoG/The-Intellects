@@ -111,8 +111,8 @@
       </div>
 
       <div class="boy">
-        <%posts.map((post,i)=>{%>
-        <div class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('<%=post.bannerimage%>')  center / cover no-repeat;">
+        <%posts.map((post)=>{%>
+        <div hidden class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('<%=post.bannerimage%>')  center / cover no-repeat;">
           <div class="header4">
             <div class="date">
               <span>
@@ -133,6 +133,25 @@
           </div>
         </div>
         <%})%>
+
+        <button type="button" id="more" onclick="loadmore()">Load more</button>
+
+        <script type="text/javascript">
+          var posts = document.getElementsByClassName('card')
+          var l = posts.length
+          var m = 0
+          function loadmore(){
+            m += Math.min(l-m,3)
+            for(var i=0;i<m;i++){
+              posts[i].hidden = false
+            }
+            if(m==l){
+              document.getElementById("more").hidden = true;
+            }
+          }
+          loadmore()
+          loadmore()
+        </script>
 
       </div>
     </div>

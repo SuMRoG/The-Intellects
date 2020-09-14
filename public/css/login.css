@@ -55,6 +55,10 @@ h3 {
   cursor: pointer;
 }
 
+.google-auth:nth-child(5) button{
+  background: #ff1641;
+}
+
 .google-auth button a {
   text-decoration: none;
   color: white;

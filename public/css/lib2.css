@@ -109,15 +109,15 @@ ul select option:checked {
   color: var(--text-dim);
 }
 
-#department::-webkit-scrollbar{
-  width: 8px;
+.dropdown::-webkit-scrollbar{
+  width: 5px;
   background: inherit;
 }
 
-#department::-webkit-scrollbar-thumb{
-  width: 8px;
+.dropdown::-webkit-scrollbar-thumb{
+  width: 5px;
   background: #036cd6;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 @media screen and (max-width: 650px) {

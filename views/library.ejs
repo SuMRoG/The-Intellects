@@ -23,6 +23,7 @@
             <select name="type" id="type" size="4" onchange="changedtab()">
               <option selected value="book">Book and notes</option>
               <option value="ques">Exam papers</option>
+              <option value="other">Others</option>
             </select>
           </div>
 
@@ -317,8 +318,25 @@
         <%}%>
         <div class="book-container">
           <%books & books.map(book=>{%>
+          <% if(book.cover==-1){%>
+            <div hidden class="cardcolumn cardcontainer">
+              <div class="card27">
+                <div class="panel__image panel__image--book">
+                  <a href="<%=book.url%>" target="_blank" class="books__book__image">
+                    <div class="books__book__img">
+                      <img src="/img/book.png">
+                    </div>
+                  </a>
+                </div>
+                <div class="datacontainer">
+                  <h4><%=book.subject%></h4>
+                  <p class="title2 bookyear"><%=book.year%> year</p>
+                </div>
+              </div>
+            </div>
+          <%}%>
           <% if(book.cover==0){%>
-          <a href="<%=book.url%>" class="cardcontainer" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card0">
               <span class="title"><%=book.subject%></span>
               <span class="author bookyear"><%=book.year%> year</span>
@@ -330,7 +348,7 @@
           </a>
           <%}%>
           <% if(book.cover==1){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card1">
               <div class="diamonds">
                 <div class="dia"></div>
@@ -354,7 +372,7 @@
           </a>
           <%}%>
           <% if(book.cover==2){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card2">
               <div class="ribbon"></div>
               <div class="centerdia"></div>
@@ -369,7 +387,7 @@
           </a>
           <%}%>
             <% if(book.cover==3){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card3">
               <div class="square"></div>
               <span class="title"><%=book.subject%></span>
@@ -382,7 +400,7 @@
           </a>
           <%}%>
             <% if(book.cover==4){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card4">
               <div class="band"></div>
               <span class="title"><%=book.subject%></span>
@@ -395,7 +413,7 @@
           </a>
           <%}%>
             <% if(book.cover==5){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card5">
               <div class="fallcontainer">
                 <div class="fall"></div>
@@ -418,7 +436,7 @@
           </a>
           <%}%>
             <% if(book.cover==6){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card6">
               <div class="rainbow">
                 <div class="bow"></div>
@@ -439,7 +457,7 @@
           </a>
           <%}%>
             <% if(book.cover==7){%>
-          <a href="<%=book.url%>" class="cardcontainer" target="_blank">
+          <a hidden href="<%=book.url%>" class="cardcontainer" target="_blank">
             <div class="card card7">
               <div class="circles">
                 <div class="circle"></div>
@@ -459,7 +477,30 @@
           <%}%>
           <%})%>
 
+          <%if(books.length!=0){%>
+            <button type="button" id="more" onclick="loadmore()">Load more</button>
+          <%}%>
+
         </div>
+
+        <script type="text/javascript">
+          var books = document.getElementsByClassName('cardcontainer')
+          var l = books.length
+          var m = 0
+
+          function loadmore(){
+            m += Math.min(l-m,6)
+            for(var i=0;i<m;i++){
+              books[i].hidden = false
+            }
+            if(m==l){
+              document.getElementById("more").hidden = true;
+            }
+          }
+
+          loadmore()
+          loadmore()
+        </script>
 
         <div class="rowe paper-container">
           <%papers & papers.map(paper=>{%>
@@ -468,7 +509,7 @@
                 <div class="panel__image panel__image--book">
                   <a href="<%=paper.url%>" target="_blank" class="books__book__image">
                     <div class="books__book__img">
-                      <img src="/img/book.png">
+                      <img title="flaticon.com" src="https://www.flaticon.com/svg/static/icons/svg/999/999672.svg">
                     </div>
                   </a>
                 </div>

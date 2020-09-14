@@ -28,6 +28,10 @@ const bookSchema = new Schema({
     type: Number,
     default: 0
   },
+  sender:{
+    type: String,
+    default: "admin"
+  },
   url:{
     type: String,
     default: "#"
