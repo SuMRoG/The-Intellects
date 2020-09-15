@@ -57,6 +57,7 @@ h3 {
 
 .google-auth:nth-child(5) button{
   background: #ff1641;
+  box-shadow: 0 2px 10px -3px #d64b4b;
 }
 
 .google-auth button a {

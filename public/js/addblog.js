@@ -78,6 +78,32 @@ function pixabay(url) {
   }).catch(err => console.log(err))
 }
 
+function pexels(url) {
+  var page = 1
+  if(0){
+    page = Math.floor(Math.random()*20 + 1)
+  }
+  url = "https://api.pexels.com/v1/search?per_page=80&page="+page+"&query=" + url.join("%20")
+  fetch(url, {
+      "method": "GET",
+      "headers": {
+        "Authorization": "563492ad6f917000010000013907bc8d6c2645b7a2cc156eb8765c51"
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      var imgprev = document.getElementById("blogimagepreview")
+      var i = Math.floor(Math.random() * res.photos.length)
+      var imgurl = res.photos[i].src.large;
+      console.log(imgurl);
+      imgprev.src = imgurl;
+      document.getElementById('inputbanner').value = imgurl;
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
 function unsplash(url) {
   url = "https://source.unsplash.com/1600x900/?"+ url.join(",")
   fetch(url).then(res=>{
@@ -126,9 +152,12 @@ function setbannerimage() {
       pixabay(url)
     }
     if(val==1){
-      unsplash(url)
+      pexels(url)
     }
     if(val==2){
+      unsplash(url)
+    }
+    if(val==3){
       imagur(url)
     }
 

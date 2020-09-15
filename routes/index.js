@@ -321,11 +321,15 @@ router.get('/proto', function(req, res, next) {
   });
 });
 
-router.get('/connect', function(req, res, next) {
-  res.render('connect', {
-    title: 'Connect',
-    user: req.session.user
-  });
+router.get('/connect',authUser, function(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.render('connect', {
+      title: 'Connect',
+      user: req.session.user
+    });
+  } else {
+    res.redirect('/register');
+  }
 });
 
 module.exports = router;
