@@ -64,46 +64,31 @@ router.get('/front', (req, res) => {
   }
 })
 
-router.get('/connect', (req, res) => {
-  if (req.isAuthenticated()) {
-    Connect.find().then((allstudents) => {
-      var students = []
-      for (var student of allstudents) {
-        if (student.year == req.query.year || req.query.year == null) {
-          if (student.department == req.query.department || req.query.department == null) {
-            if (student.state == req.query.state || req.query.state == null) {
-              students.push(student)
-            }
+router.get('/connect', authUser, (req, res, next) => {
+  Connect.find().then((allstudents) => {
+    var students = []
+    for (var student of allstudents) {
+      if (student.year == req.query.year || req.query.year == null) {
+        if (student.department == req.query.department || req.query.department == null) {
+          if (student.state == req.query.state || req.query.state == null) {
+            students.push(student)
           }
         }
       }
-      res.render('connect', {
-        title: 'Connect',
-        students: students,
-        user: req.session.user
-      })
-    }).catch((err) => {
-      console.log(err)
-      res.render('connect', {
-        title: 'Connect',
-        user: req.session.user,
-        err: "Error 505"
-      });
+    }
+    res.render('connect', {
+      title: 'Connect',
+      students: students,
+      user: req.session.user
     })
-  }
-})
-
-router.get('/addcon', function(req, res, next) {
-  res.render('addcon', {
-    title: 'Add connect',
-    user: req.session.user
-  });
-})
-
-router.post("/addcon", authUser, (req, res) => {
-  console.log(req.body);
-  const connect = new Connect(req.body)
-  connect.save().then(result => res.redirect("/connect")).catch(err => console.log(err))
+  }).catch((err) => {
+    console.log(err)
+    res.render('connect', {
+      title: 'Connect',
+      user: req.session.user,
+      err: "Error 505"
+    });
+  })
 })
 
 router.get('/addbook', authUser, (req, res, next) => { //
@@ -281,6 +266,8 @@ router.get('/library', function(req, res, next) {
 });
 
 router.get('/proto', function(req, res, next) {
+  res.redirect("/")
+  return
   res.render('prototype', {title: 'Prototypes'});
 });
 
