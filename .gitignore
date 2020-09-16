@@ -4,8 +4,11 @@ post.html
 prepros.config
 backup
 .env
+foul.json
+operation.js
 operation.js
 rough.js
 books.json
+books2.json
 connect.json
 .gitignore
