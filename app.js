@@ -1,4 +1,4 @@
-var callbackURL = "https://hailiiest.herokuapp.com/auth/google/front"
+var callbackURL = "https://theintellects.herokuapp.com/auth/google/front"
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
