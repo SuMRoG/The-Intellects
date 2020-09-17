@@ -96,6 +96,8 @@ function setfilter() {
   if(params.type && params.type=="ques"){
     type.value = "ques"
     changedtab()
+  }else if (params.type && params.type=="other") {
+    type.value = "other"
   }
 
   if(params.year){
