@@ -135,8 +135,10 @@ function setfilter() {
     else if(oneyear.innerText=="3 year"){
       oneyear.innerText="3rd year"
     }
-    else{
+    else if(oneyear.innerText=="4 year"){
       oneyear.innerText="4th year"
+    }else{
+      oneyear.innerText="All year"
     }
   }
 }
