@@ -1,5 +1,5 @@
 .yaya{
-     background-image: linear-gradient(29deg, #512DA8 50%, #673AB7 50%);
+     background-color: var(--background);
      min-height: 100vh;
      padding: 40px;
      width: 100%;
@@ -13,7 +13,7 @@
   background-color: #fff;
   margin: 2rem 0 3rem 30%;
   position: relative;
-  z-index: 5;
+  z-index: 0;
 }
 
 @media screen and (min-width: 641px){
