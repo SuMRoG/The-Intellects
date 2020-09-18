@@ -1,24 +1,19 @@
 showdown.extension('codehighlight', function() {
   function htmlunencode(text) {
-    return (
-      text
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-      );
+    return (text.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
   }
   return [
     {
       type: 'output',
-      filter: function (text, converter, options) {
-        var left  = '<pre><code\\b[^>]*>',
-            right = '</code></pre>',
-            flags = 'g',
-            replacement = function (wholeMatch, match, left, right) {
-              // unescape match to prevent double escaping
-              match = htmlunencode(match);
-              return left + hljs.highlightAuto(match).value + right;
-            };
+      filter: function(text, converter, options) {
+        var left = '<pre><code\\b[^>]*>',
+          right = '</code></pre>',
+          flags = 'g',
+          replacement = function(wholeMatch, match, left, right) {
+            // unescape match to prevent double escaping
+            match = htmlunencode(match);
+            return left + hljs.highlightAuto(match).value + right;
+          };
         return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags);
       }
     }
@@ -26,6 +21,7 @@ showdown.extension('codehighlight', function() {
 });
 showdown.setFlavor('github')
 
+const converter = new showdown.Converter({extensions: ['codehighlight']})
 
 function togglepost(ele) {
   // console.log("Called");
@@ -43,14 +39,14 @@ function togglepost(ele) {
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span > a").innerText = author
   document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span.blog-date").innerText = datecreated
   document.querySelector("#fullblog > section:nth-child(2) > div > img").src = imageurl;
-  fetch("/user/getProfileImage/"+author).then(res=> res.json()).then(res=>{
+  fetch("/user/getProfileImage/" + author).then(res => res.json()).then(res => {
     document.querySelector("#fullblog > header > div > a > img").src = res.image;
-  }).catch(err=> console.log(err))
+  }).catch(err => console.log(err))
 
-  // const converter = new showdown.Converter();
-  const converter = new showdown.Converter({ extensions: ['codehighlight'] });
-  const html = converter.makeHtml(body);
-  document.querySelector("#blogbody").innerHTML = html;
+  console.log(body)
+  var target = document.getElementById('blogbody')
+  const html = converter.makeHtml(body.trim())
+  target.innerHTML = html;
   fullblogcontainer.hidden = false;
   document.body.style.overflowY = "hidden";
 }
@@ -62,9 +58,9 @@ function togglepostoff() {
   document.body.style.overflowY = "scroll";
 }
 
-window.addEventListener('click', function(e){
+window.addEventListener('click', function(e) {
   var fullblogcontainer = document.getElementById('fullblogoverlay')
-  if(e.target==fullblogcontainer){
+  if (e.target == fullblogcontainer) {
     togglepostoff()
   }
 });

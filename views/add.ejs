@@ -32,21 +32,21 @@
           <div class="imageinput">
             <span>Post image </span>
             <input type="text" onchange="setbannerimage()" id="pseudoimageinput" class="subheading imageurlfield" placeholder="Type words to search or paste a url">
-            <select title="image provider" id="imageprovider" class="chooseService" onchange="setbannerimage()">
-              <option selected value="0">pixabay</option>
-              <option value="1">Pexels</option>
-              <option value="2">unsplash</option>
-              <!-- <option value="3">imgur</option> -->
-            </select>
           </div>
           <br>
-          <span id="aboutmarkdown">*You can also write in <a href="https://www.markdownguide.org/getting-started/">markdown</a> to enhance the post quality</span>
+          <span id="aboutmarkdown">*You can also write in <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">markdown</a> to enhance the post quality</span>
           <textarea required onchange="updatepreview()" id="blogbodyinput" class="bodyinput" name="body" rows="8" cols="80" name="body" placeholder="Start typing"></textarea><br><br>
           <button type="submit" class="submitbutton" name="button">Post</button>
         </form>
       </div>
 
-      <div class="previewcontainer" id="previewcontainer" hidden>
+      <div class="previewcontainer" id="previewcontainer" style="display: none">
+        <label id="searchoptions">Search image from <select title="image provider" id="imageprovider" class="chooseService" onchange="setbannerimage()">
+            <option value="0">pixabay</option>
+            <option selected value="1">Pexels</option>
+            <option value="2">unsplash</option>
+            <!-- <option value="3">imgur</option> -->
+          </select></label>
         <div class="postimage">
           <img id="blogimagepreview" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600" alt="">
         </div>

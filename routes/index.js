@@ -186,12 +186,15 @@ router.get('/team', function(req, res, next) {
 
 router.get('/library', function(req, res, next) {
   // console.log(req.query);
+  if(req.query.type==null){
+    req.query.type = "book"
+  }
   if (req.query.type != "ques") {
     Book.find().sort({createdAt: -1}).then((rawbooks) => {
       var books = []
       for (var book of rawbooks) {
-        if (book.year == req.query.year || req.query.year == null) {
-          if (book.type == req.query.type || req.query.type == null) {
+        if (book.year == req.query.year || req.query.year == null || book.year == 0) {
+          if (book.type == req.query.type) {
             var i = 0;
             var expl = 0;
             if (req.query.department != null) {

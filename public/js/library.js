@@ -96,6 +96,8 @@ function setfilter() {
   if(params.type && params.type=="ques"){
     type.value = "ques"
     changedtab()
+  }else if (params.type && params.type=="other") {
+    type.value = "other"
   }
 
   if(params.year){
@@ -133,8 +135,10 @@ function setfilter() {
     else if(oneyear.innerText=="3 year"){
       oneyear.innerText="3rd year"
     }
-    else{
+    else if(oneyear.innerText=="4 year"){
       oneyear.innerText="4th year"
+    }else{
+      oneyear.innerText="All year"
     }
   }
 }

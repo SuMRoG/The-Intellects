@@ -58,11 +58,12 @@
 }
 
 #imageprovider {
-  padding: 7px 15px;
+  padding: 5px;
   margin: 5px;
   border: none;
-  font-size: 1.05em;
-  background: var(--background-dim);
+  font-size: 0.9em;
+  font-weight: 600;
+  background: var(--background);
   color: var(--text);
   outline: none;
 }
@@ -74,7 +75,7 @@
   margin: 5px 0;
 }
 
-#aboutmarkdown a{
+#aboutmarkdown a {
   text-decoration: none;
 }
 
@@ -113,7 +114,16 @@
 }
 
 .previewcontainer {
+  display: flex;
+  flex-direction: column;
   padding: 0 15%;
+  margin-top: -40px;
+}
+
+#searchoptions{
+  align-self: flex-end;
+  margin-bottom: 5px;
+  font-size: 0.7em;
 }
 
 .postimage {
