@@ -32,12 +32,6 @@
           <div class="imageinput">
             <span>Post image </span>
             <input type="text" onchange="setbannerimage()" id="pseudoimageinput" class="subheading imageurlfield" placeholder="Type words to search or paste a url">
-            <select hidden title="image provider" id="imageprovider" class="chooseService" onchange="setbannerimage()">
-              <option value="0">pixabay</option>
-              <option selected value="1">Pexels</option>
-              <option value="2">unsplash</option>
-              <!-- <option value="3">imgur</option> -->
-            </select>
           </div>
           <br>
           <span id="aboutmarkdown">*You can also write in <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">markdown</a> to enhance the post quality</span>
@@ -46,7 +40,13 @@
         </form>
       </div>
 
-      <div class="previewcontainer" id="previewcontainer" hidden>
+      <div class="previewcontainer" id="previewcontainer" style="display: none">
+        <label id="searchoptions">Search image from <select title="image provider" id="imageprovider" class="chooseService" onchange="setbannerimage()">
+            <option value="0">pixabay</option>
+            <option selected value="1">Pexels</option>
+            <option value="2">unsplash</option>
+            <!-- <option value="3">imgur</option> -->
+          </select></label>
         <div class="postimage">
           <img id="blogimagepreview" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600" alt="">
         </div>
