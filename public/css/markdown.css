@@ -3,6 +3,7 @@ body[theme="light"] {
   --pre-code: #3e3e3e;
   --headings: #2a2f2a;
   --text: #201e1e;
+  --print: #27bb0c;
 }
 
 body[theme="dark"] {
@@ -10,6 +11,7 @@ body[theme="dark"] {
   --pre-code: #c8c8c8;
   --headings: #e0e7e0;
   --text: #ececec;
+  --print: #3cff4b;
 }
 
 .hljs-attribute,
@@ -33,7 +35,7 @@ body[theme="dark"] {
 .hljs-string,
 .hljs-template-tag,
 .hljs-type {
-  color: #3cff4b !important;
+  color: var(--print) !important;
 }
 
 .hljs-number {

@@ -61,17 +61,12 @@ function updatepreview() {
   target.innerHTML = html;
 }
 
-async function modify(imgurl) {
-  return imgurl.split("").reverse().join("").replace("051", "0821").split("").reverse().join("")
-}
-
 function pixabay(url) {
   url = "https://pixabay.com/api/?key=16584935-732689d72ee72861d5f1ced4c&per_page=200&image_type=photo&min_width=1000&q=" + url.join("+")
-  fetch(url).then(res => res.json()).then(async function(res) {
+  fetch(url).then(res => res.json()).then(function(res) {
     var imgprev = document.getElementById("blogimagepreview")
     var i = Math.floor(Math.random() * res.hits.length)
-    var imgurl = res.hits[i].previewURL;
-    imgurl = await modify(imgurl)
+    var imgurl = res.hits[i].largeImageURL;
     console.log(imgurl);
     imgprev.src = imgurl;
     document.getElementById('inputbanner').value = imgurl;
