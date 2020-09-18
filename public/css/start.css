@@ -267,6 +267,10 @@
   margin-left: 30px;
 }
 
+#mama{
+  margin-left: 30px;
+}
+
 .space {
   height: 100px;
 }
@@ -299,6 +303,10 @@
     width: 100%;
     /* clip-path: url(#headercut); */
     clip-path: polygon(0% 0%, 0% 80%, 100% 65%, 100% 0%);
+  }
+
+  #libraryimage{
+    margin-left: 0;
   }
 
   .headwrapper {
