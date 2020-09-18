@@ -18,6 +18,14 @@
   /* border: 2px solid silver; */
 }
 
+#headerconnect{
+  background-image: linear-gradient(to right bottom,
+    var(--header-gradient-one),
+    var(--header-gradient-two)),
+    url('/img/connect.jpg');
+  background-position-y: -150px;  
+}
+
 summary {
   display: flex;
   align-items: center;

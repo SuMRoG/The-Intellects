@@ -43,6 +43,15 @@ body[theme="dark"] {
   clip-path: polygon(0 0, 100% 0, 100% 20vh, 0 100%);
 }
 
+#librarybackground{
+  background-image:
+    linear-gradient(to right bottom,
+      var(--header-gradient-one),
+      var(--header-gradient-two)),
+    url('/img/library.jpg');
+  background-position-y: -300px;
+}
+
 .brand-box {
   position: absolute;
   top: 40px;

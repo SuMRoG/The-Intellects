@@ -1,13 +1,13 @@
-.cardcontainer{
+.cardcontainer {
   text-decoration: none;
   transition: 0.3s;
 }
 
-.card{
+.card {
   transform: scale(0.9);
 }
 
-.card:hover{
+.card:hover {
   transform: scale(0.9) rotate(-6deg);
   transition: 0.3s;
 }
@@ -21,11 +21,16 @@
   justify-content: space-around;
 }
 
+@media screen and (max-width: 650px) {
+  .book-container {
+    padding-left: 0;
+  }
+}
+
 .card {
   position: relative;
   width: 284px;
   height: 333px;
-  margin: 0 40px;
   background: #fefefe;
   box-shadow: 2px 2px 15px 2px var(--shadow);
   border-radius: 0 5px 5px 0;
