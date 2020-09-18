@@ -25,7 +25,7 @@ const findOrCreate = require("mongoose-findorcreate");
 var PORT = process.env.PORT || 3000;
 
 //connect to database
-const dbURI = 'mongodb+srv://blueedge:whatisthis@blogsiiest.xe0ag.mongodb.net/blogiiest?retryWrites=true&w=majority';
+const dbURI = process.env.dbconnect;
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true

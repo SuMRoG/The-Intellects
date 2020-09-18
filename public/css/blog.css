@@ -14,21 +14,25 @@
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
-.loadmore{
+.loadmore {
   width: 100%;
   text-align: center;
   margin-top: 40px;
+}
+
+.title a::selection{
+  /* background: none; */
 }
 
 .view {
   display: flex;
 }
 
-.fa-2x{
+.fa-2x {
   font-size: 2em;
 }
 
-.fa{
+.main-menu li>a .fa {
   position: relative;
   display: table-cell;
   width: 60px;
@@ -38,37 +42,38 @@
   font-size: 20px;
 }
 
-.main-menu:hover, nav.main-menu.expanded {
-  width: 250px;
-  overflow: visible;
-}
-
-.main-menu{
-  background: #212121;
-  border-radius: 1px solid #e1e1e1;
+.main-menu {
+  background-color: var(--background-dim);
   top: 10px;
   bottom: 0;
   height: 90%;
   left: 0;
   width: 60px;
   overflow: hidden;
-  -webkit-transition: width 0.05s linear;
-  transition: width 0.05s linear;
-  -webkit-transform: translateZ(0) scale(1,1);
-  z-index: 1000;
+  -webkit-transition: width 0.1s linear;
+  transition: width 0.1s linear;
 }
 
-.main-menu>ul{
+.main-menu:hover, nav.main-menu.expanded {
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0);
+  overflow: visible;
+  -webkit-transition: background-color 0.15s linear;
+  -ms-transition: background-color 0.15s linear;
+  transition: background-color 0.15s linear;
+}
+
+.main-menu>ul {
   margin: 7px 0;
 }
 
-.main-menu li{
+.main-menu li {
   position: relative;
   display: block;
   width: 250px;
 }
 
-.main-menu li>a{
+.main-menu li>a {
   position: relative;
   display: table;
   border-collapse: collapse;
@@ -77,12 +82,11 @@
   font-family: arial;
   font-size: 14px;
   text-decoration: none;
-  -webkit-transform: translateZ(0) scale(1,1);
-  -webkit-transform: all .1s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
   transition: all .1s linear;
 }
 
-.main-menu .nav-icon{
+.main-menu .nav-icon {
   position: relative;
   display: table-cell;
   width: 60px;
@@ -92,62 +96,57 @@
   font-size: 18px;
 }
 
-.main-menu .nav-text{
+.main-menu .nav-text {
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  width:190px;
+  width: 190px;
   font-family: 'Titillium Web', sans-serif;
 }
 
-.main-menu>ul.logout{
+.main-menu>ul.logout {
   position: relative;
   left: 0;
   bottom: 0;
-  margin:auto;
+  margin: auto;
 }
 
-
 .no-touch .scrollable.hover {
-overflow-y:hidden;
+  overflow-y: hidden;
 }
 
 .no-touch .scrollable.hover:hover {
-overflow-y:auto;
-overflow:visible;
+  overflow-y: auto;
+  overflow: visible;
 }
 
-a:hover,a:focus{
+a:hover, a:focus {
   text-decoration: none;
 }
 
-nav{
-  -webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
--o-user-select:none;
-user-select:none;
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-
-nav ul,nav li {
-  outline:0;
-  margin:0;
-  padding:0px;
+nav ul, nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color: #fff ;
-background-color: #5fa2b ;
-}
 
+.nav-text {}
 
 .area {
-    float: left;
-    background: #e2e2e2;
-    /* width: 100%;*/
-    height: 100%;
+  float: left;
+  background: #e2e2e2;
+  /* width: 100%;*/
+  height: 100%;
 }
 
 .sidecontainer {
@@ -329,10 +328,9 @@ h1 {
   margin-top: 10px;
   height: 110px;
   font-size: 1.55em;
-  cursor: pointer;
 }
 
-.card .title a {
+.card .title{
   color: #fff;
 }
 
@@ -361,7 +359,7 @@ h1 {
   color: #fff;
   line-height: 1;
   position: relative;
-  cursor: pointer;
+  cursor: default;
   font-weight: 700;
 }
 
@@ -406,8 +404,39 @@ h1 {
     flex-direction: column;
   }
 
+  .header3{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+  }
+
   .sidecontainer {
+    position: absolute;
     width: 100%;
+  }
+
+  .main-menu {
+    width: 100% !important;
+  }
+
+  .main-menu>ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-menu li {
+    width: 100%;
+  }
+
+  .main-menu li>a {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-menu li>a .fa{
+    width: 100%;
+    height: auto;
+  }
+  .main-menu .nav-text{
+    width: 100%;
+    display: none;
   }
 
   .boy {

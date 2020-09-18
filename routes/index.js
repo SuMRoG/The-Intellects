@@ -49,7 +49,7 @@ router.get('/register', notauthUser, function(req, res, next) {
 });
 
 router.get('/front', (req, res) => {
-  if (req.isAuthenticated()) {
+  if (req.isAuthenticated() || true) {
     Blog.find().sort({createdAt: -1}).then((posts) => {
       res.render('front', {
         title: 'Blogs',

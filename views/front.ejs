@@ -63,108 +63,58 @@
 
     <div class="view">
       <div class="sidecontainer">
-      <div class="area"></div><nav class="main-menu">
-        <ul>
-          <li>
-            <a href="#">
-                  <i class="fa fa-bell fa-2x"></i>
-                  <span class="nav-text">
-                      Notifications
-                  </span>
-            </a>
-          </li>
-                  <li>
-                      <a href="#">
-                          <i class="fa fa-exclamation-circle fa-2x"></i>
-                          <span class="nav-text">
-                             Popular posts
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                     <a href="#">
-                         <i class="fa fa-facebook-square fa-2x"></i>
-                          <span class="nav-text">
-                              Follow us on facebook
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                     <a href="#">
-                          <i class="fa fa-instagram fa-2x"></i>
-                          <span class="nav-text">
-                              Follow us on facebook
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                         <i class="fa fa-info fa-2x"></i>
-                          <span class="nav-text">
-                              Know More about us
-                          </span>
-                      </a>
-                  </li>
-              </ul>
-
-        <ul class="logout">
-                <li>
-                   <a href="user/logout">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>
-            </ul>
-            </nav>
-      <!--
-        <div class="notification-container">
-          <div class="notf-title">
-            <span>Notifications</span>
-          </div>
-          <div class="notifications">
-            <div class="notification">
-              <i class="fas fa-envelope"></i>
-              <span>Please confirm your email</span>
-            </div>
-            <div class="notification">
-              <i class="fas fa-book"></i>
-              <span>Checkout our library page</span>
-            </div>
-            <div class="notification">
-              <i class="fab fa-github"></i>
-              <span>Follow us on github</span>
-            </div>
-            <div class="notification">
-              <i class="fas fa-user"></i>
-              <span>Someone followed you</span>
-            </div>
-          </div>
-        </div>
-        <div class="popular-post-container">
-          <div class="post-container-title">
-            <span>Popular posts</span>
-          </div>
-          <div class="popular-posts">
-            <div class="popular-post">
-              <img src="img/archieve/tower2.jpg">
-              <span>Nobody helped us :(</span>
-            </div>
-            <div class="popular-post">
-              <img src="img/archieve/tower2.jpg">
-              <span>We have an interesting post from Arijit Saha</span>
-            </div>
-            <div class="popular-post">
-              <img src="img/archieve/tower2.jpg">
-              <span>Two Fishes were caught doing something fishy</span>
-            </div>
-            <div class="popular-post">
-              <img src="img/archieve/tower2.jpg">
-              <span>Your feedback is really important to us</span>
-            </div>
-          </div>
-        </div> -->
+        <nav class="main-menu">
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fa fa-bell fa-2x"></i>
+                <span class="nav-text">
+                  Notifications
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-globe fa-2x"></i>
+                <span class="nav-text">
+                  Popular posts
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-facebook-square fa-2x"></i>
+                <span class="nav-text">
+                  Follow us on facebook
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-instagram fa-2x"></i>
+                <span class="nav-text">
+                  Follow us on instagram
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/team">
+                <i class="fa fa-info fa-2x"></i>
+                <span class="nav-text">
+                  Know More about us
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="user/logout">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text">
+                  Logout
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
 
       <div class="boy">
@@ -180,7 +130,7 @@
           <div class="data">
             <div class="content1">
               <span class="author"> <%=post.author%> </span>
-              <h1 class="title"><a> <%=post.title%> </a></h1>
+              <h1 class="title"><%=post.title%></h1>
             </div>
             <div class="content2">
               <p class="text"> <%=post.snippet%> </p>
@@ -191,26 +141,26 @@
         </div>
         <%})%>
 
-        <div class="loadmore"
-        <button type="button" id="more" onclick="loadmore()">Load more</button>
-</div>
+        <div class="loadmore" <button type="button" id="more" onclick="loadmore()">Load more</button>
+        </div>
         <script type="text/javascript">
           var posts = document.getElementsByClassName('card')
           var l = posts.length
           var m = 0
-          function loadmore(){
-            m += Math.min(l-m,3)
-            for(var i=0;i<m;i++){
+
+          function loadmore() {
+            m += Math.min(l - m, 3)
+            for (var i = 0; i < m; i++) {
               posts[i].hidden = false
             }
-            if(m==l){
+            if (m == l) {
               document.getElementById("more").hidden = true;
             }
           }
           loadmore()
           loadmore()
         </script>
-</div>
+      </div>
     </div>
   </div>
 </div>
