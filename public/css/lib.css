@@ -224,13 +224,13 @@ body[theme="dark"] {
 
 .datacontainer h4 {
   margin: 10px;
-  max-width: 300px;
+  width: 300px;
   text-align: center;
   color: var(--logo-color);
 }
 
 .title2 {
-  max-width: 260px;
+  width: 260px;
   text-align: center;
   margin: 10px 10px 20px 10px;
   color: grey;

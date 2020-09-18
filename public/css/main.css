@@ -329,6 +329,11 @@ body::-webkit-scrollbar-thumb {
     min-height: 300px;
   }
 
+  #logoicon{
+    width: 60px;
+    height: auto;
+  }
+
   #links {
     font-size: 1em;
     width: 20%;
@@ -339,6 +344,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .logo {
-    width: 70%;
+    width: 76%;
+    margin-left: 5%;
   }
 }

@@ -44,10 +44,7 @@
 
 .main-menu {
   background-color: #212121;
-  top: 10px;
-  bottom: 0;
   height: 90%;
-  left: 0;
   width: 60px;
   overflow: hidden;
   -webkit-transition: width 0.1s linear;
@@ -150,8 +147,9 @@ nav ul, nav li {
 }
 
 .sidecontainer {
-  width: 5%;
   position:relative;
+  top: 10px;
+  width: 5%;
   z-index: 1;
 }
 
@@ -288,13 +286,13 @@ h1 {
 }
 
 .card {
-  width: 336px;
+  width: 300px;
   max-width: 90%;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
   margin: 30px 20px;
   position: relative;
   overflow: hidden;
-  height: 500px;
+  height: 420px;
 }
 
 .card:hover .data {
@@ -303,7 +301,7 @@ h1 {
 
 .card .data {
   position: relative;
-  bottom: 0;
+  bottom: 40px;
   width: 100%;
   transform: translateY(calc(40px + 8em));
   transition: transform 0.3s;
