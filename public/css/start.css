@@ -12,6 +12,10 @@
   object-fit: cover;
 }
 
+#mama{
+  margin-left: 30px;
+}
+
 .header {
   text-align: center;
   height: 670px;
@@ -260,6 +264,7 @@
 #libraryimage{
   width: 339px;
   height: 463px;
+  margin-left: 30px;
 }
 
 .space {
