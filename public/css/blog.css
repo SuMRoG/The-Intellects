@@ -43,7 +43,7 @@
 }
 
 .main-menu {
-  background-color: var(--background-dim);
+  background-color: #212121;
   top: 10px;
   bottom: 0;
   height: 90%;
@@ -56,11 +56,11 @@
 
 .main-menu:hover, nav.main-menu.expanded {
   width: 250px;
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0); */
   overflow: visible;
-  -webkit-transition: background-color 0.15s linear;
+  /* -webkit-transition: background-color 0.15s linear;
   -ms-transition: background-color 0.15s linear;
-  transition: background-color 0.15s linear;
+  transition: background-color 0.15s linear; */
 }
 
 .main-menu>ul {
@@ -150,7 +150,9 @@ nav ul, nav li {
 }
 
 .sidecontainer {
-  width: 10%;
+  width: 5%;
+  position:relative;
+  z-index: 1;
 }
 
 .notification-container {
@@ -242,7 +244,7 @@ nav ul, nav li {
   flex-wrap: wrap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 90%;
+  width: 100%;
   padding-top: 37px;
   font-family: Raleway, sans-serif;
 }
