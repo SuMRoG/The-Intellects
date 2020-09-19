@@ -8,9 +8,9 @@ const questionSchema = new Schema({
     default: 1
   },
   semester: {
-    type: Number,
+    type: String,
     required: true,
-    default: 1
+    default: "1st"
   },
   department: [String],
   subject: {
