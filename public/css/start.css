@@ -12,6 +12,10 @@
   object-fit: cover;
 }
 
+#mama{
+  margin-left: 30px;
+}
+
 .header {
   text-align: center;
   height: 670px;
@@ -260,6 +264,11 @@
 #libraryimage{
   width: 339px;
   height: 463px;
+  margin-left: 30px;
+}
+
+#mama{
+  margin-left: 30px;
 }
 
 .space {
@@ -294,6 +303,10 @@
     width: 100%;
     /* clip-path: url(#headercut); */
     clip-path: polygon(0% 0%, 0% 80%, 100% 65%, 100% 0%);
+  }
+
+  #libraryimage{
+    margin-left: 0;
   }
 
   .headwrapper {

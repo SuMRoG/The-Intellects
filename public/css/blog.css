@@ -309,13 +309,13 @@ h1 {
 }
 
 .card .data .content1 {
-  padding: 2em 1em;
+  padding: 1em 1em;
   position: relative;
   z-index: 1;
 }
 
 .card .data .content2 {
-  padding: 3.5em 5em 0em 0.5em;
+  padding: 2.1em 5em 0em 0.5em;
   position: relative;
   z-index: 1;
 }
@@ -327,7 +327,7 @@ h1 {
 .card .title {
   margin-top: 10px;
   height: 110px;
-  font-size: 1.55em;
+  font-size: 1.35em;
 }
 
 .card .title{
@@ -337,6 +337,7 @@ h1 {
 .card .text {
   height: 90px;
   margin-right: 20px;
+  margin-bottom: 40px;
   text-align: left;
   font-weight: 500;
 }
