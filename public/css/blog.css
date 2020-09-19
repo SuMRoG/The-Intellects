@@ -310,6 +310,7 @@ h1 {
 
 .card .data .content1 {
   padding: 1em 1em;
+  margin-bottom: 5px;
   position: relative;
   z-index: 1;
 }
@@ -410,7 +411,7 @@ h1 {
   }
 
   .sidecontainer {
-    position: absolute;
+    top: 0;
     width: 100%;
   }
 

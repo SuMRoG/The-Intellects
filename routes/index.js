@@ -151,6 +151,9 @@ router.get('/add', authUser, function(req, res, next) {
 });
 
 router.post("/add", authUser, (req, res) => {
+  req.body.author = req.session.user.name
+  req.body.authorId = req.session.user._id
+  req.body.authorImage = req.session.user.image
   const blog = new Blog(req.body)
   blog.save().then(result => res.redirect("/front")).catch(err => console.log(err))
 })
@@ -171,10 +174,24 @@ router.get('/terms', function(req, res, next) {
 });
 
 router.get('/profile', authUser, function(req, res, next) {
-  res.render('profile', {
-    title: 'Profile',
-    user: req.session.user
-  });
+  if(req.query.intellect){
+    Account.find({_id: req.query.intellect}).then(acc=>{
+      res.render('profile', {
+        title: 'Profile',
+        user: req.session.user,
+        profileuser: acc[0]
+      });
+    }).catch(err=>{
+      res.redirect("/error");
+    })
+  }else{
+    res.render('profile', {
+      title: 'Profile',
+      user: req.session.user,
+      profileuser: req.session.user
+    });
+  }
+
 });
 
 router.get('/team', function(req, res, next) {
@@ -273,5 +290,10 @@ router.get('/proto', function(req, res, next) {
   return
   res.render('prototype', {title: 'Prototypes'});
 });
+
+
+router.get('/error', function(req, res, next) {
+  res.render('error');
+})
 
 module.exports = router;

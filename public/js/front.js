@@ -33,15 +33,14 @@ function togglepost(ele) {
   var author = post.children[1].children[0].children[0].innerText.trim()
   var snippet = post.children[1].children[1].children[0].innerText.trim()
   var body = post.children[1].children[1].children[1].innerText
-  var imageurl = post.style.background.split("\"")[1]
+  var imageurl = post.style.background.split('"')[1]
 
-  document.querySelector("body > div.fullblogcontainer > div > header > div > div > h1").innerText = title;
-  document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span > a").innerText = author
-  document.querySelector("body > div.fullblogcontainer > div > header > div > div > h2 > span > span.blog-date").innerText = datecreated
-  document.querySelector("#fullblog > section:nth-child(2) > div > img").src = imageurl;
-  fetch("/user/getProfileImage/" + author).then(res => res.json()).then(res => {
-    document.querySelector("#fullblog > header > div > a > img").src = res.image;
-  }).catch(err => console.log(err))
+  document.querySelector("#fullblogtitle").innerText = title;
+  document.querySelector("#fullblogauthor").innerText = author
+  document.querySelector("#fullblogdate").innerText = datecreated
+  document.querySelector("#fullblogimage").src = imageurl;
+  document.querySelector("#fullblogauthorimage").src = ele.dataset.authorimage;
+  document.querySelector("#fullblogauthorprofile").href = ele.dataset.authorprofile;
 
   console.log(body)
   var target = document.getElementById('blogbody')

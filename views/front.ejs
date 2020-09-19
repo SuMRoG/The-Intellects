@@ -17,15 +17,15 @@
   <div class="fullblog " id="fullblog">
     <header class="blog-header">
       <div class="blog-header user flex-auto-ns">
-        <a><img class="photo" src="img/default.png"></a>
+        <a href="#" id="fullblogauthorprofile"><img id="fullblogauthorimage" class="photo" src="img/default.png"></a>
         <div class="blog-details">
-          <h1 class="blog-title"></h1>
+          <h1 id="fullblogtitle" class="blog-title"></h1>
           <h2 class="blog-byline">
             <span class="attribution">
               <span class="blog-byline-user">
-                by <a class="url hoverable blog-hoverable" rel="contact"></a>
+                by <a id="fullblogauthor" class="url hoverable blog-hoverable" rel="contact"></a>
               </span>
-              <span class="blog-date">Tuesday, Feb 24, 2020 </span>
+              <span id="fullblogdate" class="blog-date"></span>
             </span>
           </h2>
         </div>
@@ -34,7 +34,7 @@
     <section>
 
       <div class="postimage">
-        <img src="img/mountains.jpg" alt="">
+        <img id="fullblogimage" src="img/mountains.jpg" alt="">
       </div>
 
     </section>
@@ -135,7 +135,7 @@
             <div class="content2">
               <p class="text"> <%=post.snippet%> </p>
               <p hidden> <%=post.body%> </p>
-              <a onclick="togglepost(this)" class="but2">Read More</a>
+              <a onclick="togglepost(this)" data-authorimage="<%=post.authorImage%>" data-authorprofile="/profile?intellect=<%=post.authorId%>" class="but2">Read More</a>
             </div>
           </div>
         </div>

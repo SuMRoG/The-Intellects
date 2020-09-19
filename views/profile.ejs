@@ -1,7 +1,7 @@
 <%- include('layouts/head.ejs') %>
 
-<link rel="stylesheet" href="css\start.css">
-<link rel="stylesheet" href="css\profile.css">
+<link rel="stylesheet" href="css/start.css">
+<link rel="stylesheet" href="css/profile.css">
 
 <script type="text/javascript" src="js\connect.js"></script>
 <div id="content">
@@ -10,8 +10,8 @@
       <div class="usercard">
           <div class="usercard_body">
             <header class="usercard_header">
-              <img src="<%=user.image%>" class="usercard_image" alt="avatar">
-              <h1 class="usercard_name" style="font-weight: 700"><%=user.name%></h1>
+              <img src="<%=profileuser.image%>" class="usercard_image" alt="avatar">
+              <h1 class="usercard_name" style="font-weight: 700; text-transform: capitalize"><%=profileuser.name%></h1>
             </header>
             <div class="about2">
               <h2>About</h2>

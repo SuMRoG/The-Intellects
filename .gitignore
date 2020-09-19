@@ -5,6 +5,7 @@ prepros.config
 backup
 .env
 ques.json
+blogs.json
 foul.json
 operation.js
 operation.js

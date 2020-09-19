@@ -19,6 +19,14 @@ const blogSchema = new Schema({
     type: String,
     default: "Admin"
   },
+  authorId: {
+    type: String,
+    required: true
+  },
+  authorImage: {
+    type: String,
+    required: true
+  },
   bannerimage: {
     type: String,
     default: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600"
