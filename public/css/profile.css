@@ -1,3 +1,13 @@
+body[theme="light"] {
+  --header-gradient-one: rgba(76, 216, 255, 0.8);
+  --header-gradient-two: rgba(30, 108, 217, 0.8);
+}
+
+body[theme="dark"] {
+  --header-gradient-one: rgba(0, 0, 0, 0.8);
+  --header-gradient-two: rgba(0, 0, 0, 0.8);
+}
+
 .yaya{
      background-color: var(--background);
      min-height: 100vh;
@@ -11,14 +21,17 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   /* flex-direction: column; */
   background-color: #fff;
-  margin: 2rem 0 3rem 30%;
+  margin: auto;
   position: relative;
   z-index: 0;
+  border-radius: 10px;
 }
+
+
 
 @media screen and (min-width: 641px){
   .usercard{
-    width: 38rem;
+    width: 60%;
   }
 }
 
@@ -35,11 +48,20 @@
 }
 
 .usercard_header{
+  background-image:
+    linear-gradient(to right bottom,
+      var(--header-gradient-one),
+      var(--header-gradient-two)),
+    url('/img/3496602.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
   padding: 3rem 5% 2rem;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(to bottom, #3F51B5, #041886);
-  color: #fff;
+    border-radius: 10px 10px 0 0 ;
+  /* background-image: linear-gradient(to bottom, #3F51B5, #041886);
+  color: #fff; */
 }
 
 .usercard_image{
@@ -52,11 +74,14 @@
 }
 
 .usercard_name{
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 3.5rem;
+  font-weight: 700;
   margin-top: 0;
   margin-left: 15px;
   margin-bottom: 0;
+  color: white;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
+  font-family: Raleway, sans-serif;
 }
 
 .about2{
@@ -65,7 +90,8 @@
 }
 
 .baby2 {
-  width: 500px;
+  width: 90%;
+  align-self: center;
   max-width: 95%;
   margin: 20px auto;
   color: #464646;
@@ -78,7 +104,7 @@
   margin-top: 12px;
   background: var(--background-dim);
   padding: 0px 20px;
-  width: 500px;
+  width: 100%;
   max-width: 100%;
   font-size: 12px;
   z-index: 1;
@@ -87,6 +113,11 @@
   box-shadow: 5px 3px 10px var(--shadow);
   transition: 0.5s;
 }
+
+.baby2 :hover{
+  transform: scale(1.1);
+}
+
 p{
   font-weight: 300;
 }

@@ -186,6 +186,7 @@
     text-align: center;
     font-size: 16px;
     text-align: center;
+    padding:40px 10px;
   }
 
   .xlarge-font {
@@ -267,10 +268,6 @@
   margin-left: 30px;
 }
 
-#mama{
-  margin-left: 30px;
-}
-
 .space {
   height: 100px;
 }
@@ -282,6 +279,8 @@
 .pepe {
   padding: 0px;
 }
+
+
 
 .paras2 {
   margin-right: 40px;
@@ -306,7 +305,23 @@
   }
 
   #libraryimage{
-    margin-left: 0;
+    margin-left: auto;
+    width: 370px;
+    height: 480px;
+  }
+
+  #mama{
+    margin-left: auto;
+  }
+
+  .startImage{
+    padding: 0;
+    width: auto;
+    margin: auto;
+  }
+
+  .startImage2 {
+    width: auto;
   }
 
   .headwrapper {
