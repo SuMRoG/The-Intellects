@@ -122,6 +122,7 @@
 
 #searchoptions{
   align-self: flex-end;
+  color: var(--text);
   margin-bottom: 5px;
   font-size: 0.7em;
 }

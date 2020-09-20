@@ -16,3 +16,4 @@ connect.json
 .gitignore
 todo.txt
 con.js
+*.svg

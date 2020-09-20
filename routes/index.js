@@ -308,7 +308,9 @@ router.get('/proto', function(req, res, next) {
 
 
 router.get('/error', function(req, res, next) {
-  res.render('error');
+  res.render('error',{
+    title: "Error"
+  });
 })
 
 module.exports = router;

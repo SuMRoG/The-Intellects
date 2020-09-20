@@ -20,7 +20,7 @@
   margin-top: 40px;
 }
 
-.title a::selection{
+.title a::selection {
   /* background: none; */
 }
 
@@ -147,7 +147,7 @@ nav ul, nav li {
 }
 
 .sidecontainer {
-  position:relative;
+  position: relative;
   top: 10px;
   width: 5%;
   z-index: 1;
@@ -331,7 +331,7 @@ h1 {
   font-size: 1.35em;
 }
 
-.card .title{
+.card .title {
   color: #fff;
 }
 
@@ -391,6 +391,10 @@ h1 {
 }
 
 @media screen and (max-width: 650px) {
+  .card .data .content1 {
+    margin-bottom: 25px;
+  }
+
   .column {
     width: 100%;
     padding: 10px 10px;
@@ -406,7 +410,7 @@ h1 {
     flex-direction: column;
   }
 
-  .header3{
+  .header3 {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
   }
 
@@ -432,11 +436,13 @@ h1 {
     display: flex;
     flex-direction: column;
   }
-  .main-menu li>a .fa{
+
+  .main-menu li>a .fa {
     width: 100%;
     height: auto;
   }
-  .main-menu .nav-text{
+
+  .main-menu .nav-text {
     width: 100%;
     display: none;
   }
@@ -449,6 +455,7 @@ h1 {
 
   .text {
     /* padding: 30px; */
+    font-weight: 600 !important;
     font-size: 12px;
     margin-left: 0;
   }

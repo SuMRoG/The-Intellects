@@ -25,7 +25,7 @@
 				<div class="navbutton">
 					<i class="fas fa-bars" onclick="togglenav()"></i>
 				</div>
-				<% if(user){%>
+				<% if(locals.user){%>
 				<div class="navlinks">
 					<a href="/profile" style="text-transform: capitalize;"><%=user.name%></a>
 					<a href="user/logout">logout</a>

@@ -1,0 +1,95 @@
+.emptycontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptycontainer svg {
+  width: 100%;
+  padding: 30px;
+  max-width: 800px;
+}
+
+h1{
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+#four1,
+#four2{
+  animation: upanddown 1s ease-in-out infinite alternate;
+}
+
+#four2{
+  animation-direction: alternate-reverse;
+}
+
+#ground{
+  animation: rightandleft 2s ease-in-out infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#mouth{
+  animation: mouth 1s ease-in-out infinite alternate;
+  /* transform-origin: center; */
+  transform-box: fill-box;
+}
+
+#righteye,
+#lefteye{
+  animation: eyes 2.5s linear infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes eyes {
+  0%{
+    transform: scale(1,1);
+  }
+  45%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1,0);
+  }
+  55%{
+    transform: scale(1,1);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+
+@keyframes mouth {
+  from{
+    transform: scaleY(1);
+  }
+  to{
+    transform: scaleY(1.3);
+  }
+}
+
+@keyframes upanddown {
+  from {
+    transform: translateY(5px);
+  }
+
+  to{
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes rightandleft {
+  from {
+    transform: rotateZ(-2deg);
+  }
+  to{
+    transform: rotateZ(2deg);
+  }
+}
