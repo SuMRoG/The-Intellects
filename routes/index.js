@@ -40,7 +40,7 @@ router.get('/register', notauthUser, function(req, res, next) {
   if (req.query.error) {
     error = req.query.error
   }
-
+  console.log("Register Error : ",error);
   res.render('register', {
     title: 'Register',
     user: req.session.user,
@@ -57,7 +57,8 @@ router.get('/front', (req, res) => {
         user: req.session.user
       })
     }).catch((err) => {
-      console.log(err);
+      console.log("Front error : ",err);
+      res.redirect("/error")
     })
   } else {
     res.redirect('/register');
@@ -176,28 +177,42 @@ router.get('/terms', function(req, res, next) {
 router.get('/profile', authUser, function(req, res, next) {
   if(req.query.intellect){
     Account.find({_id: req.query.intellect}).then(acc=>{
-      res.render('profile', {
-        title: 'Profile',
-        user: req.session.user,
-        profileuser: acc[0]
-      });
+      if(acc.length==0){
+        res.redirect("/error");
+        return
+      }
+      Blog.find({authorId: req.query.intellect}).then(posts=>{
+        res.render('profile', {
+          title: 'Profile',
+          user: req.session.user,
+          profileuser: acc[0],
+          posts: posts
+        });
+      }).catch(err=>{
+        res.redirect("/error");
+      })
     }).catch(err=>{
       res.redirect("/error");
     })
   }else{
-    res.render('profile', {
-      title: 'Profile',
-      user: req.session.user,
-      profileuser: req.session.user
-    });
+    Blog.find({authorId: req.session.user._id}).then(posts=>{
+      res.render('profile', {
+        title: 'Profile',
+        user: req.session.user,
+        profileuser: req.session.user,
+        posts: posts
+      });
+    }).catch(err=>{
+      res.redirect("/error");
+    })
   }
-
 });
 
 router.get('/team', function(req, res, next) {
   res.render('team', {
     title: 'Team',
-    user: req.session.user
+    user: req.session.user,
+    posts: posts
   });
 });
 

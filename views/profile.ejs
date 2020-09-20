@@ -15,24 +15,19 @@
             </header>
             <div class="about2">
               <h2>About</h2>
-              <p> jhgd fech gfhew yudaas sdgfcuevfcegf fyugeuydgje ewcfyegfu
-              </p>
-              <h2>Posts</h2>
-              <div class="baby2">
-                <div class="lolo">
-                  <h3>yfsgjs uhdqwik</h3>
+              <p>I stared Mother Nature in the face, and she smiled back</p>
+              <%if(posts.length){%>
+                <h2>Posts</h2>
+                <div class="baby2">
+                  <%posts.map((post)=>{%>
+                    <div class="lolo">
+                      <h3><%=post.title%></h3>
+                    </div>
+                  <%})%>
                 </div>
-                <div class="lolo">
-                  <h3> yfsgjs uhdqwik</h3>
-                </div>
-                <div class="lolo">
-                  <h3> yfsgjs uhdqwik</h3>
-                </div>
-                <div class="lolo">
-                  <h3> yfsgjs uhdqwik</h3>
-                </div>
-              </div>
-
+              <%}else{%>
+                <h2>No posts, lol</h2>
+              <%}%>
             </div>
           </div>
       </div>

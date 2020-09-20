@@ -70,22 +70,25 @@ passport.use(new GoogleStrategy({
         googleId: profile.id,
         name: profile.displayName,
         image: profile.photos[0].value,
-        email: profile.emails[0].value,
-        username: profile.googleId
+        email: profile.emails[0].value
       },
       function(err, user) {
         if (err) {
+          console.log("Login error", err, user);
           if (err.code == 11000 && err.keyPattern.email) {
             Account.find({
               email: profile.emails[0].value
             }).then(acc=>{
-              if(acc.length){
-                return cb(null, acc[0])
-              }
+              return cb(null, acc[0])
             }).catch(err=>{
               return cb(err, {})
             })
-          }else{
+          }
+          else if (err.code == 11000 && err.keyPattern.username) {
+            console.log("Shit");
+            return cb(err, {})
+          }
+          else{
             return cb(null, user);
           }
         } else {
@@ -116,13 +119,12 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+// app.use(function(err, req, res, next) {
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+//   res.status(err.status || 500);
+//   console.log("That");
+//   res.render('error');
+// });
 
 module.exports = app;

@@ -8,14 +8,14 @@ body[theme="dark"] {
   --header-gradient-two: rgba(0, 0, 0, 0.8);
 }
 
-.yaya{
-     background-color: var(--background);
-     min-height: 100vh;
-     padding: 40px;
-     width: 100%;
+.yaya {
+  background-color: var(--background);
+  min-height: 100vh;
+  padding: 40px;
+  width: 100%;
 }
 
-.usercard{
+.usercard {
   box-sizing: border-box;
   display: block;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -27,27 +27,25 @@ body[theme="dark"] {
   border-radius: 10px;
 }
 
-
-
-@media screen and (min-width: 641px){
-  .usercard{
+@media screen and (min-width: 641px) {
+  .usercard {
     width: 60%;
   }
 }
 
-@media screen and (max-width: 640px){
-  .usercard{
+@media screen and (max-width: 640px) {
+  .usercard {
     width: 90%;
   }
 }
 
-.usercard_body{
+.usercard_body {
   padding-bottom: 2rem;
   flex-grow: 2;
-  color:#000;
+  color: #000;
 }
 
-.usercard_header{
+.usercard_header {
   background-image:
     linear-gradient(to right bottom,
       var(--header-gradient-one),
@@ -59,12 +57,12 @@ body[theme="dark"] {
   padding: 3rem 5% 2rem;
   display: flex;
   align-items: center;
-    border-radius: 10px 10px 0 0 ;
+  border-radius: 10px 10px 0 0;
   /* background-image: linear-gradient(to bottom, #3F51B5, #041886);
   color: #fff; */
 }
 
-.usercard_image{
+.usercard_image {
   border-radius: 50%;
   border: 2px solid #fff;
   box-sizing: border-box;
@@ -73,7 +71,7 @@ body[theme="dark"] {
   height: 10rem;
 }
 
-.usercard_name{
+.usercard_name {
   font-size: 3.5rem;
   font-weight: 700;
   margin-top: 0;
@@ -84,7 +82,7 @@ body[theme="dark"] {
   font-family: Raleway, sans-serif;
 }
 
-.about2{
+.about2 {
   min-height: 25rem;
   padding: 15px 25px 15px 25px;
 }
@@ -102,7 +100,7 @@ body[theme="dark"] {
   display: flex;
   align-items: center;
   margin-top: 12px;
-  background: var(--background-dim);
+  background: #efefef;
   padding: 0px 20px;
   width: 100%;
   max-width: 100%;
@@ -110,14 +108,14 @@ body[theme="dark"] {
   z-index: 1;
   cursor: pointer;
   border-radius: 20px;
-  box-shadow: 5px 3px 10px var(--shadow);
+  box-shadow: 2px 1px 8px rgb(28 28 28 / 45%);
   transition: 0.5s;
 }
 
-.baby2 :hover{
+.baby2 :hover {
   transform: scale(1.1);
 }
 
-p{
+p {
   font-weight: 300;
 }

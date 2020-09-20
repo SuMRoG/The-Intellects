@@ -18,10 +18,6 @@ const accountSchema = new Schema({
     default: "gender"
     // required: true
   },
-  username: {
-    type: String,
-    // required: true,
-  },
   image: {
     type: String,
     default: "img/default.png"
