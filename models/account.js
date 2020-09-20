@@ -13,11 +13,6 @@ const accountSchema = new Schema({
     unique: true
     // required: true,
   },
-  gender: {
-    type: String,
-    default: "gender"
-    // required: true
-  },
   image: {
     type: String,
     default: "img/default.png"
@@ -25,6 +20,9 @@ const accountSchema = new Schema({
   googleId: {
     type: String,
     // unique: true
+  },
+  username:{
+    type: String,
   }
 }, {
   timestamps: true

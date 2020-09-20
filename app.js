@@ -70,7 +70,8 @@ passport.use(new GoogleStrategy({
         googleId: profile.id,
         name: profile.displayName,
         image: profile.photos[0].value,
-        email: profile.emails[0].value
+        email: profile.emails[0].value,
+        username: profile.emails[0].value
       },
       function(err, user) {
         if (err) {
