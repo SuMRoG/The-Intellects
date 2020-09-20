@@ -211,8 +211,7 @@ router.get('/profile', authUser, function(req, res, next) {
 router.get('/team', function(req, res, next) {
   res.render('team', {
     title: 'Team',
-    user: req.session.user,
-    posts: posts
+    user: req.session.user
   });
 });
 
