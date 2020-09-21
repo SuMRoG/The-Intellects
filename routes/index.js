@@ -161,10 +161,12 @@ router.post("/add", authUser, (req, res) => {
 
 router.get("/delete/:id", authUser, (req, res) => {
   const id = req.params.id;
-  Blog.findByIdAndDelete(id).then(res => {
-    console.log(res);
+  Blog.deleteOne({_id: id, authorId: req.session.user._id}).then(blog=>{
     res.redirect('/front')
-  }).catch(err => res.redirect("/front"))
+  }).catch(err=>{
+    console.log(err);
+    res.redirect("/error")
+  })
 })
 
 router.get('/terms', function(req, res, next) {
@@ -181,11 +183,12 @@ router.get('/profile', authUser, function(req, res, next) {
         res.redirect("/error");
         return
       }
-      Blog.find({authorId: req.query.intellect}).then(posts=>{
+      Blog.find({authorId: req.query.intellect}).sort({createdAt: -1}).then(posts=>{
         res.render('profile', {
           title: 'Profile',
           user: req.session.user,
           profileuser: acc[0],
+          self: false,
           posts: posts
         });
       }).catch(err=>{
@@ -195,11 +198,12 @@ router.get('/profile', authUser, function(req, res, next) {
       res.redirect("/error");
     })
   }else{
-    Blog.find({authorId: req.session.user._id}).then(posts=>{
+    Blog.find({authorId: req.session.user._id}).sort({createdAt: -1}).then(posts=>{
       res.render('profile', {
         title: 'Profile',
         user: req.session.user,
         profileuser: req.session.user,
+        self: true,
         posts: posts
       });
     }).catch(err=>{

@@ -22,6 +22,9 @@
                   <%posts.map((post)=>{%>
                     <div class="lolo">
                       <h3><%=post.title%></h3>
+                      <%if(self){%>
+                        <a href="/delete/<%=post._id%>"><i class="fa fa-trash"></i></a>
+                      <%}%>
                     </div>
                   <%})%>
                 </div>
