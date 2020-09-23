@@ -28,7 +28,6 @@
 				<% if(locals.user){%>
 				<div class="navlinks">
 					<a href="/profile" style="text-transform: capitalize;"><%=user.name%></a>
-					<a href="user/logout">logout</a>
 				</div>
 				<% }else{%>
 				<div class="navlinks">
@@ -43,6 +42,9 @@
 				<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
 				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
+				<% if(locals.user){%>
+					<a href="user/logout"><i class="fas fa-power-off"> &nbsp; </i>logout</a>
+				<%}%>
 				<div style="display: flex; align-items: center;padding: 10%">
 					<i class="far fa-sun" id="theme" aria-hidden="true"></i>
 					<div class="on-off-toggle">

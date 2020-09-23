@@ -66,6 +66,10 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
+    if(profile.emails[0].value.includes("@students.iiests.ac.in")){
+      profile.displayName = profile.displayName.split(" ")[1].replace("_"," ")
+    }
+
     Account.findOrCreate({
         googleId: profile.id,
         name: profile.displayName,
@@ -119,13 +123,13 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// app.use(function(err, req, res, next) {
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-//   res.status(err.status || 500);
-//   res.render('error',{
-//     title: "Error"
-//   });
-// });
+app.use(function(err, req, res, next) {
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.status(err.status || 500);
+  res.render('error',{
+    title: "Error"
+  });
+});
 
 module.exports = app;

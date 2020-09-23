@@ -43,7 +43,7 @@
 }
 
 .main-menu {
-  background-color: #212121;
+  background-color: var(--background-dim);/*#212121;*/
   height: 90%;
   width: 60px;
   overflow: hidden;
@@ -151,89 +151,6 @@ nav ul, nav li {
   top: 10px;
   width: 5%;
   z-index: 1;
-}
-
-.notification-container {
-  margin: 10px;
-  margin-top: 67px;
-  padding: 10px;
-  box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.notf-title {
-  padding: 5px;
-  text-align: center;
-  color: #af18cb;
-}
-
-.notifications {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.notification {
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: var(--background-dim);
-  border-radius: 6px;
-  margin: 2px;
-}
-
-.notification i {
-  margin-right: 10px;
-  color: #9630d6;
-}
-
-.notification span {
-  font-size: 0.7em;
-  color: var(--text-dim);
-}
-
-.popular-post-container {
-  margin: 10px;
-  margin-top: 50px;
-  padding: 10px;
-  box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.post-container-title {
-  padding: 5px;
-  text-align: center;
-  color: #af18cb;
-}
-
-.popular-posts {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.popular-post {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background: var(--background-dim);
-  border-radius: 6px;
-  margin: 2px;
-}
-
-.popular-post img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-.popular-post span {
-  font-size: 0.7em;
-  color: var(--text-dim);
 }
 
 .boy {
