@@ -167,7 +167,19 @@ router.get("/delete/:id", authUser, (req, res) => {
     console.log(err);
     res.redirect("/error")
   })
-})
+});
+
+router.get("/blog/:id", authUser, (req, res)=> {
+  const id = req.params.id;
+  Blog.find({_id: id}).then(blog=>{
+    res.render('blog', {
+      title: 'full Blog',
+      blog: blog
+    })
+  }).catch(err=>{
+      res.redirect("/error")
+    })
+});
 
 router.get('/terms', function(req, res, next) {
   res.render('terms', {

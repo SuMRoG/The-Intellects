@@ -23,8 +23,10 @@ body[theme="light"] {
   --primary-color: #1abc9c;
   --secondary-grad: #ffb000;
   --footer-color: #222;
+  --background-lol: #f0f0f0;
   /* --sidebar: #05b3a2; */
   /* --sidebar: #ff9000; */
+  --new-color: #fff;
   --logo-color: #131313;
   --text: #131313;
   --con-color: #f1f1f1;
@@ -35,11 +37,13 @@ body[theme="light"] {
 
 body[theme="dark"] {
   --background: #1a1a1a;
+  --background-lol: #1a1a1a;
   --background-dim: #2a2a2a;
   --nav-color: #0b0b0b;
   --primary-color: #1f1f1f;
   --secondary-grad: var(--primary-color);
   --footer-color: #222;
+  --new-color: #3c3c3c;
   /* --sidebar: #3b3b3b; */
   --logo-color: #f1f1f1;
   --text: #f1f1f1;
