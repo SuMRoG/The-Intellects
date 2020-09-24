@@ -41,13 +41,23 @@ function togglepost(ele) {
   document.querySelector("#fullblogimage").src = imageurl;
   document.querySelector("#fullblogauthorimage").src = ele.dataset.authorimage;
   document.querySelector("#fullblogauthorprofile").href = ele.dataset.authorprofile;
+  document.querySelector('#fullbloglink').href = "/blog?id=" + ele.dataset.postid;
+  document.querySelector('#sharebutton').dataset.link = location.host+"/blog?id=" + ele.dataset.postid;
 
-  console.log(body)
   var target = document.getElementById('blogbody')
   const html = converter.makeHtml(body.trim())
   target.innerHTML = html;
   fullblogcontainer.hidden = false;
   document.body.style.overflowY = "hidden";
+}
+
+function copylink(ele) {
+    var input = document.createElement('textarea');
+    input.innerHTML = ele.dataset.link;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
 }
 
 function togglepostoff() {

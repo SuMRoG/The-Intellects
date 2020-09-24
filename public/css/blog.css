@@ -32,6 +32,12 @@
   font-size: 2em;
 }
 
+.fa-share-square{
+  padding: 0 10px;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
 .main-menu li>a .fa {
   position: relative;
   display: table-cell;

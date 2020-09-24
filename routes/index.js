@@ -40,7 +40,7 @@ router.get('/register', notauthUser, function(req, res, next) {
   if (req.query.error) {
     error = req.query.error
   }
-  console.log("Register Error : ",error);
+  console.log("Register Error : ", error);
   res.render('register', {
     title: 'Register',
     user: req.session.user,
@@ -57,7 +57,7 @@ router.get('/front', (req, res) => {
         user: req.session.user
       })
     }).catch((err) => {
-      console.log("Front error : ",err);
+      console.log("Front error : ", err);
       res.redirect("/error")
     })
   } else {
@@ -161,24 +161,31 @@ router.post("/add", authUser, (req, res) => {
 
 router.get("/delete/:id", authUser, (req, res) => {
   const id = req.params.id;
-  Blog.deleteOne({_id: id, authorId: req.session.user._id}).then(blog=>{
+  Blog.deleteOne({_id: id, authorId: req.session.user._id}).then(blog => {
     res.redirect('/front')
-  }).catch(err=>{
+  }).catch(err => {
     console.log(err);
     res.redirect("/error")
   })
 });
 
-router.get("/blog/:id", authUser, (req, res)=> {
-  const id = req.params.id;
-  Blog.find({_id: id}).then(blog=>{
+router.get("/blog", authUser, (req, res) => {
+  const id = req.query.id;
+  if (id == null) {
+    console.log("err");
+    res.redirect("/error")
+    return
+  }
+  Blog.findById(id).then(blog => {
+    console.log(blog);
     res.render('blog', {
       title: 'full Blog',
-      blog: blog
+      post: blog
     })
-  }).catch(err=>{
-      res.redirect("/error")
-    })
+  }).catch(err => {
+    console.log("err");
+    res.redirect("/error")
+  })
 });
 
 router.get('/terms', function(req, res, next) {
@@ -189,13 +196,13 @@ router.get('/terms', function(req, res, next) {
 });
 
 router.get('/profile', authUser, function(req, res, next) {
-  if(req.query.intellect){
-    Account.find({_id: req.query.intellect}).then(acc=>{
-      if(acc.length==0){
+  if (req.query.intellect) {
+    Account.find({_id: req.query.intellect}).then(acc => {
+      if (acc.length == 0) {
         res.redirect("/error");
         return
       }
-      Blog.find({authorId: req.query.intellect}).sort({createdAt: -1}).then(posts=>{
+      Blog.find({authorId: req.query.intellect}).sort({createdAt: -1}).then(posts => {
         res.render('profile', {
           title: 'Profile',
           user: req.session.user,
@@ -203,14 +210,14 @@ router.get('/profile', authUser, function(req, res, next) {
           self: false,
           posts: posts
         });
-      }).catch(err=>{
+      }).catch(err => {
         res.redirect("/error");
       })
-    }).catch(err=>{
+    }).catch(err => {
       res.redirect("/error");
     })
-  }else{
-    Blog.find({authorId: req.session.user._id}).sort({createdAt: -1}).then(posts=>{
+  } else {
+    Blog.find({authorId: req.session.user._id}).sort({createdAt: -1}).then(posts => {
       res.render('profile', {
         title: 'Profile',
         user: req.session.user,
@@ -218,7 +225,7 @@ router.get('/profile', authUser, function(req, res, next) {
         self: true,
         posts: posts
       });
-    }).catch(err=>{
+    }).catch(err => {
       res.redirect("/error");
     })
   }
@@ -233,7 +240,7 @@ router.get('/team', function(req, res, next) {
 
 router.get('/library', function(req, res, next) {
   // console.log(req.query);
-  if(req.query.type==null){
+  if (req.query.type == null) {
     req.query.type = "book"
   }
   if (req.query.type != "ques") {
@@ -321,11 +328,8 @@ router.get('/proto', function(req, res, next) {
   res.render('prototype', {title: 'Prototypes'});
 });
 
-
 router.get('/error', function(req, res, next) {
-  res.render('error',{
-    title: "Error"
-  });
+  res.render('error', {title: "Error"});
 })
 
 module.exports = router;

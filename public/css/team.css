@@ -42,7 +42,7 @@ body[theme="dark"] {
     var(--header-gradient-one),
     var(--header-gradient-two)),
     url('/img/office.jpg');
-  background-position-y: -400px;
+  background-position-y: 0;
 }
 
 .brand-box {

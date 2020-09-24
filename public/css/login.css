@@ -55,7 +55,7 @@ h3 {
   cursor: pointer;
 }
 
-.google-auth:nth-child(5) button{
+.google-auth:nth-child(6) button {
   background: #ff1641;
   box-shadow: 0 2px 10px -3px #d64b4b;
 }
@@ -335,7 +335,6 @@ a {
     transform: translateY(20px);
   }
 }
-
 
 @keyframes upcover_ {
   0% {

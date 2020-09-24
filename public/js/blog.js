@@ -22,3 +22,12 @@ showdown.extension('codehighlight', function() {
 showdown.setFlavor('github')
 
 const converter = new showdown.Converter({extensions: ['codehighlight']})
+
+function fullblogpresent(){
+  var body = document.querySelector('#rawblog').innerText;
+  var target = document.getElementById('blogbody')
+  const html = converter.makeHtml(body.trim())
+  target.innerHTML = html;
+}
+
+window.onload = fullblogpresent;

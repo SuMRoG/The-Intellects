@@ -11,10 +11,9 @@ body[theme="dark"] {
   --header-gradient-two: rgba(0, 0, 0, 0.8);
 }
 
-body{
+body {
   background-color: var(--background-lol);
 }
-
 
 .header0 {
   height: 40vh;
@@ -22,126 +21,148 @@ body{
     linear-gradient(to right bottom,
       var(--header-gradient-one),
       var(--header-gradient-two)),
-      url('/img/office.jpg');
+    url('/img/office.jpg');
   background-size: cover;
   background-position: top;
-  background-position-y: -430px;
+  background-position-y: 0;
   position: relative;
 }
 
 .brand-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-box>div {
+  display: flex;
+  vertical-align: middle;
+}
+
+.brand-box>div img {
+  width: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+  border: 3px solid #0e67b1;
 }
 
 .brand {
-  font-size: 20px;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin: 0 10px;
   color: white;
 }
 
 .text-box {
   position: absolute;
-  top: 60%;
-  left:54%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 20px;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
-  margin-left: -3em;
 }
 
-.text-box p{
+.text-box p {
+  margin: 10px 0;
   color: white;
   text-align: center;
 }
 
 .qwer {
-  font-size: 55px;
+  margin: 20px 0;
+  font-size: 48px;
   grid-area: 2 / 1 / 2 / 3;
-  font-family: Raleway, sans-serif;
-  justify-self: left;
   color: white;
   text-transform: uppercase;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
-  margin-top: -5rem;
   font-weight: 700;
+}
+
+.seperateblogcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .column188 {
   position: relative;
-  display: block;
-  align-items: center;
+  top: 0;
   text-align: center;
-  margin-left: 30.5%;
-  margin-bottom: 300px;
-  margin-top: -60px;
-  width: 40%;
-  height: 400px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 80px;
+  margin-top: -100px;
+  width: 100%;
+  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
-  /* background-image: url('/img/mountains.jpg'); */
   z-index: 2;
 }
 
-.column188 img{
+.column188 img {
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  transform: translateY(5px);
 }
 
-.column189{
-  position: relative;
-  display: block;
+.column189 {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  position: relative;
   width: 60%;
-  height: 800px;
-  margin-left: 20%;
-  margin-top: -35rem;
+  margin-top: 3rem;
   margin-bottom: 100px;
-  padding: 20rem 3rem 3rem 3rem;
+  padding: 0 3rem 3rem 3rem;
   font-family: 'Roboto', sans-serif;
-  color: var(--logo-color);
-  background-color: var(--new-color);
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  background-color: var(--background);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 650px){
+#blogbody{
+  width: 100%;
+}
+
+@media screen and (max-width: 650px) {
   .header0 {
     height: 30vh;
   }
+
   .qwer {
-    font-size: 25px;
-  }
-  .text-box {
-    display:inline-block;
-    top: 0;
-    left: 0;
-    margin-top: 35%;
-    margin-left: 18%;
-    transform: translate(0, 0);
-  }
-  .brand-box {
-    top: 10px;
-    left: 20px;
+    font-size: 24px;
+    margin: 20px 0 10px 0;
+    word-break: break-all;
   }
 
-  .brand {
-    font-size: 10px;
+  .text-box {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    margin-top: 10%;
   }
-  .text-box p{
-    font-size: 10px;
+
+  .brand-box {
+    top: 10px;
   }
+
+  .text-box p {
+    font-size: 16px;
+    margin: 0;
+  }
+
   .column188 {
-    margin-left: 20px;
-    width: 90%;
-    height: 200px;
+    width: 105%;
+    margin-top: -100px;
   }
-  .column189{
+
+  .column189 {
     width: 95%;
-    height: 800px;
-    margin-left: 10px;
-    margin-top: -25rem;
     margin-bottom: 100px;
-    padding: 8.5rem 1.5rem 1rem 1.5rem;
-    font-size: 14p  x;
+    padding: 0 1.5rem 1rem 1.5rem;
+    font-size: 14px;
   }
 }
