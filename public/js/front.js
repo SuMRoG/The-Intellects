@@ -42,7 +42,7 @@ function togglepost(ele) {
   document.querySelector("#fullblogauthorimage").src = ele.dataset.authorimage;
   document.querySelector("#fullblogauthorprofile").href = ele.dataset.authorprofile;
   document.querySelector('#fullbloglink').href = "/blog?id=" + ele.dataset.postid;
-  document.querySelector('#sharebutton').dataset.link = location.host+"/blog?id=" + ele.dataset.postid;
+  document.querySelector('#sharebutton').dataset.link = location.host + "/blog?id=" + ele.dataset.postid;
 
   var target = document.getElementById('blogbody')
   const html = converter.makeHtml(body.trim())
@@ -52,12 +52,16 @@ function togglepost(ele) {
 }
 
 function copylink(ele) {
-    var input = document.createElement('textarea');
-    input.innerHTML = ele.dataset.link;
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand('copy');
-    document.body.removeChild(input);
+  var input = document.createElement('textarea');
+  input.innerHTML = ele.dataset.link;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  ele.children[0].classList.add("copied")
+  setTimeout(()=>{
+    ele.children[0].classList.remove("copied")
+  },1000)
 }
 
 function togglepostoff() {

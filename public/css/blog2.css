@@ -93,12 +93,15 @@ body {
   position: relative;
   top: 0;
   text-align: center;
-  margin-bottom: 80px;
   margin-top: -100px;
   width: 100%;
   box-shadow: 0 10px 38px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   z-index: 2;
+}
+
+#sharebutton{
+  margin: 30px 0;
 }
 
 .column188 img {
@@ -156,7 +159,11 @@ body {
 
   .column188 {
     width: 105%;
-    margin-top: -100px;
+    margin-top: -60px;
+  }
+
+  #sharebutton{
+    margin: 10px 0;
   }
 
   .column189 {

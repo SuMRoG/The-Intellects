@@ -14,6 +14,25 @@ body[theme="dark"] {
   --print: #3cff4b;
 }
 
+.fa-share-square>span{
+  cursor: pointer;
+  color: var(--text-dim);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.copied{
+  opacity: 1 !important;
+  transition: 0.3s;
+}
+
+.fa-share-square::before {
+  padding: 0 10px;
+  cursor: pointer;
+  color: var(--secondary-color);
+  margin-right: 5px;
+}
+
 .hljs-attribute,
 .hljs-doctag,
 .hljs-keyword,

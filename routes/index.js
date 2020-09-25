@@ -169,7 +169,7 @@ router.get("/delete/:id", authUser, (req, res) => {
   })
 });
 
-router.get("/blog", authUser, (req, res) => {
+router.get("/blog",authUser, (req, res) => {
   const id = req.query.id;
   if (id == null) {
     console.log("err");

@@ -30,4 +30,18 @@ function fullblogpresent(){
   target.innerHTML = html;
 }
 
+
+function copylink(ele) {
+  var input = document.createElement('textarea');
+  input.innerHTML = location.href;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  ele.children[0].classList.add("copied")
+  setTimeout(()=>{
+    ele.children[0].classList.remove("copied")
+  },800)
+}
+
 window.onload = fullblogpresent;
