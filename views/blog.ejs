@@ -13,7 +13,7 @@
     <header class="header0">
       <div class="brand-box">
         <div>
-          <img src="<%=post.authorImage%>">
+          <a href="/profile?intellect=<%=post.authorId%>"><img src="<%=post.authorImage%>"></a>
           <span class="brand"><%=post.author%></span>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <div class="column188">
           <img src="<%=post.bannerimage%>">
         </div>
-        <div>Share<i id="sharebutton" onclick="copylink(this)" class="fas fa-share-square"><span>copied</span></i></div>
+        <div id="sharecontainer">Share<i id="sharebutton" onclick="copylink(this)" class="fas fa-share-square"><span>copied</span></i></div>
         <div class="blogbody markdown-body" id="blogbody">
 
         </div>

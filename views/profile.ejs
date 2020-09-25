@@ -21,7 +21,7 @@
                 <div class="baby2">
                   <%posts.map((post)=>{%>
                     <div class="lolo">
-                      <h3><%=post.title%></h3>
+                      <a href="/blog?id=<%=post._id%>"><h3><%=post.title%></h3></a>
                       <%if(self){%>
                         <a href="/delete/<%=post._id%>"><i class="fa fa-trash"></i></a>
                       <%}%>

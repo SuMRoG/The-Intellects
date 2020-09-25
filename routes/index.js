@@ -172,14 +172,15 @@ router.get("/delete/:id", authUser, (req, res) => {
 router.get("/blog",authUser, (req, res) => {
   const id = req.query.id;
   if (id == null) {
-    console.log("err");
+    //console.log("err");
     res.redirect("/error")
     return
   }
   Blog.findById(id).then(blog => {
-    console.log(blog);
+    //console.log(blog);
     res.render('blog', {
       title: 'full Blog',
+      user: req.session.user,
       post: blog
     })
   }).catch(err => {
@@ -335,7 +336,7 @@ router.get('/proto', function(req, res, next) {
 });
 
 router.get('/error', function(req, res, next) {
-  res.render('error', {title: "Error"});
+  res.render('error', {title: "Error", user: req.session.user});
 })
 
 module.exports = router;

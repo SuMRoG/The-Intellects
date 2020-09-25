@@ -105,7 +105,6 @@ body[theme="dark"] {
   align-items: center;
   margin-top: 12px;
   background: var(--background-dim);
-  color: var(--text);
   padding: 0px 20px;
   width: 100%;
   max-width: 100%;
@@ -115,6 +114,10 @@ body[theme="dark"] {
   border-radius: 20px;
   box-shadow: 2px 1px 8px rgb(28 28 28 / 45%);
   transition: 0.5s;
+}
+
+.lolo *{
+  color: var(--text);
 }
 
 .lolo .fa {

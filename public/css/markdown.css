@@ -16,7 +16,7 @@ body[theme="dark"] {
 
 .fa-share-square>span{
   cursor: pointer;
-  color: var(--text-dim);
+  color: var(--text-dimmer);
   opacity: 0;
   transition: 0.3s;
 }
