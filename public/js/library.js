@@ -1,5 +1,14 @@
 var options = {
-  "department": [0, 0, 0, 0, 0, 0, 0, 0]
+  "department": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
 }
 
 function drive() {
@@ -15,9 +24,18 @@ function toggleselect(i) {
 }
 
 function clearfilter() {
-  options["department"] = [0, 0, 0, 0, 0, 0, 0, 0]
+  options["department"] = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
   drive()
-  if(document.getElementById('type').value!="book"){
+  if (document.getElementById('type').value != "book") {
     changedtab()
   }
   document.getElementById('type').value = "book"
@@ -30,10 +48,10 @@ function changedtab() {
   var bookfilters = document.getElementById('bookfilters')
   var quesfilters = document.getElementById('quesfilters')
   var type = document.getElementById('type').value
-  if(type!="ques"){
+  if (type != "ques") {
     bookfilters.hidden = false
     quesfilters.hidden = true
-  }else{
+  } else {
     bookfilters.hidden = true
     quesfilters.hidden = false
   }
@@ -81,10 +99,14 @@ function filter() {
 function setfilter() {
   let params = {}
   window.location.search.slice(1).split('&').forEach(elm => {
-    if (elm === '') return
+    if (elm === '')
+      return
     var spl = elm.split('=')
     const d = decodeURIComponent
-    params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true)
+    params[d(spl[0])] = (
+      spl.length >= 2
+      ? d(spl[1])
+      : true)
   })
 
   var type = document.getElementById('type')
@@ -93,30 +115,30 @@ function setfilter() {
   var semester = document.getElementById('semester')
   var department = document.getElementById('department')
 
-  if(params.type && params.type=="ques"){
+  if (params.type && params.type == "ques") {
     type.value = "ques"
     changedtab()
-  }else if (params.type && params.type=="other") {
+  } else if (params.type && params.type == "other") {
     type.value = "other"
   }
 
-  if(params.year){
+  if (params.year) {
     year.value = params.year
   }
 
-  if(params.sessionyear){
+  if (params.sessionyear) {
     sessionyear.value = params.sessionyear
   }
 
-  if(params.semester){
+  if (params.semester) {
     semester.value = params.semester
   }
 
-  if(params.department){
+  if (params.department) {
     params.department = params.department.split(",")
     var i = 0
     for (var option of department.children) {
-      if(params.department.includes(option.value)){
+      if (params.department.includes(option.value)) {
         option.selected = true
         options["department"][i] = 1
       }
@@ -126,21 +148,27 @@ function setfilter() {
 
   var bookyear = document.getElementsByClassName('bookyear')
   for (var oneyear of bookyear) {
-    if(oneyear.innerText=="1 year"){
-      oneyear.innerText="1st year"
-    }
-    else if(oneyear.innerText=="2 year"){
-      oneyear.innerText="2nd year"
-    }
-    else if(oneyear.innerText=="3 year"){
-      oneyear.innerText="3rd year"
-    }
-    else if(oneyear.innerText=="4 year"){
-      oneyear.innerText="4th year"
-    }else{
-      oneyear.innerText="All year"
+    if (oneyear.innerText == "1 year") {
+      oneyear.innerText = "1st year"
+    } else if (oneyear.innerText == "2 year") {
+      oneyear.innerText = "2nd year"
+    } else if (oneyear.innerText == "3 year") {
+      oneyear.innerText = "3rd year"
+    } else if (oneyear.innerText == "4 year") {
+      oneyear.innerText = "4th year"
+    } else {
+      oneyear.innerText = "All year"
     }
   }
+}
+
+function loadmore() {
+  var url = new URL(location.href);
+  if (url.searchParams.get("page")==null) {
+    url.searchParams.set("page",1)
+  }
+  url.searchParams.set("page",parseInt(url.searchParams.get("page"))+1)
+  location.href = url.href
 }
 
 window.onload = setfilter

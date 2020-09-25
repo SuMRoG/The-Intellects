@@ -243,6 +243,10 @@ router.get('/library', function(req, res, next) {
   if (req.query.type == null) {
     req.query.type = "book"
   }
+  if (req.query.page == null) {
+    req.query.page = 1
+  }
+
   if (req.query.type != "ques") {
     Book.find().sort({createdAt: -1}).then((rawbooks) => {
       var books = []
@@ -267,6 +271,7 @@ router.get('/library', function(req, res, next) {
           }
         }
       }
+      books = books.splice(0,Math.min(books.length,12*req.query.page))
       res.render('library', {
         title: 'Library',
         books: books,
@@ -305,6 +310,7 @@ router.get('/library', function(req, res, next) {
           }
         }
       }
+      papers = papers.splice(0,Math.min(papers.length,12*req.query.page))
       res.render('library', {
         title: 'Library',
         books: [],
