@@ -27,18 +27,6 @@ body[theme="dark"] {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 641px) {
-  .usercard {
-    width: 60%;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .usercard {
-    width: 90%;
-  }
-}
-
 .usercard_body {
   padding-bottom: 2rem;
   flex-grow: 2;
@@ -109,15 +97,21 @@ body[theme="dark"] {
   width: 100%;
   max-width: 100%;
   font-size: 12px;
+  margin: 20px 0;
   z-index: 1;
   cursor: pointer;
   border-radius: 20px;
-  box-shadow: 2px 1px 8px rgb(28 28 28 / 45%);
+  box-shadow: 2px 1px 8px var(--shadow);
   transition: 0.5s;
 }
 
-.lolo *{
+.lolo * {
   color: var(--text);
+}
+
+.lolo a{
+  font-size: 1.2em;
+  padding: 10px 0;
 }
 
 .lolo .fa {
@@ -126,8 +120,37 @@ body[theme="dark"] {
 
 .baby2 :hover {
   transform: scale(1.05);
+  transition: 0.5s;
 }
 
 p {
   font-weight: 300;
+}
+
+@media screen and (min-width: 641px) {
+  .usercard {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .usercard_header {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 100px;
+  }
+
+  .usercard_image{
+    margin: 0;
+  }
+
+  .usercard {
+    width: 100%;
+  }
+
+  .yaya {
+    padding: 10px;
+  }
 }
