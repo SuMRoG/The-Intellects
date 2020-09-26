@@ -1,9 +1,8 @@
-var callbackURL = "https://theintellects.herokuapp.com/auth/google/front"
-
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
-  callbackURL = "http://localhost:3000/auth/google/front"
 }
+
+var callbackURL = process.env.callbackURL
 
 const createError = require('http-errors');
 const express = require('express');
