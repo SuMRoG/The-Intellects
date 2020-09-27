@@ -1,41 +1,48 @@
 <%- include('layouts/head.ejs') %>
 
 <link rel="stylesheet" href="css\start.css">
+<link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css\lib.css">
 <link rel="stylesheet" href="css\lib2.css">
 <div id="content">
   <div class="container">
     <header class=" header23">
       <div class="text-box">
-        <h1 class="qwer">Add Conn</h1>
+        <h1 class="qwer" id="ro2">Add Profile</h1>
       </div>
     </header>
-    <div class='wert'>
+    <div class="loginbox">
+      <div class="addbookcard logincard">
     <form action="/addcon" method="post">
-
+        <div class="details">
       <label for="name">Name</label><br>
         <input required type="text" name="name" value=""><br><br>
-
+      </div>
+  <div class="details">
       <label for="email">Email</label><br>
           <input required type="text" name="email" value=""><br><br>
-
+        </div>
+    <div class="details">
       <label for="gender">Gender</label>
-      <select name="gender">
+      <select name="gender" class="dropdown">
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="others">Others</option>
       </select><br>
-
+      </div>
+      <div class="details">
       <label for="year">Year</label>
-      <select name="year" id="year" size="4">
+      <select name="year" id="year" size="1" class="dropdown">
         <option value="1">First</option>
         <option value="2">Second</option>
         <option value="3">Third</option>
         <option value="4">Fourth</option>
       </select><br>
+      </div>
 
+      <div class="details">
       <label for="department">Department</label>
-      <select name="department" id="department" size="5">
+      <select name="department" id="department" size="1" class="dropdown">
         <option value="CST">CST</option>
         <option value="ETC">ETC</option>
         <option value="IT">IT</option>
@@ -45,9 +52,11 @@
         <option value="Aero">Aero</option>
         <option value="Meta">Meta</option>
       </select><br>
+      </div>
 
+      <div class="details">
       <label for="state">State</label>
-      <select name="state" id="state" size="5">
+      <select name="state" id="state" size="1" class="dropdown">
         <option value="International Candidate">International Candidate</option>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -78,22 +87,33 @@
         <option value="Uttarakhand">Uttarakhand</option>
         <option value="West Bengal">West Bengal</option>
       </select><br>
+      </div>
 
+        <div class="details">
       <label for="city">City</label><br>
           <input required type="text" name="city" value=""><br><br>
+          </div>
 
-          <label for="profile">Profile Link</label><br>
+            <div class="details">
+          <label for="profile">Insta handle/fb Profile Link</label><br>
               <input required type="text" name="profile" value=""><br><br>
+              </div>
 
+                <div class="details">
           <label for="bio">BIO</label><br>
               <input required type="text" name="bio" value=""><br><br>
+              </div>
 
+              <div class="sub">
       <button type="submit" name="button">Add</button>
+      </div>
 
     </form>
+
+    </div>
+    </div>
 </div>
   </div>
-</div>
 
 
 <%- include('layouts/foot.ejs') %>

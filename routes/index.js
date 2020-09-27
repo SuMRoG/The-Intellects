@@ -94,8 +94,37 @@ router.get('/connect', authUser, (req, res, next) => {
   }else{
     res.redirect('/front')
   }
-
 })
+
+router.get('/addcon', function(req, res, next) {
+  if(req.session.user.email.includes("@students.iiests.ac.in")){
+      res.render('addcon', {
+        title: 'Add connect',
+        user: req.session.user
+      });
+    }else{
+      res.redirect('/front')
+    }
+})
+
+router.post("/addcon", authUser, (req, res) => {
+  if(req.session.user.email.includes("@students.iiests.ac.in")){
+  console.log(req.body);
+  const connect = new Connect(req.body)
+  connect.save()
+    .then(result => res.redirect("/connect"))
+      .catch(err => console.log(err))
+  }else{
+      res.redirect('/front')
+    }
+})
+
+router.get('/addbook', authUser, (req, res, next)=>{ //
+  res.render('addbook', {
+    title: 'Add book',
+    user: req.session.user
+  });
+});
 
 router.get('/addbook', authUser, (req, res, next) => { //
   res.render('addbook', {
