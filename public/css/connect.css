@@ -137,14 +137,12 @@ button:hover {
     transform-origin: top;
     transform: scale(1);
     transition: 0.5s;
-    overflow: scroll;
   }
 }
 
 @media screen and (max-width: 650px) {
   .baby {
     width: 350px;
-    overflow: scroll;
     /* border: 2px solid silver; */
   }
 
@@ -154,11 +152,9 @@ button:hover {
 
   summary {
     width: 350px;
-    overflow: scroll;
   }
 
   .wesr {
     width: 380px;
-    overflow: scroll;
   }
 }
