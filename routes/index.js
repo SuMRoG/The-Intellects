@@ -97,8 +97,8 @@ router.get('/connect', authUser, (req, res, next) => {
 
 })
 
-router.get('/addcon', function(req, res, next) {
-  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+router.get('/addcon', authUser, function(req, res, next) {
+  if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
     res.render('addcon', {
       title: 'Add connect',
       user: req.session.user
@@ -109,19 +109,21 @@ router.get('/addcon', function(req, res, next) {
 })
 
 router.post("/addcon", authUser, (req, res) => {
-  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+  if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
+    req.body.sender = req.session.user.email
     const connect = new Connect(req.body)
     connect.save().then(result => res.redirect("/connect")).catch(err => {
       console.log(err)
-      res.redirect('/front')
+      res.redirect('/error')
     })
   } else {
+    console.log(err);
     res.redirect('/front')
   }
 })
 
 router.get('/addbook', authUser, (req, res, next) => {
-  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+  if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
     res.render('addbook', {
       title: 'Add book',
       user: req.session.user
@@ -132,7 +134,7 @@ router.get('/addbook', authUser, (req, res, next) => {
 });
 
 router.post("/addbook", authUser, (req, res) => {
-  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+  if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
     var doc = {}
     if (req.body.type == "book" || req.body.type == "other") {
       doc.title = req.body.title

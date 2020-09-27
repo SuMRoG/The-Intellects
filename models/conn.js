@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const connectSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    default: "default"
   },
   email: {
     type: String,
@@ -13,34 +14,41 @@ const connectSchema = new Schema({
   },
   gender: {
     type: String,
-    required: true
+    required: true,
+    default: "Male"
   },
   department: {
     type: String,
-    required: true
+    required: true,
+    default: "NULL"
   },
   year: {
     type: String,
-    required: true
+    required: true,
+    default: "NULL"
   },
   state: {
     type: String,
-    required: true
+    required: true,
+    default: "NULL"
   },
   city: {
     type: String,
-    default: "city",
+    default: "city"
   },
   profile: {
-    type: String
+    type: String,
+    default: ""
+  },
+  sender: {
+    type: String,
+    default: "admin"
   },
   bio: {
     type: String,
-    required: true
+    default: ""
   }
-}, {
-  timestamps: true
-})
+}, {timestamps: true})
 
 const Connect = mongoose.model('Connect', connectSchema);
 module.exports = Connect;
