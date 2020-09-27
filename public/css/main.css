@@ -261,7 +261,7 @@ body::-webkit-scrollbar-thumb {
 
 #footer {
   min-height: 80px;
-  height: 80px;
+  height: 160px;
   background: var(--footer-color);
 }
 
