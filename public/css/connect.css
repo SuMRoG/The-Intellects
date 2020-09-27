@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
 }
 
 .baby {
@@ -20,7 +19,6 @@
   margin: 5px auto;
   color: #464646;
   display: none;
-  overflow: scroll;
   /* border: 2px solid silver; */
 }
 
@@ -41,7 +39,6 @@ summary {
   max-width: 100%;
   font-size: 19px;
   z-index: 1;
-  overflow: scroll;
   cursor: pointer;
   border-radius: 20px;
   box-shadow: 5px 3px 10px var(--shadow);
@@ -111,6 +108,10 @@ summary span {
 .wesr p {
   font-weight: 500;
   color: var(--text);
+}
+
+.wesr *{
+  word-break: break-all;
 }
 
 button {
