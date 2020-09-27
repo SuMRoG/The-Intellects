@@ -66,7 +66,7 @@ router.get('/front', (req, res) => {
 })
 
 router.get('/connect', authUser, (req, res, next) => {
-  if(req.session.user.email.includes("@students.iiests.ac.in")){
+  if (req.session.user.email.includes("@students.iiests.ac.in")) {
     Connect.find().then((allstudents) => {
       var students = []
       for (var student of allstudents) {
@@ -91,62 +91,45 @@ router.get('/connect', authUser, (req, res, next) => {
         err: "Error 505"
       });
     })
-  }else{
+  } else {
+    res.redirect('/front')
+  }
+
+})
+
+router.get('/addcon', function(req, res, next) {
+  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+    res.render('addcon', {
+      title: 'Add connect',
+      user: req.session.user
+    });
+  } else {
     res.redirect('/front')
   }
 })
 
-router.get('/addcon', function(req, res, next) {
-  if(req.session.user.email.includes("@students.iiests.ac.in")){
-      res.render('addcon', {
-        title: 'Add connect',
-        user: req.session.user
-      });
-    }else{
-      res.redirect('/front')
-    }
-})
-
 router.post("/addcon", authUser, (req, res) => {
-  if(req.session.user.email.includes("@students.iiests.ac.in")){
-  console.log(req.body);
-  const connect = new Connect(req.body)
-  connect.save()
-    .then(result => res.redirect("/connect"))
-      .catch(err => console.log(err))
-  }else{
-      res.redirect('/front')
-    }
+  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+    const connect = new Connect(req.body)
+    connect.save().then(result => res.redirect("/connect")).catch(err => console.log(err))
+  } else {
+    res.redirect('/front')
+  }
 })
 
-<<<<<<< HEAD
-router.get('/addbook', authUser, (req, res, next)=>{ //
-  res.render('addbook', {
-    title: 'Add book',
-    user: req.session.user
-  });
-});
-
-router.get('/addbook', authUser, (req, res, next) => { //
-  res.render('addbook', {
-    title: 'Add book',
-    user: req.session.user
-  });
-=======
 router.get('/addbook', authUser, (req, res, next) => {
-  if(req.session.user.email.includes("@students.iiests.ac.in")){
+  if (req.session.user.email.includes("@students.iiests.ac.in")) {
     res.render('addbook', {
       title: 'Add book',
       user: req.session.user
     });
-  }else{
+  } else {
     res.redirect('/library')
   }
->>>>>>> d6a3919b21305139e48a78b79db25009c68c3554
 });
 
 router.post("/addbook", authUser, (req, res) => {
-  if(req.session.user.email.includes("@students.iiests.ac.in")){
+  if (req.session.user.email.includes("@students.iiests.ac.in")) {
     var doc = {}
     if (req.body.type == "book" || req.body.type == "other") {
       doc.title = req.body.title
@@ -188,7 +171,7 @@ router.post("/addbook", authUser, (req, res) => {
     } else {
       res.redirect("/addbook")
     }
-  }else{
+  } else {
     res.redirect("/library")
   }
 })
@@ -218,7 +201,7 @@ router.get("/delete/:id", authUser, (req, res) => {
   })
 });
 
-router.get("/blog",authUser, (req, res) => {
+router.get("/blog", authUser, (req, res) => {
   const id = req.query.id;
   if (id == null) {
     //console.log("err");
@@ -321,7 +304,7 @@ router.get('/library', function(req, res, next) {
           }
         }
       }
-      books = books.splice(0,Math.min(books.length,12*req.query.page))
+      books = books.splice(0, Math.min(books.length, 12 * req.query.page))
       res.render('library', {
         title: 'Library',
         books: books,
@@ -360,7 +343,7 @@ router.get('/library', function(req, res, next) {
           }
         }
       }
-      papers = papers.splice(0,Math.min(papers.length,12*req.query.page))
+      papers = papers.splice(0, Math.min(papers.length, 12 * req.query.page))
       res.render('library', {
         title: 'Library',
         books: [],
@@ -385,7 +368,10 @@ router.get('/proto', function(req, res, next) {
 });
 
 router.get('/error', function(req, res, next) {
-  res.render('error', {title: "Error", user: req.session.user});
+  res.render('error', {
+    title: "Error",
+    user: req.session.user
+  });
 })
 
 module.exports = router;
