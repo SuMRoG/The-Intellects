@@ -28,7 +28,7 @@
 				</div>
 				<% if(locals.user){%>
 				<div class="navlinks">
-					<a href="/profile" style="text-transform: capitalize;"><%=user.name%></a>
+					<a href="/profile" style="text-transform: capitalize;"><%=user.name.toLowerCase()%></a>
 				</div>
 				<% }else{%>
 				<div class="navlinks">

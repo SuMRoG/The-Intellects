@@ -11,7 +11,7 @@
       <div class="text-box">
         <h1 class="qwer">
           <div id="ro">Connect</div>
-          <a href="/addcon" class="btn btn-white btn-animated" id="ed">Add Profile</a>
+          <a href="/addcon" class="btn btn-white btn-animated" id="ed">Add Entry</a>
         </h1>
       </div>
     </header>
@@ -21,7 +21,7 @@
         <ul>
           <div class="option" id="yearoption">
             <label for="year">Year</label>
-            <select name="year" id="year" size="2">
+            <select name="year" id="year" size="4">
               <option value="First">First</option>
               <option value="Second">Second</option>
               <option value="Third">Third</option>
@@ -32,23 +32,22 @@
           <div class="option">
             <label for="department">Department</label>
             <select name="department" id="department" size="4">
-              <option value="CST">CST</option>
-              <option value="ETC">ETC</option>
-              <option value="IT">IT</option>
-              <option value="EE">EE</option>
-              <option value="ME">ME</option>
-              <option value="CE">CE</option>
-              <option value="Aero">Aero</option>
-              <option value="Meta">Meta</option>
-              <option value="Min">Mining</option>
-              <option value="Arch">Architecture</option>
-              <option value="Chem">Chemistry</option>
-              <option value="Chem">Chemistry</option>
-              <option value="ES">Earth Sciences</option>
-              <option value="M">Mathematics</option>
-              <option value="Phy">Physics</option>
-              <option value="Hss">Humanities</option>
-              <option value="Hss">Human Resource</option>
+              <option value="Computer Science and Technology">CST</option>
+              <option value="Electronics and Telecommunication Engineering">ETC</option>
+              <option value="Information Technology">IT</option>
+              <option value="Electrical Engineering">Electrical</option>
+              <option value="Mechanical Engineering">Mechnaical</option>
+              <option value="Civil Engineering">Civil</option>
+              <option value="Aerospace Engineering and Applied Mechanics">Aerospace</option>
+              <option value="Metallurgy and Materials Engineering">Metallurgy</option>
+              <option value="Mining Engineering">Mining</option>
+              <option value="Architecture, Town and Regional Planning">Architecture</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Earth Sciences">Earth Sciences</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Humanities and Social Sciences">Humanities</option>
+              <option value="Human Resource Management">Human Resource</option>
             </select>
           </div>
           <br>
@@ -320,7 +319,7 @@
         </div>
         <%}%>
         <div class="parent">
-        <%students & students.map(student=>{%>
+        <%students && students.map(student=>{%>
         <div class="baby">
           <summary onclick="myfunction(this)">
             <% if(student.gender.toUpperCase()=="MALE"){%>
@@ -328,17 +327,40 @@
             <%} else{%>
             <img src="/img/user-310807_1280.png">
             <%} %>
-
             <span><%=student.name%></span></summary>
           <div class="wesr">
             <h5>from : <%=student.city%>, <%=student.state%></h5>
-            <p><strong>Department : </strong><%=student.department%> ( <%=student.year%> )</p>
+            <p><strong>Department : </strong><%=student.department%>, <%=student.year%> year</p>
+            <%if(student.email.length){%>
             <p><strong>Email : </strong><%=student.email%></p>
+            <%}%>
+            <%if(student.profile.length){%>
+            <p><strong>Social Profile : </strong><%=student.profile%></p>
+            <%}%>
             <hr>
             <p><strong>About : </strong><%=student.bio%></p>
           </div>
         </div>
         <%})%>
+        <%if(students && students.length){%>
+          <button type="button" id="more" onclick="loadmore()">Load more</button>
+          <script>
+            var students = document.getElementsByClassName('baby')
+            var l = students.length
+            var m = 0
+
+            function loadmore(){
+              m += Math.min(l-m,9)
+              for(var i=0;i<m;i++){
+                students[i].style.display = "block"
+              }
+              if(m==l){
+                document.getElementById("more").hidden = true;
+              }
+            }
+            loadmore()
+          </script>
+        <%}%>
       </div>
     </div>
   </div>

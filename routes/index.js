@@ -66,7 +66,7 @@ router.get('/front', (req, res) => {
 })
 
 router.get('/connect', authUser, (req, res, next) => {
-  if (req.session.user.email.includes("@students.iiests.ac.in")) {
+  if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
     Connect.find().then((allstudents) => {
       var students = []
       for (var student of allstudents) {
@@ -111,7 +111,10 @@ router.get('/addcon', function(req, res, next) {
 router.post("/addcon", authUser, (req, res) => {
   if (req.session.user.email.includes("@students.iiests.ac.in")) {
     const connect = new Connect(req.body)
-    connect.save().then(result => res.redirect("/connect")).catch(err => console.log(err))
+    connect.save().then(result => res.redirect("/connect")).catch(err => {
+      console.log(err)
+      res.redirect('/front')
+    })
   } else {
     res.redirect('/front')
   }
@@ -188,7 +191,10 @@ router.post("/add", authUser, (req, res) => {
   req.body.authorId = req.session.user._id
   req.body.authorImage = req.session.user.image
   const blog = new Blog(req.body)
-  blog.save().then(result => res.redirect("/front")).catch(err => console.log(err))
+  blog.save().then(result => res.redirect("/front")).catch(err => {
+    console.log(err);
+    res.redirect("/error")
+  })
 })
 
 router.get("/delete/:id", authUser, (req, res) => {
