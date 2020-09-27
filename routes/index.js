@@ -66,30 +66,35 @@ router.get('/front', (req, res) => {
 })
 
 router.get('/connect', authUser, (req, res, next) => {
-  Connect.find().then((allstudents) => {
-    var students = []
-    for (var student of allstudents) {
-      if (student.year == req.query.year || req.query.year == null) {
-        if (student.department == req.query.department || req.query.department == null) {
-          if (student.state == req.query.state || req.query.state == null) {
-            students.push(student)
+  if(req.session.user.email.includes("@students.iiests.ac.in")){
+    Connect.find().then((allstudents) => {
+      var students = []
+      for (var student of allstudents) {
+        if (student.year == req.query.year || req.query.year == null) {
+          if (student.department == req.query.department || req.query.department == null) {
+            if (student.state == req.query.state || req.query.state == null) {
+              students.push(student)
+            }
           }
         }
       }
-    }
-    res.render('connect', {
-      title: 'Connect',
-      students: students,
-      user: req.session.user
+      res.render('connect', {
+        title: 'Connect',
+        students: students,
+        user: req.session.user
+      })
+    }).catch((err) => {
+      console.log(err)
+      res.render('connect', {
+        title: 'Connect',
+        user: req.session.user,
+        err: "Error 505"
+      });
     })
-  }).catch((err) => {
-    console.log(err)
-    res.render('connect', {
-      title: 'Connect',
-      user: req.session.user,
-      err: "Error 505"
-    });
-  })
+  }else{
+    res.redirect('/front')
+  }
+
 })
 
 router.get('/addbook', authUser, (req, res, next) => { //

@@ -38,8 +38,11 @@
 			<div id="nav2" class="nav2 hidden">
 				<a href="/"><i class="fas fa-home"> &nbsp; </i> Home</a>
 				<a href="/front"><i class="fab fa-blogger-b"> &nbsp; </i> Blogs</a>
+
 				<a href="/library"><i class="fas fa-book"> &nbsp; </i> Library</a>
-				<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
+				<%if(locals.user && user.email.includes("@students.iiests.ac.in")){%>
+					<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
+				<%}%>
 				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
 				<% if(locals.user){%>
