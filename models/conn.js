@@ -8,7 +8,8 @@ const connectSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    default: ""
   },
   gender: {
     type: String,
@@ -19,7 +20,7 @@ const connectSchema = new Schema({
     required: true
   },
   year: {
-    type: Number,
+    type: String,
     required: true
   },
   state: {
