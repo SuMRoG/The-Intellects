@@ -11,7 +11,9 @@
       <div class="text-box">
         <div id="yoyo">
           <h1 class="qwer" id="libqwer">Library</h1>
-          <a href="/addbook" class="btn btn-white btn-animated">Add something??</a>
+          <%if(locals.user && user.email.includes("@students.iiests.ac.in")){%>
+            <a href="/addbook" class="btn btn-white btn-animated">Add something??</a>
+  				<%}%>
         </div>
       </div>
     </header>

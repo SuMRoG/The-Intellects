@@ -119,6 +119,7 @@ router.post("/addcon", authUser, (req, res) => {
     }
 })
 
+<<<<<<< HEAD
 router.get('/addbook', authUser, (req, res, next)=>{ //
   res.render('addbook', {
     title: 'Add book',
@@ -131,50 +132,64 @@ router.get('/addbook', authUser, (req, res, next) => { //
     title: 'Add book',
     user: req.session.user
   });
+=======
+router.get('/addbook', authUser, (req, res, next) => {
+  if(req.session.user.email.includes("@students.iiests.ac.in")){
+    res.render('addbook', {
+      title: 'Add book',
+      user: req.session.user
+    });
+  }else{
+    res.redirect('/library')
+  }
+>>>>>>> d6a3919b21305139e48a78b79db25009c68c3554
 });
 
-router.post("/addbook", authUser, (req, res) => { //
-  // console.log(req.body);
-  var doc = {}
-  if (req.body.type == "book" || req.body.type == "other") {
-    doc.title = req.body.title
-    doc.author = req.body.author
-    doc.year = req.body.year
-    doc.type = req.body.type
-    doc.department = req.body.department
-    if (typeof(doc.department) == "string") {
-      doc.department = [doc.department]
+router.post("/addbook", authUser, (req, res) => {
+  if(req.session.user.email.includes("@students.iiests.ac.in")){
+    var doc = {}
+    if (req.body.type == "book" || req.body.type == "other") {
+      doc.title = req.body.title
+      doc.author = req.body.author
+      doc.year = req.body.year
+      doc.type = req.body.type
+      doc.department = req.body.department
+      if (typeof(doc.department) == "string") {
+        doc.department = [doc.department]
+      }
+      doc.subject = req.body.subject
+      doc.url = req.body.url
+      doc.cover = -1
+      if (req.body.type == "book") {
+        doc.cover = Math.floor(Math.random() * 8)
+      }
+      doc.sender = req.session.user.email
+      const book = new Book(doc)
+      book.save().then(result => res.redirect("/library")).catch(err => {
+        console.log(err)
+        res.redirect("/library")
+      })
+    } else if (req.body.type == "ques") {
+      doc.sessionyear = req.body.sessionyear
+      doc.semester = req.body.semester
+      doc.department = req.body.department
+      if (typeof(doc.department) == "string") {
+        doc.department = [doc.department]
+      }
+      doc.subject = req.body.subject
+      doc.url = req.body.url
+      doc.sender = req.session.user.email
+      // console.log(doc);
+      const ques = new Question(doc)
+      ques.save().then(result => res.redirect("/library")).catch(err => {
+        console.log(err)
+        res.redirect("/library")
+      })
+    } else {
+      res.redirect("/addbook")
     }
-    doc.subject = req.body.subject
-    doc.url = req.body.url
-    doc.cover = -1
-    if (req.body.type == "book") {
-      doc.cover = Math.floor(Math.random() * 8)
-    }
-    doc.sender = req.session.user.email
-    const book = new Book(doc)
-    book.save().then(result => res.redirect("/library")).catch(err => {
-      console.log(err)
-      res.redirect("/library")
-    })
-  } else if (req.body.type == "ques") {
-    doc.sessionyear = req.body.sessionyear
-    doc.semester = req.body.semester
-    doc.department = req.body.department
-    if (typeof(doc.department) == "string") {
-      doc.department = [doc.department]
-    }
-    doc.subject = req.body.subject
-    doc.url = req.body.url
-    doc.sender = req.session.user.email
-    // console.log(doc);
-    const ques = new Question(doc)
-    ques.save().then(result => res.redirect("/library")).catch(err => {
-      console.log(err)
-      res.redirect("/library")
-    })
-  } else {
-    res.redirect("/addbook")
+  }else{
+    res.redirect("/library")
   }
 })
 
