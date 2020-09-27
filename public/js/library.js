@@ -160,14 +160,27 @@ function setfilter() {
       oneyear.innerText = "All year"
     }
   }
+
+  var url = new URL(location.href);
+  if (url.searchParams.get("page") == null) {
+    url.searchParams.set("page", 1)
+  }
+
+  var books = document.getElementById('book-container')
+  var papers = document.getElementById('paper-container')
+  var btn = document.getElementById('more')
+
+  if((books.children.length + papers.children.length)<url.searchParams.get("page")*12){
+    btn.hidden = true;
+  }
 }
 
 function loadmore() {
   var url = new URL(location.href);
-  if (url.searchParams.get("page")==null) {
-    url.searchParams.set("page",1)
+  if (url.searchParams.get("page") == null) {
+    url.searchParams.set("page", 1)
   }
-  url.searchParams.set("page",parseInt(url.searchParams.get("page"))+1)
+  url.searchParams.set("page", parseInt(url.searchParams.get("page")) + 1)
   location.href = url.href
 }
 

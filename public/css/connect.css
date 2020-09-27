@@ -18,12 +18,11 @@
   /* border: 2px solid silver; */
 }
 
-#headerconnect{
-  background-image: linear-gradient(to right bottom,
-    var(--header-gradient-one),
-    var(--header-gradient-two)),
-    url('/img/connect.jpg');
-  background-position-y: -150px;  
+#headerconnect {
+  background-image: linear-gradient(to right bottom, var(--header-gradient-one), var(--header-gradient-two)), url(/img/connect.jpg);
+  background-position-y: -150px;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 summary {
@@ -58,7 +57,7 @@ summary {
   transition: 0s;
 }
 
-.wesr h5{
+.wesr h5 {
   color: #1bc2a1;
 }
 
@@ -75,7 +74,7 @@ summary img {
   border-radius: 50%;
 }
 
-summary span{
+summary span {
   margin-left: 20px;
   color: var(--text-dim);
 }
@@ -137,7 +136,7 @@ button:hover {
     /* border: 2px solid silver; */
   }
 
-  img{
+  img {
     margin: 0;
   }
 
