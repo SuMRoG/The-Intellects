@@ -49,7 +49,6 @@ router.get('/register', notauthUser, function(req, res, next) {
 });
 
 router.get('/front', (req, res) => {
-  if (req.isAuthenticated()) {
     Blog.find().sort({createdAt: -1}).then((posts) => {
       res.render('front', {
         title: 'Blogs',
@@ -60,9 +59,6 @@ router.get('/front', (req, res) => {
       console.log("Front error : ", err);
       res.redirect("/error")
     })
-  } else {
-    res.redirect('/register');
-  }
 })
 
 router.get('/connect', authUser, (req, res, next) => {
@@ -94,7 +90,6 @@ router.get('/connect', authUser, (req, res, next) => {
   } else {
     res.redirect('/front')
   }
-
 })
 
 router.get('/addcon', authUser, function(req, res, next) {
@@ -209,7 +204,7 @@ router.get("/delete/:id", authUser, (req, res) => {
   })
 });
 
-router.get("/blog", authUser, (req, res) => {
+router.get("/blog", (req, res) => {
   const id = req.query.id;
   if (id == null) {
     //console.log("err");
@@ -219,7 +214,7 @@ router.get("/blog", authUser, (req, res) => {
   Blog.findById(id).then(blog => {
     //console.log(blog);
     res.render('blog', {
-      title: 'full Blog',
+      title: blog.title,
       user: req.session.user,
       post: blog
     })
@@ -279,7 +274,7 @@ router.get('/team', function(req, res, next) {
   });
 });
 
-router.get('/library', function(req, res, next) {
+router.get('/library',authUser, function(req, res, next) {
   // console.log(req.query);
   if (req.query.type == null) {
     req.query.type = "book"
