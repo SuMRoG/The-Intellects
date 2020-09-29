@@ -49,16 +49,16 @@ router.get('/register', notauthUser, function(req, res, next) {
 });
 
 router.get('/front', (req, res) => {
-    Blog.find().sort({createdAt: -1}).then((posts) => {
-      res.render('front', {
-        title: 'Blogs',
-        posts: posts,
-        user: req.session.user
-      })
-    }).catch((err) => {
-      console.log("Front error : ", err);
-      res.redirect("/error")
+  Blog.find().sort({createdAt: -1}).then((posts) => {
+    res.render('front', {
+      title: "Blogs",
+      posts: posts,
+      user: req.session.user
     })
+  }).catch((err) => {
+    console.log("Front error : ", err);
+    res.redirect("/error")
+  })
 })
 
 router.get('/connect', authUser, (req, res, next) => {
@@ -274,7 +274,7 @@ router.get('/team', function(req, res, next) {
   });
 });
 
-router.get('/library',authUser, function(req, res, next) {
+router.get('/library', authUser, function(req, res, next) {
   // console.log(req.query);
   if (req.query.type == null) {
     req.query.type = "book"

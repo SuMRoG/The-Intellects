@@ -37,12 +37,18 @@
 				<%}%>
 			</div>
 			<div id="nav2" class="nav2 hidden">
-				<a href="/"><i class="fas fa-home"> &nbsp; </i> Home</a>
+				<a href="/" id="homenav"><i class="fas fa-home"> &nbsp; </i> Home</a>
 				<a href="/front"><i class="fab fa-blogger-b"> &nbsp; </i> Blogs</a>
 
 				<a href="/library"><i class="fas fa-book"> &nbsp; </i> Library</a>
 				<%if(locals.user && user.email.includes("@students.iiests.ac.in")){%>
 					<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
+					<script>
+						var nav2 = document.getElementById('nav2')
+						if (document.title.includes("Connect")) {
+							document.querySelector("a[href='/connect']").classList.toggle('active')
+						}
+					</script>
 				<%}%>
 				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
@@ -72,18 +78,16 @@
 
 					var nav2 = document.getElementById('nav2')
 
-					if(document.title=="Get started"){
-						nav2.children[0].classList.toggle('active')
-					}else if (document.title=="Blogs" || document.title=="full Blog") {
-						nav2.children[1].classList.toggle('active')
-					}else if (document.title=="Library") {
-						nav2.children[2].classList.toggle('active')
-					}else if (document.title=="Connect") {
-						nav2.children[3].classList.toggle('active')
-					}else if (document.title=="Team") {
-						nav2.children[4].classList.toggle('active')
-					}else if (document.title=="Terms") {
-						nav2.children[5].classList.toggle('active')
+					if(document.title.includes("Get started")){
+						document.querySelector("#homenav").classList.toggle('active')
+					}else if (document.title.includes("Blogs") || document.title.includes("full Blog")) {
+						document.querySelector("a[href='/front']").classList.toggle('active')
+					}else if (document.title.includes("Library")) {
+						document.querySelector("a[href='/library']").classList.toggle('active')
+					}else if (document.title.includes("Team")) {
+						document.querySelector("a[href='/team']").classList.toggle('active')
+					}else if (document.title.includes("Terms")) {
+						document.querySelector("a[href='/terms']").classList.toggle('active')
 					}
 				</script>
 			</div>
