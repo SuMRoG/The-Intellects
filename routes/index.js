@@ -49,7 +49,7 @@ router.get('/register', notauthUser, function(req, res, next) {
 });
 
 router.get('/front', (req, res) => {
-  Blog.find().sort({createdAt: -1}).then((posts) => {
+  Blog.find({isVerified: true}).sort({createdAt: -1}).then((posts) => {
     res.render('front', {
       title: "Blogs",
       posts: posts,
@@ -196,8 +196,18 @@ router.post("/add", authUser, (req, res) => {
 
 router.get("/delete/:id", authUser, (req, res) => {
   const id = req.params.id;
-  Blog.deleteOne({_id: id, authorId: req.session.user._id}).then(blog => {
-    res.redirect('/front')
+  //deleteOne
+  Blog.findById(id).then(blog => {
+    if(blog.authorId==req.session.user._id || req.session.user.isAdmin==true){
+      Blog.findByIdAndDelete(id).then(succ=>{
+        res.redirect('/front')
+      }).catch(err => {
+        console.log("delete error",err);
+        res.redirect("/error")
+      })
+    }else{
+      res.redirect('/front')
+    }
   }).catch(err => {
     console.log(err);
     res.redirect("/error")
@@ -213,11 +223,15 @@ router.get("/blog", (req, res) => {
   }
   Blog.findById(id).then(blog => {
     //console.log(blog);
-    res.render('blog', {
-      title: blog.title,
-      user: req.session.user,
-      post: blog
-    })
+    if (blog.isVerified || req.session.user.isAdmin==true) {
+      res.render('blog', {
+        title: blog.title,
+        user: req.session.user,
+        post: blog
+      })
+    } else {
+      res.redirect('/error')
+    }
   }).catch(err => {
     console.log("err");
     res.redirect("/error")
@@ -238,7 +252,7 @@ router.get('/profile', authUser, function(req, res, next) {
         res.redirect("/error");
         return
       }
-      Blog.find({authorId: req.query.intellect}).sort({createdAt: -1}).then(posts => {
+      Blog.find({authorId: req.query.intellect, isVerified: true}).sort({createdAt: -1}).then(posts => {
         res.render('profile', {
           title: 'Profile',
           user: req.session.user,
@@ -253,7 +267,7 @@ router.get('/profile', authUser, function(req, res, next) {
       res.redirect("/error");
     })
   } else {
-    Blog.find({authorId: req.session.user._id}).sort({createdAt: -1}).then(posts => {
+    Blog.find({authorId: req.session.user._id, isVerified: true}).sort({createdAt: -1}).then(posts => {
       res.render('profile', {
         title: 'Profile',
         user: req.session.user,
@@ -369,6 +383,37 @@ router.get('/proto', function(req, res, next) {
   return
   res.render('prototype', {title: 'Prototypes'});
 });
+
+router.get("/verify/:id", authUser, (req, res) => {
+  const id = req.params.id;
+  if(req.session.user.isAdmin==true){
+    Blog.findByIdAndUpdate(id, {isVerified: true}).then(succ => {
+      res.redirect('/admin')
+    }).catch(err => {
+      console.log(err);
+      res.redirect("/error")
+    })
+  }else{
+    res.redirect('/front')
+  }
+});
+
+router.get('/admin', authUser, function(req, res, next) {
+  if(req.session.user.isAdmin==true){
+    Blog.find({isVerified: false}).sort({createdAt: -1}).then((posts) => {
+      res.render('admin', {
+        title: "Admin",
+        posts: posts,
+        user: req.session.user
+      });
+    }).catch((err) => {
+      console.log("Admin error : ", err);
+      res.redirect("/error")
+    })
+  }else{
+    res.redirect('/front')
+  }
+})
 
 router.get('/error', function(req, res, next) {
   res.render('error', {

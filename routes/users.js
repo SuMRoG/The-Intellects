@@ -15,7 +15,10 @@ router.get('/getProfileImage/:id', function(req, res){
     // console.log(user);
     res.json({image: user[0].image})
   })
-  .catch(err=> console.log(err))
+  .catch(err=> {
+    console.log(err)
+     res.status(501).message({error: error.message })
+  })
 })
 
 module.exports = router;

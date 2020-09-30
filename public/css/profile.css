@@ -114,8 +114,12 @@ body[theme="dark"] {
   padding: 10px 0;
 }
 
-.lolo .fa {
+.lolo .fa-trash {
   color: #e42f2f;
+}
+
+.fa-check{
+  color: #2fe436;
 }
 
 .baby2 :hover {

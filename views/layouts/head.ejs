@@ -50,6 +50,15 @@
 						}
 					</script>
 				<%}%>
+				<%if(locals.user && user.isAdmin==true){%>
+					<a href="/admin"><i class="fas fa-laptop-code"> &nbsp; </i>Admin</a>
+					<script>
+						var nav2 = document.getElementById('nav2')
+						if (document.title.includes("Admin")) {
+							document.querySelector("a[href='/admin']").classList.toggle('active')
+						}
+					</script>
+				<%}%>
 				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
 				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
 				<% if(locals.user){%>
