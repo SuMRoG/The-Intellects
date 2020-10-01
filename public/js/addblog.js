@@ -157,3 +157,7 @@ function setbannerimage() {
     document.getElementById('inputbanner').value = url;
   }
 }
+
+function notif(){
+  alert("To prevent our page from spam, your blog will be visible on official page in some time after approval of Admins. Click ok to proceed");
+}
