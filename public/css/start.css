@@ -12,7 +12,7 @@
   object-fit: cover;
 }
 
-#mama{
+#mama {
   margin-left: 30px;
 }
 
@@ -186,7 +186,7 @@
     text-align: center;
     font-size: 16px;
     text-align: center;
-    padding:40px 10px;
+    padding: 40px 10px;
   }
 
   .xlarge-font {
@@ -215,6 +215,14 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
+}
+
+.whycontainer {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 0px;
 }
 
 .why {
@@ -262,7 +270,7 @@
   display: inline-block;
 }
 
-#libraryimage{
+#libraryimage {
   width: 339px;
   height: 463px;
   margin-left: 30px;
@@ -279,8 +287,6 @@
 .pepe {
   padding: 0px;
 }
-
-
 
 .paras2 {
   margin-right: 40px;
@@ -304,17 +310,17 @@
     clip-path: polygon(0% 0%, 0% 80%, 100% 65%, 100% 0%);
   }
 
-  #libraryimage{
+  #libraryimage {
     margin-left: auto;
     width: 370px;
     height: 480px;
   }
 
-  #mama{
+  #mama {
     margin-left: auto;
   }
 
-  .startImage{
+  .startImage {
     padding: 0;
     width: auto;
     margin: auto;
@@ -438,5 +444,19 @@
 @media screen and (max-width: 380px) {
   .header-overlap {
     height: 450px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .start {
+    float: none;
+  }
+
+  .space {
+    height: 0;
+  }
+
+  .whycontainer {
+    margin-top: -80px;
   }
 }
