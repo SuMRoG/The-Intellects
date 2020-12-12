@@ -107,6 +107,7 @@ router.post("/addcon", authUser, (req, res) => {
   if (req.session.user && req.session.user.email.includes("@students.iiests.ac.in")) {
     req.body.sender = req.session.user.email
     const connect = new Connect(req.body)
+    console.log(req.body.name)
     connect.save().then(result => res.redirect("/connect")).catch(err => {
       console.log(err)
       res.redirect('/error')
