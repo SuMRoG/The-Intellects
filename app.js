@@ -27,7 +27,8 @@ var PORT = process.env.PORT || 3000;
 const dbURI = process.env.dbconnect;
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
   })
   .then((result) => {
     app.listen(PORT)
@@ -78,7 +79,7 @@ passport.use(new GoogleStrategy({
       },
       function(err, user) {
         if (err) {
-          console.log("Login error", err, user);
+          // console.log("Login error", err, user);
           if (err.code == 11000 && err.keyPattern.email) {
             Account.find({
               email: profile.emails[0].value
@@ -89,7 +90,7 @@ passport.use(new GoogleStrategy({
             })
           }
           else if (err.code == 11000 && err.keyPattern.username) {
-            console.log("Shit");
+            // console.log("Shit");
             return cb(err, {})
           }
           else{

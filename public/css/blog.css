@@ -280,6 +280,7 @@ h1 {
   position: relative;
   cursor: default;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .card .but2:hover {

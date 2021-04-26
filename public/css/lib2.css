@@ -120,6 +120,12 @@ ul select option:checked {
   border-radius: 3px;
 }
 
+.deleteForm p{
+  font-size: 0.8em;
+  color: var(--text-dim);
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 650px) {
   .addbookcard{
     width: 100%;

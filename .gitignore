@@ -18,3 +18,5 @@ todo.txt
 con.js
 *.svg
 csvjson.json
+connects.json
+studentsConnect.json

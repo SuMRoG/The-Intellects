@@ -75,7 +75,7 @@
               </a>
             </li>
             <li>
-              <a href="https://www.google.co.in/">
+              <a href="https://www.google.com/search?q=the+intellects" target="_blank">
                 <i class="fa fa-globe fa-2x"></i>
                 <span class="nav-text">
                   Search us on Google
@@ -83,7 +83,7 @@
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com/TheIntellects1">
+              <a href="https://www.facebook.com/TheIntellects1" target="_blank">
                 <i class="fa fa-facebook-square fa-2x"></i>
                 <span class="nav-text">
                   Follow us on Facebook
@@ -91,7 +91,7 @@
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/the.intellects?igshid=eto8erluungn">
+              <a href="https://instagram.com/the.intellects?igshid=eto8erluungn" target="_blank">
                 <i class="fa fa-instagram fa-2x"></i>
                 <span class="nav-text">
                   Follow us on Instagram
@@ -128,7 +128,9 @@
             <div class="content2">
               <p class="text"> <%=post.snippet%> </p>
               <p hidden> <%=post.body%> </p>
-              <a onclick="togglepost(this)" data-postid="<%=post._id%>" data-authorimage="<%=post.authorImage%>" data-authorprofile="/profile?intellect=<%=post.authorId%>" class="but2">Read More</a>
+              <a onclick="togglepost(this)" data-postid="<%=post._id%>" data-authorimage="<%=post.authorImage%>" data-authorprofile="/profile?intellect=<%=post.authorId%>" class="but2">
+                Read More
+              </a>
             </div>
           </div>
         </div>
