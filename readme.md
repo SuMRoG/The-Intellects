@@ -5,4 +5,4 @@ the exclusive property of The Intellects and its licensors. Service is protected
 of and foreign countries. Our trademarks may not be used in connection with any product or service without the prior
 written consent of The Intellects.
 
-### You must attribute our [team](https://theintellects.tech/team) and Our website [theintellects](https://theintellects.tech) in case you tend to use design ideas with notifying us prior.
+### You must attribute our [team](https://theintellects.tk/team) and Our website [theintellects](https://theintellects.tk) in case you tend to use design ideas with notifying us prior.
