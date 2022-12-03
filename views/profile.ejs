@@ -1,0 +1,56 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css/start.css">
+<link rel="stylesheet" href="css/profile.css">
+
+<script type="text/javascript" src="js\connect.js"></script>
+<script type="text/javascript" src="js\profile.js"></script>
+<div id="content">
+  <div class="container">
+    <div class="yaya">
+      <div class="usercard">
+          <div class="usercard_body">
+            <header class="usercard_header">
+              <img src="<%=profileuser.image%>" class="usercard_image" alt="avatar">
+              <div class="usercard_name">
+                <h1 id="username" contenteditable="false"><%=profileuser.name || "User"%></h1>
+                <form action="/profile" method="post">
+                  <input type="text" hidden name="userName" id="nameInput"/>
+                  <button type="submit" id="savename" onclick="saveName()">Save</button>
+                </form>
+
+                <%if(self){%>
+                  <div class="editCont" id="editCont" onclick="allowEdit()">
+                    <i class="fas fa-pencil-alt"></i>
+                  </div>
+                <%}%>
+              </div>
+            </header>
+            <div class="about2">
+              <!-- <h2>About</h2>
+              <p>I stared Mother Nature in the face, and she smiled back</p> -->
+              <%if(posts.length){%>
+                <h2>Posts</h2>
+                <div class="baby2">
+                  <%posts.map((post)=>{%>
+                    <div class="lolo">
+                      <a href="/blog?id=<%=post._id%>"><%=post.title%></a>
+                      <%if(self){%>
+                        <a href="/delete/<%=post._id%>">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      <%}%>
+                    </div>
+                  <%})%>
+                </div>
+              <%}else{%>
+                <h2>No Posts</h2>
+              <%}%>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/foot.ejs') %>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en" dir="ltr">
+	<title><%= title%> | The INTELLECTS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="google-site-verification" content="pk45Q7j1C_aULsTDfeAj56Ulvso0S04UEKs0hV4raiU" />
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/slider.css">
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+	<link rel="apple-touch-icon" type="image/png" href="img/favicon.png">
+	<script src="https://kit.fontawesome.com/81f67f6f7f.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/start.js"></script>
+</head>
+
+<body theme="light">
+	<div id="header">
+		<div class="container">
+			<div class="nav1">
+				<div class="logo">
+					<img src="img/logo.png" id="logoicon">
+					<a href="/">The INTELLECTS</a>
+				</div>
+				<div class="navbutton">
+					<i class="fas fa-bars" onclick="togglenav()"></i>
+				</div>
+				<% if(locals.user){%>
+				<div class="navlinks">
+					<a href="/profile" style="text-transform: capitalize;"><%=user.name.toLowerCase()%></a>
+				</div>
+				<% }else{%>
+				<div class="navlinks">
+					<a href="/register">Login/Signup</a>
+				</div>
+				<%}%>
+			</div>
+			<div id="nav2" class="nav2 hidden">
+				<a href="/" id="homenav"><i class="fas fa-home"> &nbsp; </i> Home</a>
+				<a href="/front"><i class="fab fa-blogger-b"> &nbsp; </i> Blogs</a>
+
+				<a href="/library"><i class="fas fa-book"> &nbsp; </i> Library</a>
+				<%if(locals.user && user.email.includes("@students.iiests.ac.in")){%>
+					<a href="/connect"><i class="fas fa-user-plus"> &nbsp; </i>Connect</a>
+					<script>
+						var nav2 = document.getElementById('nav2')
+						if (document.title.includes("Connect")) {
+							document.querySelector("a[href='/connect']").classList.toggle('active')
+						}
+					</script>
+				<%}%>
+				<%if(locals.user && user.isAdmin==true){%>
+					<a href="/admin"><i class="fas fa-laptop-code"> &nbsp; </i>Admin</a>
+					<script>
+						var nav2 = document.getElementById('nav2')
+						if (document.title.includes("Admin")) {
+							document.querySelector("a[href='/admin']").classList.toggle('active')
+						}
+					</script>
+				<%}%>
+				<a href="/team"><i class="fas fa-info-circle"> &nbsp; </i> About Us</a>
+				<a href="/terms"><i class="fas fa-user-shield"> &nbsp; </i>Privacy</a>
+				<% if(locals.user){%>
+					<a href="user/logout"><i class="fas fa-power-off"> &nbsp; </i>logout</a>
+				<%}%>
+				<div style="display: flex; align-items: center;padding: 10%">
+					<i class="far fa-sun" id="theme" aria-hidden="true"></i>
+					<div class="on-off-toggle">
+						<input class="on-off-toggle__input" onchange="toggletheme()" type="checkbox" id="bopis" />
+						<label for="bopis" class="on-off-toggle__slider"></label>
+					</div>
+				</div>
+				<script type="text/javascript">
+					var checkbox = document.querySelector('input[id=bopis]')
+				  const currentTheme = localStorage.getItem("theme");
+				  const themeicon = document.getElementById('theme')
+				  if (currentTheme == "dark") {
+				    document.body.setAttribute('theme','dark');
+				    themeicon.setAttribute('class','far fa-moon');
+				    checkbox.checked = true;
+				  }else{
+				    document.body.setAttribute('theme','light');
+				    themeicon.setAttribute('class','far fa-sun');
+				    checkbox.checked = false;
+				  }
+
+					var nav2 = document.getElementById('nav2')
+
+					if(document.title.includes("Get started")){
+						document.querySelector("#homenav").classList.toggle('active')
+					}else if (document.title.includes("Blogs") || document.title.includes("full Blog")) {
+						document.querySelector("a[href='/front']").classList.toggle('active')
+					}else if (document.title.includes("Library")) {
+						document.querySelector("a[href='/library']").classList.toggle('active')
+					}else if (document.title.includes("Team")) {
+						document.querySelector("a[href='/team']").classList.toggle('active')
+					}else if (document.title.includes("Terms")) {
+						document.querySelector("a[href='/terms']").classList.toggle('active')
+					}
+				</script>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,117 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css/start.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/lib.css">
+<link rel="stylesheet" href="css/lib2.css">
+<script type="text/javascript" src="js/addbook.js"></script>
+<div id="content">
+  <div class="container">
+    <header class=" header23">
+      <div class="text-box">
+        <h1 class="qwer" id="ro2">Add Book</h1>
+      </div>
+    </header>
+
+    <div class="loginbox">
+      <div class="addbookcard logincard">
+        <form action="/addbook" id="addbook" method="post">
+          <div class="details">
+            <label for="type">Type</label>
+            <select name="type" class="dropdown" id="type" onchange="changetab()">
+              <option selected value="book">Book</option>
+              <option value="ques">Question paper</option>
+              <option value="other">Others</option>
+            </select>
+          </div>
+          <div class="bookinputs" id="bookinputs">
+            <div class="details">
+              <label for="title">Name</label>
+              <input type="text" name="title" value="">
+            </div>
+            <div class="details">
+              <label for="author">Author or source</label>
+              <input type="text" name="author" value="">
+            </div>
+            <div class="details">
+              <label for="year">Year</label>
+              <select name="year" class="dropdown" id="year">
+                <option selected value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+                <option value="4">Fourth</option>
+                <option value="0">All</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="paperinputs" id="paperinputs" hidden>
+            <div class="details">
+              <label for="sessionyear">Year</label>
+              <select name="sessionyear" class="dropdown" id="sessionyear" size="5">
+                <option selected value="2020">2020-21</option>
+                <option value="2019">2019-20</option>
+                <option value="2018">2018-19</option>
+                <option value="2017">2017-18</option>
+                <option value="2016">2016-17</option>
+              </select>
+            </div>
+            <script>
+              var date = new Date()
+              var year = date.getFullYear()
+              var sessionyear = document.getElementById('sessionyear')
+              for (var option of sessionyear.children) {
+                option.value = year
+                option.innerText = year + "-" + (year - 1999)
+                year--
+              }
+            </script>
+            <div class="details">
+              <label for="semester">Semester</label>
+              <select name="semester" class="dropdown" id="semester" size="4">
+                <option selected value="1st">First / Second</option>
+                <option value="3rd">Third</option>
+                <option value="4th">Fourth</option>
+                <option value="5th">Fifth</option>
+                <option value="6th">Sixth</option>
+                <option value="7th">Seventh</option>
+                <option value="8th">Eighth</option>
+              </select>
+            </div>
+          </div>
+
+          <div required class="details">
+            <label for="subject">Subject</label>
+            <input required type="text" name="subject" value="">
+          </div>
+          <div class="details">
+            <label for="department'">Department</label>
+            <select required name="department" class="dropdown multidropdown" id="department" multiple>
+              <option value="none" disabled>Department(s)</option>
+              <option value="cst">CST</option>
+              <option value="etc">ETC</option>
+              <option value="it">IT</option>
+              <option value="ee">EE</option>
+              <option value="me">ME</option>
+              <option value="ce">CE</option>
+              <option value="aero">Aero</option>
+              <option value="meta">Meta</option>
+              <option value="mini">Mining</option>
+            </select>
+          </div>
+          <div class="details">
+            <label for="url">Url</label>
+            <input required type="text" name="url" value="">
+          </div>
+
+          <div class="sub">
+            <button type="submit" name="button">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('layouts/foot.ejs') %>

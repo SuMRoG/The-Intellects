@@ -1,0 +1,140 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css\start.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css\lib.css">
+<link rel="stylesheet" href="css\lib2.css">
+<div id="content">
+  <div class="container">
+    <header class=" header23">
+      <div class="text-box">
+        <h1 class="qwer" id="ro2">Add Profile</h1>
+      </div>
+    </header>
+    <div class="loginbox">
+      <div class="addbookcard logincard">
+        <form action="/addcon" method="post">
+          <div class="details">
+            <label for="name">Name</label>
+            <input required type="text" name="name" value="">
+          </div>
+          <div class="details">
+            <label for="email">Email</label><br>
+            <input required type="text" name="email" value="">
+          </div>
+          <div class="details">
+            <label for="gender">Gender</label>
+            <select required name="gender" class="dropdown">
+              <option selected value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div class="details">
+            <label for="year">Year</label>
+            <select required name="year" id="year" size="1" class="dropdown">
+              <option value="2021">2021 Batch</option>
+              <option selected value="2022">2022 Batch</option>
+              <option value="2023">2023 Batch</option>
+              <option value="2024">2024 Batch</option>
+              <option value="2025">2025 Batch</option>
+            </select>
+          </div>
+
+          <div class="details">
+            <label for="department">Department</label>
+            <select required name="department" id="department" size="1" class="dropdown">
+              <option selected value="Computer Science and Technology">CST</option>
+              <option value="Electronics and Telecommunication Engineering">ETC</option>
+              <option value="Information Technology">IT</option>
+              <option value="Electrical Engineering">Electrical</option>
+              <option value="Mechanical Engineering">Mechnaical</option>
+              <option value="Civil Engineering">Civil</option>
+              <option value="Aerospace Engineering and Applied Mechanics">Aerospace</option>
+              <option value="Metallurgy and Materials Engineering">Metallurgy</option>
+              <option value="Mining Engineering">Mining</option>
+              <option value="Architecture, Town and Regional Planning">Architecture</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Earth Sciences">Earth Sciences</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Humanities and Social Sciences">Humanities</option>
+              <option value="Human Resource Management">Human Resource</option>
+            </select>
+          </div>
+
+          <div class="details">
+            <label for="state">State</label>
+            <select required name="state" id="state" size="1" class="dropdown">
+              <option selected value="International Candidate">International Candidate</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="DandD">Daman and Diu</option>
+              <option value="DandNH">Dadar and Nagar haveli</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Madhya Pradesh">Madhya Pradesh </option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+          </div>
+
+          <div class="details">
+            <label for="city">City</label>
+            <input type="text" name="city" value="">
+          </div>
+
+          <div class="details">
+            <label for="profile">Insta handle/fb Profile Link</label>
+            <input type="text" name="profile" value="">
+          </div>
+
+          <div class="details">
+            <label for="bio">BIO</label>
+            <input type="text" name="bio" value="">
+          </div>
+
+          <div class="sub">
+            <button type="submit" name="button">Add</button>
+          </div>
+
+        </form>
+        <div class="deleteForm">
+          <p>
+            If you want to delete your connect page entry, then fill <a href="https://docs.google.com/forms/d/1MeF25wevVvjB0ZgAzk8yZfALJNuUYx76vPuhLI4WiXY/edit">this form</a> with your respective G-suite account
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('layouts/foot.ejs') %>

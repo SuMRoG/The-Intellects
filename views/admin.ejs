@@ -1,0 +1,36 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css/start.css">
+<link rel="stylesheet" href="css/profile.css">
+
+<script type="text/javascript" src="js\connect.js"></script>
+<div id="content">
+  <div class="container">
+    <div class="yaya">
+      <div class="usercard">
+          <div class="usercard_body">
+            <div class="about2">
+              <%if(posts.length){%>
+                <h2>Posts</h2>
+                <div class="baby2">
+                  <%posts.map((post)=>{%>
+                    <div class="lolo">
+                      <a href="/blog?id=<%=post._id%>" target="_blank"><%=post.title%></a>
+                      <div class="actionbuttons" style="width: 100px; display: flex; justify-content: space-between">
+                        <a href="/delete/<%=post._id%>"><i class="fa fa-trash"></i></a>
+                        <a href="/verify/<%=post._id%>"><i class="fa fa-check"></i></a>
+                      </div>
+                    </div>
+                  <%})%>
+                </div>
+              <%}else{%>
+                <h2>No Posts</h2>
+              <%}%>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/foot.ejs') %>

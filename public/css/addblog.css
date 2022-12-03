@@ -1,0 +1,171 @@
+.werty {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+.optional {
+  width: 100%;
+  padding: 20px;
+}
+
+.goahead {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.goahead button {
+  padding: 20px;
+  width: 180px;
+  background: inherit;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #216aef;
+  outline: none;
+}
+
+.goahead .checked {
+  border-bottom: 5px solid #5c76f3;
+}
+
+.addblogform {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.imageinput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.imageinput span {
+  width: 20%;
+  text-align: left;
+  padding: 20px;
+  color: var(--text-dim);
+  outline: none;
+  font-weight: 600;
+  background: inherit;
+}
+
+.imageinput input {
+  background: var(--background-dim);
+  height: 40px;
+}
+
+#imageprovider {
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  background: var(--background);
+  color: var(--text);
+  outline: none;
+}
+
+#aboutmarkdown {
+  color: var(--text-dimmer);
+  padding: 5px;
+  font-size: 0.7em;
+  margin: 5px 0;
+}
+
+#aboutmarkdown a {
+  text-decoration: none;
+}
+
+.titleinput {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1.4em;
+  outline: none;
+  color: var(--text);
+  font-weight: 600;
+  background: inherit;
+  /* background: var(--background-dim);*/
+}
+
+.subheading {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1em;
+  outline: none;
+  color: var(--text-dim);
+  font-weight: 600;
+  background: inherit;
+}
+
+.bodyinput {
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 1em;
+  outline: none;
+  color: var(--text-dim);
+  background: var(--background-dim);
+  resize: vertical;
+}
+
+.previewcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15%;
+  margin-top: -40px;
+}
+
+#searchoptions{
+  align-self: flex-end;
+  color: var(--text);
+  margin-bottom: 5px;
+  font-size: 0.7em;
+}
+
+.postimage {
+  margin-bottom: 50px;
+}
+
+.postimage img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.submitbutton {
+  width: 100px;
+  align-self: center;
+  padding: 8px 20px;
+  border: none;
+  background: inherit;
+  border: 2px solid #0e7eff;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #0254b2;
+  margin: 20px 0;
+  cursor: pointer;
+  outline: none;
+}
+
+@media screen and (max-width: 650px) {
+  .imageinput {
+    justify-content: space-between;
+  }
+
+  .imageinput input {
+    font-size: 11px;
+  }
+
+  .subheading {
+    width: 70%;
+  }
+
+  .previewcontainer {
+    padding: 5%;
+  }
+}

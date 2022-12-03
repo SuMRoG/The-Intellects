@@ -1,0 +1,163 @@
+<%- include('layouts/head.ejs') %>
+
+<link rel="stylesheet" href="css\start.css">
+<link rel="stylesheet" href="css\blog.css">
+<link rel="stylesheet" href="css\fullblog.css">
+<link rel="stylesheet" href="css\team.css">
+<link rel="stylesheet" href="css\markdown.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
+
+<script type="text/javascript" src="js\front.js"></script>
+
+<div class="fullblogcontainer" id="fullblogcontainer" hidden>
+  <a onclick="togglepostoff()"> <i class="fas fa-times"></i> </a>
+  <div class="fullblogoverlay" id="fullblogoverlay"></div>
+  <div class="fullblog " id="fullblog">
+    <header class="blog-header">
+      <div class="blog-header user flex-auto-ns">
+        <a href="#" id="fullblogauthorprofile"><img id="fullblogauthorimage" class="photo" src="img/default.png"></a>
+        <div class="blog-details">
+          <a href="" id="fullbloglink"><h1 id="fullblogtitle" class="blog-title"></h1></a>
+          <h2 class="blog-byline">
+            <span class="attribution">
+              <span class="blog-byline-user">
+                by <a id="fullblogauthor" class="url hoverable blog-hoverable" rel="contact"></a>
+              </span>
+              <span id="fullblogdate" class="blog-date"></span>
+            </span>
+            <i data-link="#" id="sharebutton" onclick="copylink(this)" class="fas fa-share-square"><span>copied</span></i>
+          </h2>
+        </div>
+      </div>
+    </header>
+    <section>
+
+      <div class="postimage">
+        <img id="fullblogimage" src="img/mountains.jpg" alt="">
+      </div>
+
+    </section>
+    <section>
+      <div class="blogbody markdown-body" id="blogbody">
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="content">
+  <div class="container">
+    <header class=" header3">
+      <div class="brand-box">
+        <span class="brand">SuMRoG</span>
+      </div>
+      <div class="text-box">
+        <h1 class="qwer" style="font-weight: 700">Simply the best</h1>
+        <p style="color: white;">Reasons for choosing us</p>
+        <br>
+        <a href="/add" class="btn btn-white btn-animated">Wanna add blog??</a>
+      </div>
+    </header>
+
+
+    <div class="view">
+      <div class="sidecontainer">
+        <nav class="main-menu">
+          <ul>
+            <li>
+              <a href="/profile">
+                <i class="fa fa-user fa-2x"></i>
+                <span class="nav-text">
+                  Profile
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.google.com/search?q=the+intellects" target="_blank">
+                <i class="fa fa-globe fa-2x"></i>
+                <span class="nav-text">
+                  Search us on Google
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/TheIntellects1" target="_blank">
+                <i class="fa fa-facebook-square fa-2x"></i>
+                <span class="nav-text">
+                  Follow us on Facebook
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/the.intellects?igshid=eto8erluungn" target="_blank">
+                <i class="fa fa-instagram fa-2x"></i>
+                <span class="nav-text">
+                  Follow us on Instagram
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/team">
+                <i class="fa fa-info fa-2x"></i>
+                <span class="nav-text">
+                  Know More about us
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="boy">
+        <%posts.map((post)=>{%>
+        <div hidden class="card" style="background:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('<%=post.bannerimage%>')  center / cover no-repeat;">
+          <div class="header4">
+            <div class="date">
+              <span>
+                <%= post.createdAt.toLocaleDateString("en-US",{weekday: "short",year:"numeric",month:"short",day: "numeric" })%>
+              </span>
+            </div>
+          </div>
+          <div class="data">
+            <div class="content1">
+              <span class="author"> <%=post.author%> </span>
+              <h1 class="title"><%=post.title%></h1>
+            </div>
+            <div class="content2">
+              <p class="text"> <%=post.snippet%> </p>
+              <p hidden> <%=post.body%> </p>
+              <a onclick="togglepost(this)" data-postid="<%=post._id%>" data-authorimage="<%=post.authorImage%>" data-authorprofile="/profile?intellect=<%=post.authorId%>" class="but2">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+        <%})%>
+
+        <div class="loadmore" <button type="button" id="more" onclick="loadmore()">Load more</button>
+        </div>
+        <script type="text/javascript">
+          var posts = document.getElementsByClassName('card')
+          var l = posts.length
+          var m = 0
+
+          function loadmore() {
+            m += Math.min(l - m, 4)
+            for (var i = 0; i < m; i++) {
+              posts[i].hidden = false
+            }
+            if (m == l) {
+              document.getElementById("more").hidden = true;
+            }
+          }
+          loadmore()
+          loadmore()
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/foot.ejs') %>

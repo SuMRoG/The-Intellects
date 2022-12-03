@@ -1,0 +1,42 @@
+<%- include('layouts/head.ejs') %>
+<link rel="stylesheet" href="css\start.css">
+<link rel="stylesheet" href="css\blog2.css">
+<link rel="stylesheet" href="css\markdown.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
+<script type="text/javascript" src="js\blog.js"></script>
+
+<div id="content">
+  <div class="container">
+    <header class="header0">
+      <div class="brand-box">
+        <div>
+          <a href="/profile?intellect=<%=post.authorId%>"><img src="<%=post.authorImage%>"></a>
+          <span class="brand"><%=post.author%></span>
+        </div>
+      </div>
+      <div class="text-box">
+        <h1 class="qwer"><%=post.title%></h1>
+        <p><%=post.snippet%></p>
+      </div>
+    </header>
+    <div class="seperateblogcontainer">
+      <div class="column189">
+        <div class="column188">
+          <img src="<%=post.bannerimage%>">
+        </div>
+        <div id="sharecontainer">Share<i id="sharebutton" onclick="copylink(this)" class="fas fa-share-square"><span>copied</span></i></div>
+        <div class="blogbody markdown-body" id="blogbody">
+
+        </div>
+        <div id="rawblog" hidden>
+          <%=post.body%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/foot.ejs') %>

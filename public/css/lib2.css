@@ -1,0 +1,161 @@
+body[theme="light"] {
+  /* --labels: #4a4a4a;
+  --options-color: #000;
+  --scrollback: #b5b8be; */
+  --labels: #d7eaee;
+  --options-color: #ecf0f1;
+  --scrollback: #252930;
+}
+
+body[theme="dark"] {
+  --labels: #d7eaee;
+  --options-color: #ecf0f1;
+  --scrollback: #252930;
+}
+
+.option {
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  list-style-type: none;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+ul label {
+  color: var(--labels);
+}
+
+ul select {
+  padding: 5px;
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+}
+
+#type::-webkit-scrollbar {
+  width: 0;
+}
+
+ul select::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--scrollback);
+}
+
+ul select::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 3px;
+  background-color: #257ee2;
+}
+
+ul select option {
+  position: relative;
+  display: block;
+  padding: 6px;
+  color: var(--options-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+ul select option:checked {
+  background: #0d5bdf;
+}
+
+.filterbuttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter {
+  border: 2px solid #257ee2;
+  padding: 5px 12px;
+  background: inherit;
+  color: #48ade8;
+  font-weight: 600;
+  font-size: 1.1em;
+  align-self: center;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.filter:active {
+  transform: scale(0.9) translateZ(0);
+  font-size: 1em;
+  transition: 0.5s;
+}
+
+.addbookcard {
+  margin: 50px 0;
+  width: 40%;
+  background: var(--background);
+  color: var(--logo-color);
+}
+
+.addbookcard select{
+  background: var(--background-dim);
+  color: var(--text-dim);
+}
+
+.addbookcard input{
+  background: var(--background-dim);
+  color: var(--text-dim);
+}
+
+.dropdown::-webkit-scrollbar{
+  width: 5px;
+  background: inherit;
+}
+
+.dropdown::-webkit-scrollbar-thumb{
+  width: 5px;
+  background: #036cd6;
+  border-radius: 3px;
+}
+
+.deleteForm p{
+  font-size: 0.8em;
+  color: var(--text-dim);
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 650px) {
+  .addbookcard{
+    width: 100%;
+  }
+
+  ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #yearoption {
+    width: 60%;
+  }
+
+  label {
+    text-align: left;
+  }
+
+  select {
+    color: #fff;
+    margin: 10px auto;
+  }
+
+  ul select {
+    padding: 2px;
+  }
+
+  .option {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

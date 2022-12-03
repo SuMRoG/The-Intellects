@@ -1,0 +1,391 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+.loadmore {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.title a::selection {
+  /* background: none; */
+}
+
+.view {
+  display: flex;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.main-menu li>a .fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.main-menu {
+  background-color: #212121;
+  height: 90%;
+  width: 60px;
+  overflow: hidden;
+  -webkit-transition: width 0.1s linear;
+  transition: width 0.1s linear;
+}
+
+.main-menu:hover, nav.main-menu.expanded {
+  width: 250px;
+  /* background-color: rgba(0, 0, 0, 0); */
+  overflow: visible;
+  /* -webkit-transition: background-color 0.15s linear;
+  -ms-transition: background-color 0.15s linear;
+  transition: background-color 0.15s linear; */
+}
+
+.main-menu>ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.main-menu li>a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  transition: all .1s linear;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul, nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.nav-text {}
+
+.area {
+  float: left;
+  background: #e2e2e2;
+  /* width: 100%;*/
+  height: 100%;
+}
+
+.sidecontainer {
+  position: relative;
+  top: 10px;
+  width: 5%;
+  z-index: 1;
+}
+
+.boy {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  padding-top: 37px;
+  font-family: Raleway, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 500;
+  font-family: Raleway, sans-serif;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0px;
+  color: #e030db;
+}
+
+.post-nav-slider {
+  position: relative;
+  left: 12%;
+  display: block;
+  padding: 4px;
+  width: 80px;
+  background: #da58e2;
+  border-radius: 4px;
+}
+
+.row {
+  max-width: 1300px;
+  /* margin: 50px auto 0; */
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 10px 40px;
+}
+
+.card {
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  margin: 30px 20px;
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+}
+
+.card:hover .data {
+  transform: translateY(0);
+}
+
+.card .data {
+  position: relative;
+  bottom: 40px;
+  width: 100%;
+  transform: translateY(calc(40px + 8em));
+  transition: transform 0.3s;
+  color: #fff;
+}
+
+.card .data .content1 {
+  padding: 1em 1em;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.card .data .content2 {
+  padding: 2.1em 5em 0em 0.5em;
+  position: relative;
+  z-index: 1;
+}
+
+.card .author {
+  font-size: 12px;
+}
+
+.card .title {
+  margin-top: 10px;
+  height: 110px;
+  font-size: 1.35em;
+}
+
+.card .title {
+  color: #fff;
+}
+
+.card .text {
+  height: 90px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.card input[type=checkbox] {
+  display: none;
+}
+
+.card input[type=checkbox]:checked+.menu-content {
+  transform: translateY(-60px);
+}
+
+.card .but2 {
+  display: flex;
+  width: auto;
+  margin: 2em auto 1em;
+  padding: 15px;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  line-height: 1;
+  position: relative;
+  cursor: default;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card .but2:hover {
+  /* transform: translate(5px, -50%); */
+  color: #aaa;
+  opacity: 1;
+}
+
+.card .header4 {
+  color: #fff;
+  padding: 1em;
+}
+
+.card .header4::before, .card .header4::after {
+  content: "";
+  display: table;
+}
+
+.card .header4::after {
+  clear: both;
+}
+
+.card .header4 .date {
+  float: left;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 650px) {
+  .card .data .content1 {
+    margin-bottom: 25px;
+  }
+
+  .column {
+    width: 100%;
+    padding: 10px 10px;
+    display: block;
+  }
+
+  .popular-post img {
+    margin: 0;
+    margin-right: 10px;
+  }
+
+  .view {
+    flex-direction: column;
+  }
+
+  .header3 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+  }
+
+  .sidecontainer {
+    top: 0;
+    width: 100%;
+  }
+
+  .main-menu {
+    width: 100% !important;
+  }
+
+  .main-menu>ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-menu li {
+    width: 100%;
+  }
+
+  .main-menu li>a {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-menu li>a .fa {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-menu .nav-text {
+    width: 100%;
+    display: none;
+  }
+
+  .boy {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    /* padding: 30px; */
+    font-weight: 600 !important;
+    font-size: 12px;
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .card .data {
+    transform: translateY(calc(60px + 6em));
+    transition: transform 0.3s;
+    color: #fff;
+  }
+}

@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  font-family: Raleway, sans-serif;
+  background: var(--background);
+}
+
+body[theme="light"] {
+  --header-gradient-one: rgba(76, 216, 255, 0.8);
+  --header-gradient-two: rgba(30, 108, 217, 0.8);
+}
+
+body[theme="dark"] {
+  --header-gradient-one: rgba(0, 0, 0, 0.8);
+  --header-gradient-two: rgba(0, 0, 0, 0.8);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.header3 {
+  height: 70vh;
+  background-image:
+    linear-gradient(to right bottom,
+      var(--header-gradient-one),
+      var(--header-gradient-two)),
+    url('/img/3496602.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 100%);
+}
+
+#team-header {
+  background-image: linear-gradient(to right bottom,
+    var(--header-gradient-one),
+    var(--header-gradient-two)),
+    url('/img/office.jpg');
+  background-position-y: 0;
+}
+
+.brand-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.brand {
+  font-size: 20px;
+  color: white;
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  font-size: 14px;
+  background-color: #fff;
+  color: #777;
+}
+
+.qwer {
+  align-self: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
+  margin-top: -5rem;
+}
+
+.teamcard {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 15%;
+}
+
+.column11 {
+  width: 400px;
+  margin: 20px 0;
+}
+
+.our-team {
+  position: relative;
+  padding: 30px 0 40px 0;
+  box-shadow: 0 0 12px 2px var(--background-dim);
+  margin-bottom: 30px;
+  background-color: var(--background);
+  text-align: center;
+  overflow: hidden;
+}
+
+.our-team .picture {
+  display: inline-block;
+  height: 0;
+  width: 75%;
+  padding-bottom: 75%;
+  margin-bottom: 50px;
+  z-index: 0;
+  position: relative;
+}
+
+.our-team .picture::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-radius: 50%;
+  background-color: orange;
+  position: absolute;
+  bottom: 135%;
+  right: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: scale(3);
+  transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .picture::before {
+  height: 100%;
+}
+
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: orange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.our-team .picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .picture img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+  transform: scale(0.7);
+}
+
+.our-team .name {
+  color: var(--text);
+}
+
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: var(--text-dim);
+  text-transform: capitalize;
+}
+
+.our-team .social {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: orange;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social {
+  bottom: 0;
+}
+
+.our-team .social li {
+  display: inline-block;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.our-team .social li a:hover {
+  color: orange;
+  background-color: white;
+}
+
+@media screen and (max-width: 650px) {
+  .btn-white {
+    font-size: 10px;
+  }
+
+  .column11,
+  .column12 {
+    width: 100%;
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 12px;
+    padding-left: 22px;
+    padding-right: 22px;
+    display: block;
+  }
+
+  .teamcard {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .brand-box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .brand {
+    font-size: 12px;
+    color: white;
+  }
+
+  .qwer {
+    font-size: 3rem;
+    margin-top: -1.5rem;
+  }
+}
