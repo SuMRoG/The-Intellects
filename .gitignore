@@ -3,7 +3,7 @@ rought.txt
 post.html
 prepros.config
 backup
-.env
+.env*
 ques.json
 blogs.json
 foul.json
