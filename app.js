@@ -1,7 +1,5 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
-} else {
-  require('dotenv').config();
 }
 
 var callbackURL = process.env.callbackURL
@@ -23,10 +21,10 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 //connect to database
-const dbURI = process.env.dbconnect;
+const dbURI = process.env.DBCONNECT;
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
