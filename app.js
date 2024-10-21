@@ -23,7 +23,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 //connect to database
 const dbURI = process.env.dbconnect;
