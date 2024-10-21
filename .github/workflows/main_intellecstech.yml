@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - IntellecsTech
 on:
   push:
     branches:
-      - main
+      - dev
   workflow_dispatch:
 
 jobs:
